@@ -1,0 +1,12 @@
+PureMVC Port to Javascript by Frederic Saunier
+PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+--------------------------------------------------------------------------
+Release Date: 11/24/08
+    Platform: JavaScript
+     Version: 1
+    Revision: 0
+      Author: Frederic Saunier <frederic.saunier@puremvc.org>
+     License: Creative Commons Attribution 3.0 United States License
+--------------------------------------------------------------------------
+1.0   First official release on PureMVC.org with the Framework source and 
+      a demo based on the Employee Admin AS3 demo.
