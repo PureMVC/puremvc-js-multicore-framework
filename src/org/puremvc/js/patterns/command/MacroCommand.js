@@ -65,7 +65,7 @@ function class_org_puremvc_js_patterns_command_MacroCommand()
 	/**
 	 * <code>MacroCommand</code> extends <code>Notifier</code>
 	 */
-	Objs.implement(MacroCommand,Notifier);
+	Objs.extend(MacroCommand,Notifier);
 
 	/**
 	 * <code>MacroCommand</code> implements <code>ICommand</code>
