@@ -382,7 +382,7 @@ function class_org_puremvc_js_patterns_command_MacroCommand()
 		{
 			var commandClassRef = this._subCommands.shift();
 			var commandInstance = new commandClassRef();
-			this.commandInstance.execute( notification );
+			commandInstance.execute( notification );
 		}
 	}
 }
