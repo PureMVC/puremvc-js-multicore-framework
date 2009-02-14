@@ -145,9 +145,9 @@ function class_org_puremvc_js_patterns_observer_Notification()
 	 */
 	o.toString = function()/*String*/
 	{
-		var msg/*String*/ = "Notification Name:"+getName();
-		msg += "\nBody:"+(( body == null )?"null":body.toString());
-		msg += "\nType:"+(( type == null )?"null":type);
+		var msg/*String*/ = "Notification Name:" + this.getName();
+		msg += "\nBody:" + (( this._body == null ) ? "null" : this._body.toString());
+		msg += "\nType:" + (( this._type == null ) ? "null" : this._type);
 		return msg;
 	}
 }
