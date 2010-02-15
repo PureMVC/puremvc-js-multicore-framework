@@ -1,0 +1,763 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - Controller</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Controller.html">Controller</a></li>
+	
+	<li><a href="../symbols/Facade.html">Facade</a></li>
+	
+	<li><a href="../symbols/MacroCommand.html">MacroCommand</a></li>
+	
+	<li><a href="../symbols/Mediator.html">Mediator</a></li>
+	
+	<li><a href="../symbols/Model.html">Model</a></li>
+	
+	<li><a href="../symbols/Notification.html">Notification</a></li>
+	
+	<li><a href="../symbols/Notifier.html">Notifier</a></li>
+	
+	<li><a href="../symbols/Observer.html">Observer</a></li>
+	
+	<li><a href="../symbols/Proxy.html">Proxy</a></li>
+	
+	<li><a href="../symbols/SimpleCommand.html">SimpleCommand</a></li>
+	
+	<li><a href="../symbols/View.html">View</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class Controller
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				A Singleton <code>Controller</code> implementation.
+<P>
+In PureMVC, the <code>Controller</code> class follows the
+'Command and Controller' strategy, and assumes these
+responsibilities:
+<UL>
+<LI> Remembering which <code>SimpleCommand</code>s
+or <code>MacroCommand</code>s
+are intended to handle which <code>Notifications</code>.</LI>
+<LI> Registering itself as an <code>Observer</code> with
+the <code>View</code> for each <code>Notification</code>
+that it has a <code>SimpleCommand</code>
+or <code>MacroCommand</code>  mapping for.</LI>
+<LI> Creating a new instance of the proper <code>SimpleCommand</code>
+or <code>MacroCommand</code>
+to handle a given <code>Notification</code> when notified by the <code>View</code>.</LI>
+<LI> Calling the <code>SimpleCommand</code>'s
+or <code>MacroCommand</code>'s  <code>execute</code>
+method, passing in the <code>Notification</code>.</LI>
+</UL>
+
+<P>
+Your application must register <code>ICommands</code> with the
+Controller.
+<P>
+The simplest way is to subclass </code>Facade</code>,
+and use its <code>initializeController</code> method to add your
+registrations.
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/puremvc-mootools-port.js.html">puremvc-mootools-port.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Controller.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/Controller.html#constructor">Controller</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class Controller.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/Controller.html#commandMap">commandMap</a></b>
+								</div>
+								<div class="description">Mapping of <code>Notification<code> names to
+<code>Command</code> Mootools <code>Class</code> references</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/Controller.html#view">view</a></b>
+								</div>
+								<div class="description">The <code>View</code> singleton</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Controller.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Controller.html#executeCommand">executeCommand</a></b>(note)
+								</div>
+								<div class="description">If an <code>SimpleCommand</code> or <code>MacroCommand</code>
+has previously been registered to handle a the given
+<code>Notification</code>, then it is executed.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Controller.<b><a href="../symbols/Controller.html#.getInstance">getInstance</a></b>()
+								</div>
+								<div class="description">Singleton implementation for the <code>Controller</code></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Controller.html#hasCommand">hasCommand</a></b>(notificationName)
+								</div>
+								<div class="description">Check if a Command is registered for a given Notification</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Controller.html#initializeController">initializeController</a></b>()
+								</div>
+								<div class="description">Called automatically by the constructor.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Controller.html#registerCommand">registerCommand</a></b>(notificationName, commandClassRef)
+								</div>
+								<div class="description">Register a particular <code>SimpleCommand</code> or
+<code>MacroCommand</code> class as the handler
+for a particular <code>Notification</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Controller.html#removeCommand">removeCommand</a></b>(notificationName)
+								</div>
+								<div class="description">Remove a previously registered <code>SimpleCommand</code>
+or <code>MacroCommand</code> to <code>Notification</code> mapping.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>Controller</b>()
+				</div>
+				
+				<div class="description">
+					
+					<br /><i>Author: </i>Justin Wilaby.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/View.html">View</a></dd>
+						
+							<dd><a href="../symbols/Observer.html">Observer</a></dd>
+						
+							<dd><a href="../symbols/Notification.html">Notification</a></dd>
+						
+							<dd><a href="../symbols/SimpleCommand.html">SimpleCommand</a></dd>
+						
+							<dd><a href="../symbols/MacroCommand.html">MacroCommand</a></dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="commandMap"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>commandMap</b>
+					
+					</div>
+					<div class="description">
+						Mapping of <code>Notification<code> names to
+<code>Command</code> Mootools <code>Class</code> references
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="view"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/View.html">View</a>}</span>
+					<b>view</b>
+					
+					</div>
+					<div class="description">
+						The <code>View</code> singleton
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name="executeCommand"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>executeCommand</b>(note)
+					
+					</div>
+					<div class="description">
+						If an <code>SimpleCommand</code> or <code>MacroCommand</code>
+has previously been registered to handle a the given
+<code>Notification</code>, then it is executed.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Notification.html">Notification</a>}</span> <b>note</b>
+									
+								</dt>
+								<dd>a <code>Notification</code></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name=".getInstance"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/Controller.html">Controller</a>}</span>
+					<span class="light">Controller.</span><b>getInstance</b>()
+					
+					</div>
+					<div class="description">
+						Singleton implementation for the <code>Controller</code>
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Controller.html">Controller</a>}</span> the Singleton instance of the <code>Controller</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasCommand"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasCommand</b>(notificationName)
+					
+					</div>
+					<div class="description">
+						Check if a Command is registered for a given Notification
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> whether a Command is currently registered for the given <code>notificationName</code>.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="initializeController"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>initializeController</b>()
+					
+					</div>
+					<div class="description">
+						Called automatically by the constructor.
+Retains a reference to the <code>View</code> singleton
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="registerCommand"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>registerCommand</b>(notificationName, commandClassRef)
+					
+					</div>
+					<div class="description">
+						Register a particular <code>SimpleCommand</code> or
+<code>MacroCommand</code> class as the handler
+for a particular <code>Notification</code>.
+
+<P>
+If an <code>Command</code> has already been registered to
+handle <code>Notification</code>s with this name, it is no longer
+used, the new <code>Command</code> is used instead.</P>
+
+The Observer for the new Command is only created if this the
+first time an Command has been regisered for this Notification name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>notificationName</b>
+									
+								</dt>
+								<dd>the name of the <code>Notification</code></dd>
+							
+								<dt>
+									<b>commandClassRef</b>
+									
+								</dt>
+								<dd>the <code>Class</code> of the <code>Command</code></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeCommand"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeCommand</b>(notificationName)
+					
+					</div>
+					<div class="description">
+						Remove a previously registered <code>SimpleCommand</code>
+or <code>MacroCommand</code> to <code>Notification</code> mapping.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd>the name of the <code>Notification</code> to remove the
+<code>SimpleCommand</code> or <code>MacroCommand</code> mapping for</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Sun Feb 07 2010 09:22:22 GMT-0800 (PST)
+		</div>
+	</body>
+</html>

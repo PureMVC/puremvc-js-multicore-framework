@@ -1,5 +1,5 @@
-PureMVC Port to Javascript by Frederic Saunier
-PureMVC - Copyright(c) 2006-2008 Futurescale, Inc., Some rights reserved.
+PureMVC Port to Javascript by Justin Wilaby
+PureMVC - Copyright(c) 2006-2010 Futurescale, Inc., Some rights reserved.
 --------------------------------------------------------------------------
  Reuse governed by Creative Commons Attribution 3.0 United States License
    View this license and the associated Creative Commons deed online at: 
