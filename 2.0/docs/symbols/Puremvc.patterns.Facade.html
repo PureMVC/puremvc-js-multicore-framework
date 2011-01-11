@@ -1,0 +1,1051 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - Puremvc.patterns.Facade</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Puremvc.core.Controller.html">Puremvc.core.Controller</a></li>
+	
+	<li><a href="../symbols/Puremvc.core.Model.html">Puremvc.core.Model</a></li>
+	
+	<li><a href="../symbols/Puremvc.core.View.html">Puremvc.core.View</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.Facade.html">Puremvc.patterns.Facade</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.MacroCommand.html">Puremvc.patterns.MacroCommand</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.Mediator.html">Puremvc.patterns.Mediator</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.Notification.html">Puremvc.patterns.Notification</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.Notifier.html">Puremvc.patterns.Notifier</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.Observer.html">Puremvc.patterns.Observer</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.Proxy.html">Puremvc.patterns.Proxy</a></li>
+	
+	<li><a href="../symbols/Puremvc.patterns.SimpleCommand.html">Puremvc.patterns.SimpleCommand</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class Puremvc.patterns.Facade
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				<P>A base singleton <code>Facade</code> implementation.</P><P>In PureMVC, the <code>Facade</code> class assumes theseresponsibilities:<UL><LI>Initializing the <code>Model</code>, <code>View</code>and <code>Controller</code> singletons.</LI><LI>Providing all the applicable methods of the <code>Model</code>,<code>View</code>, & <code>Controller</code> singletons.</LI><LI>Providing a single point of contact to the application forregistering <code>Command</code>s and notifying <code>Observer</code>s.</LI></UL></P><P>This <code>Facade</code> implementation is a singletonand cannot be instantiated directly, but instead calls the static singletonfactory method <code>Facade.getInstance()</code>.</P>
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/i__workspace_Javascript_SampleExtJS_src_main_webapp_js_PureMVC_JS_Ext.js.html">PureMVC_JS_Ext.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class Puremvc.patterns.Facade.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/Puremvc.patterns.Facade.html#constructor">Puremvc.patterns.Facade</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class Puremvc.patterns.Facade.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">Puremvc.patterns.Facade.<b><a href="../symbols/Puremvc.patterns.Facade.html#.getInstance">getInstance</a></b>()
+								</div>
+								<div class="description">Retrieve the singleton instance of the <code>Facade</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#hasCommand">hasCommand</a></b>(notificationName)
+								</div>
+								<div class="description">Check if a <code>Command</code> is registered for a given <code>Notification</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#hasMediator">hasMediator</a></b>(mediatorName)
+								</div>
+								<div class="description">Check if a <code>Mediator</code> is registered or not.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#hasProxy">hasProxy</a></b>(proxyName)
+								</div>
+								<div class="description">Check if a <code>Proxy</code> is registered.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#notifyObservers">notifyObservers</a></b>(notification)
+								</div>
+								<div class="description">Notify <code>Observer</code>s.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#registerCommand">registerCommand</a></b>(notificationName, commandClassRef)
+								</div>
+								<div class="description">Register a <code>Command</code> with the <code>Controller</code> by <code>Notification</code> name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#registerMediator">registerMediator</a></b>(mediator)
+								</div>
+								<div class="description">Register a <code>Mediator</code> with the <code>View</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#registerProxy">registerProxy</a></b>(proxy)
+								</div>
+								<div class="description">Register a <code>Proxy</code> with the <code>Model</code> by name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#removeCommand">removeCommand</a></b>(notificationName)
+								</div>
+								<div class="description">Remove a previously registered <code>Command</code> to <code>Notification</code> mapping from the <code>Controller</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#removeMediator">removeMediator</a></b>(mediatorName)
+								</div>
+								<div class="description">Remove an <code>Mediator</code> from the <code>View</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#removeProxy">removeProxy</a></b>(proxyName)
+								</div>
+								<div class="description">Remove an <code>Proxy</code> from the <code>Model</code> by name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#retrieveMediator">retrieveMediator</a></b>(mediatorName)
+								</div>
+								<div class="description">Retrieve an <code>IMediator</code> from the <code>View</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#retrieveProxy">retrieveProxy</a></b>(proxyName)
+								</div>
+								<div class="description">Retrieve a <code>Proxy</code> from the <code>Model</code> by name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/Puremvc.patterns.Facade.html#sendNotification">sendNotification</a></b>(notificationName, body, type)
+								</div>
+								<div class="description">Create and send a <code>Notification</code>.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>Puremvc.patterns.Facade</b>()
+				</div>
+				
+				<div class="description">
+					
+					<br /><i>Author: </i>Justin Wilaby, Tony DeFusco.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/Puremvc.core.Model.html">Puremvc.core.Model</a></dd>
+						
+							<dd><a href="../symbols/Puremvc.core.View.html">Puremvc.core.View</a></dd>
+						
+							<dd><a href="../symbols/Puremvc.core.Controller.html">Puremvc.core.Controller</a></dd>
+						
+							<dd><a href="../symbols/Puremvc.patterns.Notification.html">Puremvc.patterns.Notification</a></dd>
+						
+							<dd><a href="../symbols/Puremvc.patterns.Mediator.html">Puremvc.patterns.Mediator</a></dd>
+						
+							<dd><a href="../symbols/Puremvc.patterns.Proxy.html">Puremvc.patterns.Proxy</a></dd>
+						
+							<dd><a href="../symbols/Puremvc.patterns.SimpleCommand.html">Puremvc.patterns.SimpleCommand</a></dd>
+						
+							<dd><a href="../symbols/Puremvc.patterns.MacroCommand.html">Puremvc.patterns.MacroCommand</a></dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".getInstance"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					
+					<span class="light">Puremvc.patterns.Facade.</span><b>getInstance</b>()
+					
+					</div>
+					<div class="description">
+						Retrieve the singleton instance of the <code>Facade</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasCommand"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasCommand</b>(notificationName)
+					
+					</div>
+					<div class="description">
+						Check if a <code>Command</code> is registered for a given <code>Notification</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd>the name of the <code>Notification</code> to verify for the existence of a <code>Command</code> mapping for.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if a <code>Command</code> is currently registered for the given <i>notificationName</i>, otherwise false.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasMediator"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasMediator</b>(mediatorName)
+					
+					</div>
+					<div class="description">
+						Check if a <code>Mediator</code> is registered or not.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>mediatorName</b>
+									
+								</dt>
+								<dd>the name of the <code>Mediator</code> to verify the existence of a registration for.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if a <code>Mediator</code> is registered with the given <i>mediatorName</i>, otherwise false.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasProxy"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasProxy</b>(proxyName)
+					
+					</div>
+					<div class="description">
+						Check if a <code>Proxy</code> is registered.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>proxyName</b>
+									
+								</dt>
+								<dd>the <code>Proxy</code> to verify the existence of a registration with the <code>Model</code>.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>true if a <code>Proxy</code> is currently registered with the given <i>proxyName</i>, otherwise false.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyObservers"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyObservers</b>(notification)
+					
+					</div>
+					<div class="description">
+						Notify <code>Observer</code>s.<P>This method is left public mostly for backwardcompatibility, and to allow you to send customnotification classes using the <code>Facade</code>.</P><P>Usually you should just call <i>sendNotification</i>and pass the parameters, never having toconstruct the <code>Notification</code> yourself.</P>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Puremvc.patterns.Notification.html">Puremvc.patterns.Notification</a>}</span> <b>notification</b>
+									
+								</dt>
+								<dd>the <code>Notification</code> to have the <code>View</code> notify <code>Observers</code> of.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="registerCommand"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>registerCommand</b>(notificationName, commandClassRef)
+					
+					</div>
+					<div class="description">
+						Register a <code>Command</code> with the <code>Controller</code> by <code>Notification</code> name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd>the name of the <code>Notification</code> to associate the <code>Command</code> with.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Class}</span> <b>commandClassRef</b>
+									
+								</dt>
+								<dd>a reference to the Class of the <code>Command</code>.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="registerMediator"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>registerMediator</b>(mediator)
+					
+					</div>
+					<div class="description">
+						Register a <code>Mediator</code> with the <code>View</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Puremvc.patterns.Mediator.html">Puremvc.patterns.Mediator</a>}</span> <b>mediator</b>
+									
+								</dt>
+								<dd>a reference to the <code>Mediator</code>.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="registerProxy"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>registerProxy</b>(proxy)
+					
+					</div>
+					<div class="description">
+						Register a <code>Proxy</code> with the <code>Model</code> by name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<b>proxy</b>
+									
+								</dt>
+								<dd>{Puremvc.patterns.Proxy} the <code>Proxy</code> instance to be registered with the <code>Model</code>.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeCommand"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeCommand</b>(notificationName)
+					
+					</div>
+					<div class="description">
+						Remove a previously registered <code>Command</code> to <code>Notification</code> mapping from the <code>Controller</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd>the name of the <code>Notification</code> to remove the <code>Command</code> mapping for.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeMediator"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Puremvc.patterns.Mediator.html">Puremvc.patterns.Mediator</a>}</span>
+					<b>removeMediator</b>(mediatorName)
+					
+					</div>
+					<div class="description">
+						Remove an <code>Mediator</code> from the <code>View</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>mediatorName</b>
+									
+								</dt>
+								<dd>the name of the <code>Mediator</code> to be removed.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the <code>Mediator</code> that was removed from the <code>View</code>.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeProxy"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Puremvc.patterns.Proxy.html">Puremvc.patterns.Proxy</a>}</span>
+					<b>removeProxy</b>(proxyName)
+					
+					</div>
+					<div class="description">
+						Remove an <code>Proxy</code> from the <code>Model</code> by name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>proxyName</b>
+									
+								</dt>
+								<dd>the <code>Proxy</code> to remove from the <code>Model</code>.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the <code>Proxy</code> that was removed from the <code>Model</code>.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="retrieveMediator"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Puremvc.patterns.Mediator.html">Puremvc.patterns.Mediator</a>}</span>
+					<b>retrieveMediator</b>(mediatorName)
+					
+					</div>
+					<div class="description">
+						Retrieve an <code>IMediator</code> from the <code>View</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>mediatorName</b>
+									
+								</dt>
+								<dd>the name of the registered <code>Mediator</code> to retrieve.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the <code>Mediator</code> previously registered with the given <i>mediatorName</i>.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="retrieveProxy"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Puremvc.patterns.Proxy.html">Puremvc.patterns.Proxy</a>}</span>
+					<b>retrieveProxy</b>(proxyName)
+					
+					</div>
+					<div class="description">
+						Retrieve a <code>Proxy</code> from the <code>Model</code> by name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>proxyName</b>
+									
+								</dt>
+								<dd>the name of the <code>Proxy</code> to be retrieved.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd>the <code>Proxy</code> instance previously registered with the given <i>proxyName</i>.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="sendNotification"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>sendNotification</b>(notificationName, body, type)
+					
+					</div>
+					<div class="description">
+						Create and send a <code>Notification</code>.<P>Keeps us from having to construct new notificationinstances in our implementation code.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd>the name of the notification to send.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>body</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the body of the notification.</dd>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>type</b>
+									<i>Optional</i>
+								</dt>
+								<dd>the type of the notification.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sun Dec 19 2010 17:51:29 GMT-0500 (EST)
+		</div>
+	</body>
+</html>
