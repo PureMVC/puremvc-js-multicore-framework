@@ -1,0 +1,35 @@
+PureMVC/ExtJS Port to Javascript / ExtJS by Tony DeFusco
+PureMVC - Copyright(c) 2006-2010 Futurescale, Inc., Some rights reserved.
+ExtJS Core - Copyright(c) 2006-2010 Sencha, Inc.
+--------------------------------------------------------------------------
+Release Date: 12/19/10
+    Platform: JavaScript / ExtJS Core
+     Version: 2
+    Revision: 0
+      Author: Tony DeFusco <tony.defusco@puremvc.org>
+     License: Creative Commons Attribution 3.0 United States License
+License for ExtJS Core: MIT Open Source License
+--------------------------------------------------------------------------
+1.0   Original Objs-Based version written by Frederic Saunier. 
+
+      Objs is available here: <http://code.google.com/p/objs/>
+	  The Objs-based port is still available here: 
+      <http://svn.puremvc.org/PureMVC_JS/branches/objs-based-port>
+      <http://trac.puremvc.org/PureMVC_JS/browser/branches/objs-based-port>
+      There is a demo here: <http://trac.puremvc.org/Demo_JS_EmployeeAdmin>
+      
+      This port unfortunately suffered from lack of documentation and too 
+      much intrusiveness of the Objs framework (used to simulate classes and
+      interfaces) into the implementation code developers have to write. 
+      
+2.0   This is a completely new port derived from the MooTools port by
+      Justin Willaby (which was itself derived from the AS3 Standard 
+      version, and so more closely adheres to the reference port), and then
+      reworked for use with ExtJS by Tony DeFusco. Full documentation and
+      a demo called BoxSplash are available. Support  for class relationships is 
+      provided by the ExtJS Core library, which is used by the widely 
+      popular ExtJS widget library. The source classes are in separate files 
+      mirroring the original and the single compiled class library is about 48k. 
+      There is a minified version included (using YUICompressor with -nomunge) 
+      that is only 10k.  ExtJS Core <http://www.sencha.com/products/core/>
+
