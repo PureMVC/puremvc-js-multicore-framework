@@ -1,0 +1,864 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - View</title>
+
+		<style type="text/css">
+			/* default.css */
+body
+{
+	font: 12px "Lucida Grande", Tahoma, Arial, Helvetica, sans-serif;
+	width: 800px;
+}
+
+.header
+{
+	clear: both;
+	background-color: #ccc;
+	padding: 8px;
+}
+
+h1
+{
+	font-size: 150%;
+	font-weight: bold;
+	padding: 0;
+	margin: 1em 0 0 .3em;
+}
+
+hr
+{
+	border: none 0;
+	border-top: 1px solid #7F8FB1;
+	height: 1px;
+}
+
+pre.code
+{
+	display: block;
+	padding: 8px;
+	border: 1px dashed #ccc;
+}
+
+#index
+{
+	margin-top: 24px;
+	float: left;
+	width: 160px;
+	position: absolute;
+	left: 8px;
+	background-color: #F3F3F3;
+	padding: 8px;
+}
+
+#content
+{
+	margin-left: 190px;
+	width: 600px;
+}
+
+.classList
+{
+	list-style-type: none;
+	padding: 0;
+	margin: 0 0 0 8px;
+	font-family: arial, sans-serif;
+	font-size: 1em;
+	overflow: auto;
+}
+
+.classList li
+{
+	padding: 0;
+	margin: 0 0 8px 0;
+}
+
+.summaryTable { width: 100%; }
+
+h1.classTitle
+{
+	font-size:170%;
+	line-height:130%;
+}
+
+h2 { font-size: 110%; }
+caption, div.sectionTitle
+{
+	background-color: #7F8FB1;
+	color: #fff;
+	font-size:130%;
+	text-align: left;
+	padding: 2px 6px 2px 6px;
+	border: 1px #7F8FB1 solid;
+}
+
+div.sectionTitle { margin-bottom: 8px; }
+.summaryTable thead { display: none; }
+
+.summaryTable td
+{
+	vertical-align: top;
+	padding: 4px;
+	border-bottom: 1px #7F8FB1 solid;
+	border-right: 1px #7F8FB1 solid;
+}
+
+/*col#summaryAttributes {}*/
+.summaryTable td.attributes
+{
+	border-left: 1px #7F8FB1 solid;
+	width: 140px;
+	text-align: right;
+}
+
+td.attributes, .fixedFont
+{
+	line-height: 15px;
+	color: #002EBE;
+	font-family: "Courier New",Courier,monospace;
+	font-size: 13px;
+}
+
+.summaryTable td.nameDescription
+{
+	text-align: left;
+	font-size: 13px;
+	line-height: 15px;
+}
+
+.summaryTable td.nameDescription, .description
+{
+	line-height: 15px;
+	padding: 4px;
+	padding-left: 4px;
+}
+
+.summaryTable { margin-bottom: 8px; }
+
+ul.inheritsList
+{
+	list-style: square;
+	margin-left: 20px;
+	padding-left: 0;
+}
+
+.detailList {
+	margin-left: 20px; 
+	line-height: 15px;
+}
+.detailList dt { margin-left: 20px; }
+
+.detailList .heading
+{
+	font-weight: bold;
+	padding-bottom: 6px;
+	margin-left: 0;
+}
+
+.light, td.attributes, .light a:link, .light a:visited
+{
+	color: #777;
+	font-style: italic;
+}
+
+.fineprint
+{
+	text-align: right;
+	font-size: 10px;
+}
+		</style>
+	</head>
+
+	<body>
+<!-- ============================== header ================================= -->	
+		<!-- begin static/header.html -->
+		<div id="header">
+</div>
+		<!-- end static/header.html -->
+
+<!-- ============================== classes index ============================ -->
+		<div id="index">
+			<!-- begin publish.classesIndex -->
+			<div align="center"><a href="../index.html">Class Index</a>
+| <a href="../files.html">File Index</a></div>
+<hr />
+<h2>Classes</h2>
+<ul class="classList">
+	
+	<li><i><a href="../symbols/_global_.html">_global_</a></i></li>
+	
+	<li><a href="../symbols/Controller.html">Controller</a></li>
+	
+	<li><a href="../symbols/Facade.html">Facade</a></li>
+	
+	<li><a href="../symbols/MacroCommand.html">MacroCommand</a></li>
+	
+	<li><a href="../symbols/Mediator.html">Mediator</a></li>
+	
+	<li><a href="../symbols/Model.html">Model</a></li>
+	
+	<li><a href="../symbols/Notification.html">Notification</a></li>
+	
+	<li><a href="../symbols/Notifier.html">Notifier</a></li>
+	
+	<li><a href="../symbols/Observer.html">Observer</a></li>
+	
+	<li><a href="../symbols/Proxy.html">Proxy</a></li>
+	
+	<li><a href="../symbols/SimpleCommand.html">SimpleCommand</a></li>
+	
+	<li><a href="../symbols/View.html">View</a></li>
+	
+</ul>
+<hr />
+			<!-- end publish.classesIndex -->
+		</div>
+		
+		<div id="content">
+<!-- ============================== class title ============================ -->
+			<h1 class="classTitle">
+				
+				Class View
+			</h1>
+
+<!-- ============================== class summary ========================== -->			
+			<p class="description">
+				
+				
+			
+				A Singleton <code>View</code> implementation.
+In PureMVC, the <code>View</code> class assumes these responsibilities:
+<UL>
+<LI>Maintain a cache of <code>Mediator</code> instances.</LI>
+<LI>Provide methods for registering, retrieving, and removing <code>IMediators</code>.</LI>
+<LI>Notifiying <code>Mediators</code> when they are registered or removed.</LI>
+<LI>Managing the observer lists for each <code>Notification</code> in the application.</LI>
+<LI>Providing a method for attaching <code>Observers</code> to an <code>INotification</code>'s observer list.</LI>
+<LI>Providing a method for broadcasting an <code>Notification</code>.</LI>
+<LI>Notifying the <code>Observers</code> of a given <code>Notification</code> when it broadcast.</LI>
+</UL>
+				
+				
+					<br /><i>Defined in: </i> <a href="../symbols/src/puremvc-mootools-port.js.html">puremvc-mootools-port.js</a>.
+				
+			</p>
+
+<!-- ============================== constructor summary ==================== -->			
+			
+			<table class="summaryTable" cellspacing="0" summary="A summary of the constructor documented in the class View.">
+				<caption>Class Summary</caption>
+				<thead>
+					<tr>
+						<th scope="col">Constructor Attributes</th>
+						<th scope="col">Constructor Name and Description</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="attributes">&nbsp;</td>
+						<td class="nameDescription" >
+							<div class="fixedFont">
+								<b><a href="../symbols/View.html#constructor">View</a></b>()
+							</div>
+							<div class="description"></div>
+						</td>
+					</tr>
+				</tbody>
+			</table>
+			
+
+<!-- ============================== properties summary ===================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the fields documented in the class View.">
+					<caption>Field Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Field Attributes</th>
+							<th scope="col">Field Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/View.html#mediatorMap">mediatorMap</a></b>
+								</div>
+								<div class="description">Mapping of <code>Mediator</code> names to
+<code>Mediator</code> instances</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">
+								<b><a href="../symbols/View.html#observerMap">observerMap</a></b>
+								</div>
+								<div class="description">Mapping of <code>Notification</code> names to
+<code>Observers</code> lists</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+
+<!-- ============================== methods summary ======================== -->
+			
+				
+				
+				<table class="summaryTable" cellspacing="0" summary="A summary of the methods documented in the class View.">
+					<caption>Method Summary</caption>
+					<thead>
+						<tr>
+							<th scope="col">Method Attributes</th>
+							<th scope="col">Method Name and Description</th>
+						</tr>
+					</thead>
+					<tbody>
+					
+						<tr>
+							<td class="attributes">&lt;static&gt; &nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont">View.<b><a href="../symbols/View.html#.getInstance">getInstance</a></b>()
+								</div>
+								<div class="description">Singleton implementation for the <code>View</code></div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/View.html#hasMediator">hasMediator</a></b>(mediatorName)
+								</div>
+								<div class="description">Check if a Mediator is registered or not</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/View.html#notifyObservers">notifyObservers</a></b>(notification)
+								</div>
+								<div class="description">Notify the <code>Observers</code> for a particular <code>Notification</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/View.html#registerMediator">registerMediator</a></b>(mediator)
+								</div>
+								<div class="description">Register an <code>IMediator</code> instance with the <code>View</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/View.html#registerObserver">registerObserver</a></b>(notificationName, observer)
+								</div>
+								<div class="description">Register an <code>Observer</code> to be notified
+of <code>Notifications</code> with a given name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/View.html#removeMediator">removeMediator</a></b>(mediatorName)
+								</div>
+								<div class="description">Remove an <code>Mediator</code> from the <code>View</code>.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/View.html#removeObserver">removeObserver</a></b>(notificationName, notifyContext)
+								</div>
+								<div class="description">Remove the observer for a given notifyContext from an observer list for a given Notification name.</div>
+							</td>
+						</tr>
+					
+						<tr>
+							<td class="attributes">&nbsp;</td>
+							<td class="nameDescription">
+								<div class="fixedFont"><b><a href="../symbols/View.html#retrieveMediator">retrieveMediator</a></b>(mediatorName)
+								</div>
+								<div class="description">Retrieve a <code>Mediator</code> from the <code>View</code>.</div>
+							</td>
+						</tr>
+					
+					</tbody>
+				</table>
+				
+				
+				
+			
+<!-- ============================== events summary ======================== -->
+			
+
+<!-- ============================== constructor details ==================== -->		
+			
+			<div class="details"><a name="constructor"> </a>
+				<div class="sectionTitle">
+					Class Detail
+				</div>
+				
+				<div class="fixedFont">
+						<b>View</b>()
+				</div>
+				
+				<div class="description">
+					
+					<br /><i>Author: </i>Justin Wilaby.
+				</div>
+				
+				
+				
+				
+					
+					
+					
+					
+					
+					
+					
+						<dl class="detailList">
+						<dt class="heading">See:</dt>
+						
+							<dd><a href="../symbols/Mediator.html">Mediator</a></dd>
+						
+							<dd><a href="../symbols/Observer.html">Observer</a></dd>
+						
+							<dd><a href="../symbols/Notification.html">Notification</a></dd>
+						
+						</dl>
+					
+
+			</div>
+			
+
+<!-- ============================== field details ========================== -->		
+			
+				<div class="sectionTitle">
+					Field Detail
+				</div>
+				
+					<a name="mediatorMap"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>mediatorMap</b>
+					
+					</div>
+					<div class="description">
+						Mapping of <code>Mediator</code> names to
+<code>Mediator</code> instances
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="observerMap"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Object}</span>
+					<b>observerMap</b>
+					
+					</div>
+					<div class="description">
+						Mapping of <code>Notification</code> names to
+<code>Observers</code> lists
+						
+						
+					</div>
+					
+					
+
+						
+						
+						
+						
+
+					
+				
+			
+
+<!-- ============================== method details ========================= -->		
+			
+				<div class="sectionTitle">
+					Method Detail
+				</div>
+				
+					<a name=".getInstance"> </a>
+					<div class="fixedFont">&lt;static&gt; 
+					
+					<span class="light">{<a href="../symbols/View.html">View</a>}</span>
+					<span class="light">View.</span><b>getInstance</b>()
+					
+					</div>
+					<div class="description">
+						Singleton implementation for the <code>View</code>
+						
+						
+					</div>
+					
+					
+					
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/View.html">View</a>}</span> the Singleton instance of the <code>View</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="hasMediator"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{Boolean}</span>
+					<b>hasMediator</b>(mediatorName)
+					
+					</div>
+					<div class="description">
+						Check if a Mediator is registered or not
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>mediatorName</b>
+									
+								</dt>
+								<dd></dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{Boolean}</span> whether a Mediator is registered with the given <code>mediatorName</code>.</dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="notifyObservers"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>notifyObservers</b>(notification)
+					
+					</div>
+					<div class="description">
+						Notify the <code>Observers</code> for a particular <code>Notification</code>.
+
+<P>
+All previously attached <code>Observers</code> for this <code>Notification</code>'s
+list are notified and are passed a reference to the <code>Notification</code> in
+the order in which they were registered.</P>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Notification.html">Notification</a>}</span> <b>notification</b>
+									
+								</dt>
+								<dd>The <code>Notification</code> to notify <code>Observers</code> of.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="registerMediator"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>registerMediator</b>(mediator)
+					
+					</div>
+					<div class="description">
+						Register an <code>IMediator</code> instance with the <code>View</code>.
+
+<P>
+Registers the <code>IMediator</code> so that it can be retrieved by name,
+and further interrogates the <code>IMediator</code> for its
+<code>INotification</code> interests.</P>
+<P>
+If the <code>IMediator</code> returns any <code>INotification</code>
+names to be notified about, an <code>Observer</code> is created encapsulating
+the <code>IMediator</code> instance's <code>handleNotification</code> method
+and registering it as an <code>Observer</code> for all <code>INotifications</code> the
+<code>IMediator</code> is interested in.</p>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Mediator.html">Mediator</a>}</span> <b>mediator</b>
+									
+								</dt>
+								<dd>a reference to the <code>Mediator</code> instance</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="registerObserver"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>registerObserver</b>(notificationName, observer)
+					
+					</div>
+					<div class="description">
+						Register an <code>Observer</code> to be notified
+of <code>Notifications</code> with a given name.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd>The name of the <code>Notifications</code> to notify this <code>Observer</code> of</dd>
+							
+								<dt>
+									<span class="light fixedFont">{<a href="../symbols/Observer.html">Observer</a>}</span> <b>observer</b>
+									
+								</dt>
+								<dd>The <code>Observer</code> to register.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeMediator"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Mediator.html">Mediator</a>}</span>
+					<b>removeMediator</b>(mediatorName)
+					
+					</div>
+					<div class="description">
+						Remove an <code>Mediator</code> from the <code>View</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>mediatorName</b>
+									
+								</dt>
+								<dd>name of the <code>IMediator</code> instance to be removed.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Mediator.html">Mediator</a>}</span> the <code>Mediator</code> that was removed from the <code>View</code></dd>
+							
+							</dl>
+						
+						
+						
+
+					<hr />
+				
+					<a name="removeObserver"> </a>
+					<div class="fixedFont">
+					
+					
+					<b>removeObserver</b>(notificationName, notifyContext)
+					
+					</div>
+					<div class="description">
+						Remove the observer for a given notifyContext from an observer list for a given Notification name.
+<P>
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>notificationName</b>
+									
+								</dt>
+								<dd>which observer list to remove from</dd>
+							
+								<dt>
+									<span class="light fixedFont">{Object}</span> <b>notifyContext</b>
+									
+								</dt>
+								<dd>remove the observer with this object as its notifyContext</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+						
+						
+
+					<hr />
+				
+					<a name="retrieveMediator"> </a>
+					<div class="fixedFont">
+					
+					<span class="light">{<a href="../symbols/Mediator.html">Mediator</a>}</span>
+					<b>retrieveMediator</b>(mediatorName)
+					
+					</div>
+					<div class="description">
+						Retrieve a <code>Mediator</code> from the <code>View</code>.
+						
+						
+					</div>
+					
+					
+					
+						
+							<dl class="detailList">
+							<dt class="heading">Parameters:</dt>
+							
+								<dt>
+									<span class="light fixedFont">{String}</span> <b>mediatorName</b>
+									
+								</dt>
+								<dd>the name of the <code>IMediator</code> instance to retrieve.</dd>
+							
+							</dl>
+						
+						
+						
+						
+						
+							<dl class="detailList">
+							<dt class="heading">Returns:</dt>
+							
+								<dd><span class="light fixedFont">{<a href="../symbols/Mediator.html">Mediator</a>}</span> the <code>Mediator</code> instance previously registered with the given <code>mediatorName</code>.</dd>
+							
+							</dl>
+						
+						
+						
+
+					
+				
+			
+			
+<!-- ============================== event details ========================= -->		
+			
+			
+			<hr />
+		</div>
+
+		
+<!-- ============================== footer ================================= -->
+		<div class="fineprint" style="clear:both">
+			
+			Documentation generated by <a href="http://code.google.com/p/jsdoc-toolkit/" target="_blank">JsDoc Toolkit</a> 2.3.2 on Sun Feb 07 2010 09:22:22 GMT-0800 (PST)
+		</div>
+	</body>
+</html>
