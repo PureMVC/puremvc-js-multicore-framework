@@ -69,7 +69,8 @@ Puremvc.core.Model = Ext.extend(Object, {
    * @type Puremvc.patterns.Proxy
    */
   retrieveProxy: function(proxyName /* String */) {
-    return this.proxyMap[proxyName];
+    var retVal = this.proxyMap[proxyName] || null;
+    return retVal;
   },
 
   /**
@@ -93,7 +94,7 @@ Puremvc.core.Model = Ext.extend(Object, {
    * @type Puremvc.patterns.Proxy
    */
   removeProxy: function(proxyName /* String */) {
-    var proxy = this.proxyMap[proxyName];
+    var proxy = this.proxyMap[proxyName] || null;
     if (proxy) {
       delete this.proxyMap[proxyName];
       proxy.onRemove();

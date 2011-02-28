@@ -211,7 +211,7 @@ Puremvc.patterns.Facade = Ext.extend(Object, {
    * @type Puremvc.patterns.Proxy
    */
   removeProxy: function(proxyName /* String */) {
-    this.model.removeProxy(proxyName);
+    return this.model.removeProxy(proxyName);
   },
 
   /**

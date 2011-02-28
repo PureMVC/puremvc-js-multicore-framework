@@ -110,8 +110,8 @@ Puremvc.patterns.Notification = Ext.extend(Object, {
    */
   toString: function() {
     var msg = "Notification Name: " + this.getName();
-    msg += "\nBody:" + (( this.body == null ) ? "null" : this.body.toString());
-    msg += "\nType:" + (( this.type == null ) ? "null" : this.type);
+    msg += "\nBody:" + ((this.body == null) ? "null": this.body.toString());
+    msg += "\nType:" + ((this.type == null) ? "null": this.type);
     return msg;
   }
 });

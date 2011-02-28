@@ -22,7 +22,7 @@ Puremvc.patterns.Mediator = Ext.extend(Puremvc.patterns.Notifier, {
    */
   constructor: function(mediatorName /* String */, viewComponent /* Object */) {
     Puremvc.patterns.Mediator.superclass.constructor.call(this);
-    this.mediatorName = (mediatorName != null) ? mediatorName : Puremvc.patterns.Mediator.NAME;
+    this.mediatorName = (mediatorName != null) ? mediatorName: Puremvc.patterns.Mediator.NAME;
     this.viewComponent = viewComponent;
   },
 

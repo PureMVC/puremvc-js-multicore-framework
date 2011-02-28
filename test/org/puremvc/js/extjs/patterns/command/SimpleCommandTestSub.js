@@ -1,0 +1,31 @@
+/*
+ PureMVC ExtJS Javascript port by Tony DeFusco <tony.defusco@puremvc.org>
+ PureMVC - Copyright(c) 2006-2011 Futurescale, Inc., Some rights reserved.
+ Your reuse is governed by the Creative Commons Attribution 3.0 License
+ */
+
+Ext.namespace('Puremvc.test');
+
+/**
+ * @class A <code>Puremvc.patterns.SimpleCommand</code> utility subclass used by
+ * <code>Puremvc.test.SimpleCommandTest</code>.
+ */
+Puremvc.test.SimpleCommandTestSub = Ext.extend(Puremvc.patterns.SimpleCommand,
+/**
+ * @lends Puremvc.test.SimpleCommandTestSub.prototype
+ */
+{
+  /**
+   * A method to test if <code>Puremvc.patterns.Facade</code> instance of the object has
+   * well been declared during its construction.
+   *
+   * @return {Boolean}
+   *     <code>Puremvc.patterns.Facade</code> instance of the object has well been declared
+   *     during its construction.
+   */
+  hasFacade: function()/*Boolean*/ {
+    return this.facade instanceof Puremvc.patterns.Facade;
+  }
+});
+
+Alias('Puremvc.test.SimpleCommandTestSub');

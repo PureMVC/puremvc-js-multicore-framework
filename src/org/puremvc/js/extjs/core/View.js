@@ -189,7 +189,8 @@ Puremvc.core.View = Ext.extend(Object, {
    * @type Puremvc.patterns.Mediator
    */
   retrieveMediator: function(mediatorName /* String */) {
-    return this.mediatorMap[mediatorName];
+    var retVal =  this.mediatorMap[mediatorName] || null;
+    return retVal;
   },
 
   /**
@@ -202,7 +203,7 @@ Puremvc.core.View = Ext.extend(Object, {
    * @type Puremvc.patterns.Mediator
    */
   removeMediator: function(mediatorName /* String */) {
-    var mediator = this.mediatorMap[mediatorName];
+    var mediator = this.mediatorMap[mediatorName] || null;
     if (mediator) {
       var interests = mediator.listNotificationInterests();
       var i = interests.length;

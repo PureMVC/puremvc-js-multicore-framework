@@ -1,0 +1,88 @@
+<project name="PureMVC_ExtJS" basedir=".." default="default">
+  <property name="jsdoc-toolkit-home" value="${basedir}/build/jsdoc-toolkit/"/>
+  <property name="output-dir" value="${basedir}/bin/js"/>
+  <property name="jsdoc-output-dir" value="${basedir}/jsdoc"/>
+  <property name="output-file" value="PureMVC_JS_ExtJS_2_0.js"/>
+  
+  <target name="default" depends="cleanup, minify, jsdoc"/>
+
+  <target name="cleanup" description="Remove any previously generated artifacts.">
+    <delete failonerror="false">
+      <fileset dir="${output-dir}" includes="*.js"/>
+      <fileset dir="${jsdoc-output-dir}" includes="**/*.*"/>
+    </delete>
+    <mkdir dir="${output-dir}"/>
+    <mkdir dir="${jsdoc-output-dir}"/>
+  </target>    
+
+  <target name="concat" description="Concatenate javascript source files into a single library file.">
+    <concat
+        destfile="${output-dir}/${output-file}"
+        append="no"
+        encoding="UTF-8"
+        outputencoding="UTF-8"
+        fixlastline="true"
+        >
+      <!--
+        We need to respect an order for class declaration in ExtJS
+        to allow classes to inherit from their dependencies.  Thus,
+        each file is specified here individually in sequential order.
+      -->
+      <path>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/facade/Facade.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/observer/Notification.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/observer/Notifier.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/observer/Observer.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/core/Model.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/core/View.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/core/Controller.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/command/SimpleCommand.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/command/MacroCommand.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/mediator/Mediator.js"/>
+        <pathelement location="${basedir}/src/org/puremvc/js/extjs/patterns/proxy/Proxy.js"/>
+      </path>
+    </concat>      
+  </target>
+  
+  <target name="minify" description="Minify a set of files" depends="concat">
+    <taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
+      <classpath>
+        <pathelement path="${basedir}/build/lib/yuicompressor-2.4.2.jar" />
+        <pathelement path="${basedir}/build/lib/yuiant.jar" />
+      </classpath>
+    </taskdef>
+
+    <yuicompress
+        charset="UTF-8"
+        linebreak="80"
+        warn="false"
+        munge="no"
+        preserveallsemicolons="true"
+        preservestringlitterals="true"
+        outputfolder="${output-dir}"
+        outputsuffix="_Mini"
+        >
+      <fileset dir="${output-dir}">
+        <include name="${output-file}"/>
+      </fileset>
+    </yuicompress>
+  </target>
+
+  <target name="jsdoc" description="Generate JSDoc" depends="concat">
+    <taskdef name="jsdoctoolkit" classname="uk.co.darrenhurley.ant.tasks.JsDocToolkit">
+      <classpath>
+        <pathelement path="${basedir}/build/lib/jsdoc-toolkit-ant-task-1.1.0.jar" />
+        <pathelement path="${basedir}/build/lib/js-2.4.0b.jar" />
+      </classpath>
+    </taskdef>
+
+    <jsdoctoolkit jsdochome="${jsdoc-toolkit-home}" template="outline" outputdir="${jsdoc-output-dir}/">
+      <source file="${basedir}/lib/JSDOCNamespaces.js" />
+      <source file="${output-dir}/${output-file}" />
+      <fileset dir="${basedir}/test">
+        <include name="**/*.js"/>
+      </fileset>
+    </jsdoctoolkit>
+  </target>
+
+</project>
