@@ -5,7 +5,7 @@ ExtJS Core - Copyright(c) 2006-2010 Sencha, Inc.
 Release Date: 12/19/10
     Platform: JavaScript / ExtJS Core
      Version: 2
-    Revision: 0
+    Revision: 0.1
       Author: Tony DeFusco <tony.defusco@puremvc.org>
      License: Creative Commons Attribution 3.0 United States License
 License for ExtJS Core: MIT Open Source License
@@ -33,3 +33,6 @@ License for ExtJS Core: MIT Open Source License
       There is a minified version included (using YUICompressor with -nomunge) 
       that is only 10k.  ExtJS Core <http://www.sencha.com/products/core/>
 
+2.0.1 Maintenance release.  Unit tests added.  Fix for defect discovered
+      in MacroCommand.js in which the internal array of subcommands was not being
+      reinitialized with the construction of each new instance.
