@@ -1,8 +1,8 @@
 PureMVC/ExtJS Port to Javascript / ExtJS by Tony DeFusco
-PureMVC - Copyright(c) 2006-2010 Futurescale, Inc., Some rights reserved.
-ExtJS Core - Copyright(c) 2006-2010 Sencha, Inc.
+PureMVC - Copyright(c) 2006-2011 Futurescale, Inc., Some rights reserved.
+ExtJS Core - Copyright(c) 2006-2011 Sencha, Inc.
 --------------------------------------------------------------------------
-Release Date: 12/19/10
+Release Date: 03/06/11
     Platform: JavaScript / ExtJS Core
      Version: 2
     Revision: 0.1
@@ -13,7 +13,7 @@ License for ExtJS Core: MIT Open Source License
 1.0   Original Objs-Based version written by Frederic Saunier. 
 
       Objs is available here: <http://code.google.com/p/objs/>
-	  The Objs-based port is still available here: 
+	    The Objs-based port is still available here:
       <http://svn.puremvc.org/PureMVC_JS/branches/objs-based-port>
       <http://trac.puremvc.org/PureMVC_JS/browser/branches/objs-based-port>
       There is a demo here: <http://trac.puremvc.org/Demo_JS_EmployeeAdmin>
@@ -26,7 +26,7 @@ License for ExtJS Core: MIT Open Source License
       Justin Willaby (which was itself derived from the AS3 Standard 
       version, and so more closely adheres to the reference port), and then
       reworked for use with ExtJS by Tony DeFusco. Full documentation and
-      a demo called BoxSplash are available. Support  for class relationships is 
+      a demo called BoxSplash are available. Support for class relationships is
       provided by the ExtJS Core library, which is used by the widely 
       popular ExtJS widget library. The source classes are in separate files 
       mirroring the original and the single compiled class library is about 48k. 
