@@ -53,6 +53,15 @@ Puremvc.test.MacroCommandTest = new YUITest.TestCase(
       macroCommandTestSub.hasFacade(),
       "Expecting macroCommandTestSub.hasFacade() === true"
       );
+
+    macroCommandTestSub.addSubCommand(new SimpleCommandTestCommand());
+    macroCommandTestSub.addSubCommand(new SimpleCommandTestCommand());
+    var macroCommandTestSub2/*Puremvc.test.MacroCommandTestSub*/ = new MacroCommandTestSub();
+    YUITest.Assert.areEqual(
+      0,
+      macroCommandTestSub2.subCommands.length,
+      "Expecting macroCommandTestSub.subCommands.length === 0"
+      );
   },
 
   /**

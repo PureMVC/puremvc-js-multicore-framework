@@ -9,7 +9,7 @@ Puremvc.patterns.MacroCommand = Ext.extend(Puremvc.patterns.Notifier, {
    * @type Array
    * @private
    */
-  subCommands: [],
+  subCommands: null,
 
   /**
    * @extends Puremvc.patterns.Notifier
@@ -43,6 +43,7 @@ Puremvc.patterns.MacroCommand = Ext.extend(Puremvc.patterns.Notifier, {
    */
   constructor: function() {
     Puremvc.patterns.MacroCommand.superclass.constructor.call(this);
+    this.subCommands = new Array();
     this.initializeMacroCommand();
   },
 
