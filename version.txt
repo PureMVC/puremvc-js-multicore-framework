@@ -1,0 +1,52 @@
+PureMVC MultiCore Port to Javascript / Prototype Core
+
+PureMVC MultiCore Port to Javascript / Prototype Core by Frederic Saunier
+PureMVC - Copyright(c) 2006-2011 Futurescale, Inc., Some rights reserved.
+Prototype Core - 2006-2011 Prototype Core Team
+--------------------------------------------------------------------------
+Release Date: 02/16/11
+Platform: JavaScript / Prototype Core
+Version: 1
+Revision: 0
+Author: Frederic Saunier <frederic.saunier@puremvc.org>
+License: Creative Commons Attribution 3.0 United States License
+License for Prototype Core: MIT and CC BY-SA
+--------------------------------------------------------------------------
+
+Releases
+
+Version 1.0
+
+This port, inspired originally from PureMVC for AS3 multicore port and the
+Prototype single core ports respectively by Cliff Hall and Frederic Saunier.
+Support for class relationships is provided by the Prototype Core library.
+The source classes are in separate files mirroring the original and the
+minified library is about 8K. The Minification is brought to this port using
+YUICompressor.
+
+This is the first official JavaScript multicore port.
+
+Build
+
+To build the project you'll need "Ant":http://ant.apache.org/ to run the
+/build/build.xml file located in the build YUICompressor. The task concat all
+the JavaScript files in one, next compress and minify it. The YUICompressor
+munge option is activated.
+
+The Ant task need both
+"YUICompressor":http://yuilibrary.com/downloads/#yuicompressor and 
+"YUIant":http://www.ubik-ingenierie.com/miscellanous/YUIAnt/. Respective jar
+file for both library need to be copied in the /build/lib/ folder for the task
+to run correctly.
+
+Unit Tests
+
+Unit Tests follow the PureMVC for AS3 standard port with some specific
+additions for the JavaScript language.
+
+Unit tests are built upon
+"YUI Test Standalone Library":http://yuilibrary.com/yuitest/.
+
+The tests run by opening the /index.html. The test runner and Unit Test
+framework loads all the libraries it needs from the /lib/yuitest folder. They
+were first built upon YUI 3.2.0 and YUITest 1.0.0 b1 standalone libraries.
