@@ -1,0 +1,255 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title>PureMVC Javascript MultiCore port for Objs Unit Tests</title> 
+
+	 	<!-- Needed by YUITest Unit Test Framework Library -->
+		<link type="text/css" rel="stylesheet" href="test/lib/yuitest/fonts-min.css" /> 
+		<script type="text/javascript" src="test/lib/yuitest/yui-min.js"></script>
+		<script type="text/javascript" src="test/lib/yuitest/yuitest_1.0.0b1.js"></script>
+
+	 	<!-- Objs Library -->
+		<script type="text/javascript">var HidePureMVC = true;</script>
+		<script type="text/javascript" src="lib/objs-2.0.js"></script>
+
+		<!--
+			We need to respect an order for classes declaration
+			to allow classes to use their dependencies.
+		 -->
+		
+		<!--
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/observer/Observer.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/observer/Notification.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/core/View.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/core/Model.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/core/Controller.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/facade/Facade.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/observer/Notifier.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/command/SimpleCommand.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/command/MacroCommand.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/mediator/Mediator.js"></script>
+		<script type="text/javascript" src="src/org/puremvc/js/multicore/objs/patterns/proxy/Proxy.js"></script>		
+		-->
+		
+		<!-- 
+			For a production use we preferer to test the minified version of
+			the framework to verify that the minification didn't broke anything
+		-->
+		<script type="text/javascript" src="bin/puremvc-multicore-objs-2.0-min.js"></script>
+
+	 	<!-- PureMVC Framework Unit Test Cases -->
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ControllerTestCommand.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ControllerTestCommand2.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ControllerTestVO.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ControllerTest.js"></script>
+
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTestMediator.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTestMediator2.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTestMediator3.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTestMediator4.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTestMediator5.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTestMediator6.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTestNote.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ViewTest.js"></script>
+
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ModelTestProxy.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/core/ModelTest.js"></script>
+
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/MacroCommandTestSub.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/MacroCommandTestCommand.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/MacroCommandTestSub1Command.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/MacroCommandTestSub2Command.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/MacroCommandTestVO.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/MacroCommandTest.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/SimpleCommandTestSub.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/SimpleCommandTestCommand.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/SimpleCommandTestVO.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/command/SimpleCommandTest.js"></script>
+
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/mediator/MediatorTestSub.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/mediator/MediatorTest.js"></script>
+
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/facade/FacadeTestVO.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/facade/FacadeTestCommand.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/facade/FacadeTest.js"></script>
+
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/observer/NotifierTestSub.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/observer/NotifierTestCommand.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/observer/NotifierTestVO.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/observer/NotificationTest.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/observer/NotifierTest.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/observer/ObserverTest.js"></script>
+
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/proxy/ProxyTestSub.js"></script>
+		<script type="text/javascript" src="test/src/org/puremvc/js/multicore/objs/patterns/proxy/ProxyTest.js"></script>
+
+		<style type="text/css">
+		.yui3-skin-sam
+		.yui3-console-entry-pass
+		.yui3-console-entry-cat
+		{
+		    background-color: green;
+		    color: #fff;
+		}
+		 
+		.yui3-skin-sam
+		.yui3-console-entry-fail
+		.yui3-console-entry-cat
+		{
+		    background-color: red;
+		    color: #fff;
+		}
+		 
+		.yui3-skin-sam
+		.yui3-console-entry-ignore
+		.yui3-console-entry-cat
+		{
+		    background-color: #666;
+		}
+		 
+		</style>
+	</head>
+
+	<body class="yui3-skin-sam  yui-skin-sam"> 
+		 
+		<h1>PureMVC JavaScript MultiCore Prototype Core Unit Tests</h1> 
+		 
+		<div id="testLogger"></div>
+		
+		<script type="text/javascript"> 
+		YUI().use
+		(
+			"console",
+			function(Y)
+			{
+			    //create the console
+			    var r = new Y.Console
+				(
+					{
+				        newestOnTop : false,
+				        style: 'block' // to anchor in the example content
+				    }
+				);    
+			    
+			    r.render('#testLogger');
+			    
+			    var TestRunner = YUITest.TestRunner;
+				TestRunner.setName("PureMVC JavaScript  PrototypeJS");
+			    TestRunner.add(ControllerTest);
+			    TestRunner.add(ModelTest);
+			    TestRunner.add(ViewTest);
+			    TestRunner.add(MacroCommandTest);
+			    TestRunner.add(SimpleCommandTest);
+			    TestRunner.add(FacadeTest);
+			    TestRunner.add(MediatorTest);
+			    TestRunner.add(NotificationTest);
+			    TestRunner.add(NotifierTest);
+			    TestRunner.add(ObserverTest);
+			    TestRunner.add(ProxyTest);
+			    
+			    //function to handle events generated by the testrunner
+			    function logEvent(event)
+				{
+			        //data variables
+			        var message = "";
+			        var messageType = "";
+			        
+			        switch(event.type)
+					{
+			            case TestRunner.BEGIN_EVENT:
+			                message = "Testing began at " + (new Date()).toString() + ".";
+			                messageType = "info";
+			            break;
+			                
+			            case TestRunner.COMPLETE_EVENT:
+			                message = Y.substitute
+							(
+								"Testing completed at " +
+			                    (new Date()).toString() + ".\n" +
+			                    "Passed:{passed} Failed:{failed} " +
+			                    "Total:{total} ({ignored} ignored)",
+			                    event.results
+							);
+			                messageType = "info";
+			            break;
+			                
+						case TestRunner.TEST_FAIL_EVENT:
+			                message = event.testName + ": failed.\n" + event.error.getMessage();
+			                messageType = "fail";
+						break;
+			                
+			            case TestRunner.TEST_IGNORE_EVENT:
+			                message = event.testName + ": ignored.";
+			                messageType = "ignore";
+						break;
+			                
+			            case TestRunner.TEST_PASS_EVENT:
+			                message = event.testName + ": passed.";
+			                messageType = "pass";
+						break;
+			                
+			            case TestRunner.TEST_SUITE_BEGIN_EVENT:
+			                message = "Test suite \"" + event.testSuite.name + "\" started.";
+			                messageType = "info";
+						break;
+			                
+			            case TestRunner.TEST_SUITE_COMPLETE_EVENT:
+			                message = Y.substitute
+							(
+								"Test suite \"" +
+			                    event.testSuite.name + "\" completed" + ".\n" +
+			                    "Passed:{passed} Failed:{failed} " +
+			                    "Total:{total} ({ignored} ignored)",
+			                    event.results
+							);
+			                messageType = "info";
+						break;
+			                
+			            case TestRunner.TEST_CASE_BEGIN_EVENT:
+			                message = "Test case \"" + event.testCase.name + "\" started.";
+			                messageType = "info";
+						break;
+			                
+			            case TestRunner.TEST_CASE_COMPLETE_EVENT:
+			                message = Y.substitute
+							(
+								"Test case \"" +
+			                    event.testCase.name + "\" completed.\n" +
+			                    "Passed:{passed} Failed:{failed} " +
+			                    "Total:{total} ({ignored} ignored)",
+			                    event.results
+							);
+			                messageType = "info";
+						break;
+		
+			            default:
+			                message = "Unexpected event " + event.type;
+			                message = "info";
+			        }
+			    
+			        //only log if required
+			        Y.log(message, messageType, "TestRunner");
+			    }
+			    
+			    //listen for events to publish to the logger
+			    TestRunner.attach(TestRunner.BEGIN_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.COMPLETE_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.TEST_CASE_BEGIN_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.TEST_CASE_COMPLETE_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.TEST_SUITE_BEGIN_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.TEST_SUITE_COMPLETE_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.TEST_PASS_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.TEST_FAIL_EVENT, logEvent);
+			    TestRunner.attach(TestRunner.TEST_IGNORE_EVENT, logEvent);
+			    
+			 
+			    //run the tests
+			    TestRunner.run();
+			}
+		);
+		</script> 
+ 
+	</body> 
+</html>
