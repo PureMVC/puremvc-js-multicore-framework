@@ -1,0 +1,33 @@
+{
+
+	//
+	// JsDocToolkit configuration file.
+	// You will have to modify these paths below.
+	//
+	//
+	//
+	//
+    // http://code.google.com/p/jsdoc-toolkit/wiki/CommandlineOptions
+	_: ['~/Documents/Aptana Studio Workspace/PureMVC_JS_MultiCore/src/']
+
+	// document all functions, even uncommented and nested ones
+,	a: false
+
+	// including those marked @private
+,	p: false
+
+	// some extra variables I want to include
+,	D: {generatedBy: "David Foley", copyright: "2011"}
+
+	// use this directory as the output directory
+,	d: "~/Documents/Aptana Studio Workspace/PureMVC_JS_MultiCore/doc"
+
+	// use this template- it will be in your JsDocToolkit install directory
+,	t: "~/Workspace/Tools/JsDocToolkit/templates/jsdoc"
+
+    // recurse down at least 10 levels
+,	r: 10
+
+    // verbose output
+,   v: true
+}

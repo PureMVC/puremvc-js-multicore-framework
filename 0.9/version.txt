@@ -1,0 +1,12 @@
+PureMVC Port to Javascript by David Foley
+PureMVC - Copyright(c) 2006-2011 Futurescale, Inc., Some rights reserved.
+--------------------------------------------------------------------------
+Release Date: 08/09/11
+    Platform: JavaScript (Native)
+     Version: 1
+    Revision: 0
+      Author: David Foley <david.foley@puremvc.org>
+     License: Creative Commons Attribution 3.0 United States License
+--------------------------------------------------------------------------
+1.0   Inital version of Javascript native port on PureMVC.org. 
+      Does not require or depend on any class emulation library.

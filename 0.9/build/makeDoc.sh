@@ -1,0 +1,1 @@
+java -jar ~/Workspace/Tools/JsDocToolkit/jsrun.jar ~/Workspace/Tools/JsDocToolKit/app/run.js -c=makedoc.conf.json
