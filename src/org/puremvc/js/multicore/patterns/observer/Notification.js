@@ -1,13 +1,20 @@
 /**
  * @fileOverview
  * @exports Notification as org.puremvc.js.multicore.patterns.observer.Notification
+ * @author David Foley | david@objectkit.com
  */
 
 /**
+ * Create a new Notification.
+ * 
+ * For the most part, you will never instantiate a 
+ * Notification directly,
+ * 
  * @param {string} name
  * @param {Object} [body]
  * @param {Object} [type]
  * @constructor
+ * @see Notifier#sendNotification
  */
 function Notification (name, body, type)
 {
@@ -17,7 +24,17 @@ function Notification (name, body, type)
 };
 
 /**
+ * Determine this notifications name. When a Notification
+ * is dispatched via PureMVC's observers mechanism, it is
+ * the Notifications name which is ultimately the decident
+ * factor governing which Command is instantiated and
+ * executed.
+ * 
+ * Generally speaking, this method is used internally
+ * by the framework and you will not have to invoke it.
+ * 
  * @return {string}
+ * @see {Facade#registerCommand}
  */
 Notification.prototype.getName = function ()
 {
@@ -25,8 +42,11 @@ Notification.prototype.getName = function ()
 };
 
 /**
+ * Set this Notifications body. A Notifications body
+ * can have any value, including null or void values
+ * (though this is not recommended)
  * 
- * @param {Object} body
+ * @param {*} body
  * @return {void}
  */
 Notification.prototype.setBody = function (body)
@@ -35,7 +55,14 @@ Notification.prototype.setBody = function (body)
 };
 
 /**
- * @return {Object|null}
+ * Get a Notification body. Ultimately, it is
+ * SimpleCommand instances that will retrieve a
+ * Notifications body, and pending on this value,
+ * take appropriate action, or throw an error.
+ * 
+ * 
+ * 
+ * @return {*}
  */
 Notification.prototype.getBody = function ()
 {
@@ -43,9 +70,11 @@ Notification.prototype.getBody = function ()
 };
 
 /**
+ * Set the Notifications type.
  * 
  * @param {Object} type
  * @return {void}
+ * @see #getType
  */
 Notification.prototype.setType = function (type)
 {
@@ -53,6 +82,7 @@ Notification.prototype.setType = function (type)
 };
 
 /**
+ * Determine this Notifications type.
  * @return {Object}
  */
 Notification.prototype.getType = function ()
@@ -61,6 +91,8 @@ Notification.prototype.getType = function ()
 };
 
 /**
+ * 
+ * 
  * @override
  * @return {string}
  */
@@ -72,18 +104,24 @@ Notification.prototype.toString= function ()
     return msg;};
 
 /**
+ * The Notifications name.
+ * 
  * @type {string}
  * @private
  */
 Notification.prototype.name= null;
 
 /**
+ * The Notifications type.
+ * 
  * @type {String}
  * @private
  */
 Notification.prototype.type= null;
 
 /**
+ * The Notifications body.
+ * 
  * @type {Object}
  * @private
  */
