@@ -55,8 +55,8 @@ if(commandClassRef){var command=new commandClassRef();command.execute(note);}},r
 },removeCommand:function(notificationName){if(this.hasCommand(notificationName)){this.view.removeObserver(notificationName,this);
 delete this.commandMap[notificationName];}}});Ext.apply(Puremvc.core.Controller,{_SINGLETON_MSG:"Controller Singleton already constructed!",_instance:new Puremvc.core.Controller(),getInstance:function(){return Puremvc.core.Controller._instance;
 }});Ext.namespace("Puremvc.patterns");Puremvc.patterns.SimpleCommand=Ext.extend(Puremvc.patterns.Notifier,{constructor:function(){Puremvc.patterns.SimpleCommand.superclass.constructor.call(this);
-},execute:function(notification){}});Ext.namespace("Puremvc.patterns");Puremvc.patterns.MacroCommand=Ext.extend(Puremvc.patterns.Notifier,{subCommands:[],constructor:function(){Puremvc.patterns.MacroCommand.superclass.constructor.call(this);
-this.initializeMacroCommand();},initializeMacroCommand:function(){},addSubCommand:function(commandClassRef){this.subCommands.push(commandClassRef);
+},execute:function(notification){}});Ext.namespace("Puremvc.patterns");Puremvc.patterns.MacroCommand=Ext.extend(Puremvc.patterns.Notifier,{subCommands:null,constructor:function(){Puremvc.patterns.MacroCommand.superclass.constructor.call(this);
+this.subCommands=new Array();this.initializeMacroCommand();},initializeMacroCommand:function(){},addSubCommand:function(commandClassRef){this.subCommands.push(commandClassRef);
 },execute:function(notification){var len=this.subCommands.length;for(var i=0;i<len;
 i++){var commandClassRef=this.subCommands[i];var commandInstance=new commandClassRef();
 commandInstance.execute(notification);}}});Ext.namespace("Puremvc.patterns");Puremvc.patterns.Mediator=Ext.extend(Puremvc.patterns.Notifier,{constructor:function(mediatorName,viewComponent){Puremvc.patterns.Mediator.superclass.constructor.call(this);

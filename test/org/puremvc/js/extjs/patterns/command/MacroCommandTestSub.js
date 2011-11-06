@@ -22,7 +22,7 @@ Puremvc.test.MacroCommandTestSub = Ext.extend(Puremvc.patterns.MacroCommand,
    * well been declared during its construction.
    *
    * @return {Boolean}
-   *     <code>Puremvc.pattrens.Facade</code> instance of the object has well been declared
+   *     <code>Puremvc.patterns.Facade</code> instance of the object has well been declared
    *     during its construction.
    */
   hasFacade: function()/*Boolean*/ {

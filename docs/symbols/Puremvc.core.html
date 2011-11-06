@@ -1,0 +1,157 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="generator" content="JsDoc Toolkit" />
+		
+		<title>JsDoc Reference - Puremvc.core</title>
+
+    <script type="text/javascript" src="../jproton.js"></script>
+    <script type="text/javascript" src="../ui.js"></script>
+    <script type="text/javascript" src="../sh.js"></script>
+		<link rel=stylesheet href="../sh.css" type="text/css">
+		<link rel=stylesheet href="../default.css" type="text/css">
+	</head>
+
+	<body>
+		<div id="main-wrapper">
+			<div id="main">
+<!-- ============================== classes index ============================ -->
+				<div id="index" class="fixed">
+					<div id="index-wrapper">
+	<div class="header">
+	  <div id="index-close" title="Esconde o outline.">&nbsp;</div>
+	  <div id="index-title">Project Outline</div>
+	</div>
+	<div id="index-menu"><a href="../index.html">Class Index</a>
+	| <a href="../files.html">File Index</a></div>
+	
+	<div id="index-content">
+		
+		<div class="classList">
+			
+			<div class="section">
+				<div title='Global namespace.' class='itemName namespace'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><i><a href="../symbols/_global_.html">_global_</a></i></span></div><div class='sectionItems'></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName namespace'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.html">Puremvc</a></span></div><div class='sectionItems'><div class='sectionItem classProperty'><b class='icon' title=''><a href="../symbols/Puremvc.core.html">core</a></b></div><div class='sectionItem classProperty'><b class='icon' title=''><a href="../symbols/Puremvc.patterns.html">patterns</a></b></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName namespace'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.core.html">Puremvc.core</a></span></div><div class='sectionItems'></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.core.Controller.html">Puremvc.core.Controller</a></span></div><div class='sectionItems'><div class='sectionItem classProperty'><b class='icon' title='Mapping of Notification names to Command class references.'><a href="../symbols/Puremvc.core.Controller.html#commandMap">commandMap</a></b></div><div class='sectionItem classMethod'><b class='icon' title='Called automatically by the constructor.'><a href="../symbols/Puremvc.core.Controller.html#initializeController">initializeController</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='If a SimpleCommand or MacroCommand has previously been registered to handle the given Notification, then it is executed.'><a href="../symbols/Puremvc.core.Controller.html#executeCommand">executeCommand</a></b><span class='signature'>(<span title="(Puremvc.patterns.Notification) a <code>Notification</code>.">note</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Register a particular SimpleCommand or MacroCommand class as the handler for a particular Notification.'><a href="../symbols/Puremvc.core.Controller.html#registerCommand">registerCommand</a></b><span class='signature'>(<span title="(String) the name of the <code>Notification</code>.">notificationName</span>, <span title="(Class) the <code>Class</code> of the <code>Command</code>.">commandClassRef</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Check if a Command is registered for a given Notification.'><a href="../symbols/Puremvc.core.Controller.html#hasCommand">hasCommand</a></b><span class='signature'>(<span title="(String) the name of the <code>Notification</code> to verify the existence of its registration.">notificationName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Remove a previously registered SimpleCommand or MacroCommand to Notification mapping.'><a href="../symbols/Puremvc.core.Controller.html#removeCommand">removeCommand</a></b><span class='signature'>(<span title="(String) the name of the <code>Notification</code> to remove the <code>SimpleCommand</code> or <code>MacroCommand</code> mapping for.">notificationName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve the singleton instance of the Controller.'><a href="../symbols/Puremvc.core.Controller.html#.getInstance">getInstance</a></b><span class='signature'>()</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.core.Model.html">Puremvc.core.Model</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Register a Proxy with the Model.'><a href="../symbols/Puremvc.core.Model.html#registerProxy">registerProxy</a></b><span class='signature'>(<span title="(Puremvc.patterns.Proxy) a <code>Proxy</code> to be held by the <code>Model</code>.">proxy</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve an IProxy from the Model.'><a href="../symbols/Puremvc.core.Model.html#retrieveProxy">retrieveProxy</a></b><span class='signature'>(<span title="(String) The name of the <code>Proxy</code> to retrieve.">proxyName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Check if a Proxy is registered.'><a href="../symbols/Puremvc.core.Model.html#hasProxy">hasProxy</a></b><span class='signature'>(<span title="(String) The name of the <code>Proxy</code> to verify the existence of its registration.">proxyName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Remove a Proxy from the Model.'><a href="../symbols/Puremvc.core.Model.html#removeProxy">removeProxy</a></b><span class='signature'>(<span title="(String) The name of the <code>Proxy</code> instance to be removed.">proxyName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve the singleton instance of the Model.'><a href="../symbols/Puremvc.core.Model.html#.getInstance">getInstance</a></b><span class='signature'>()</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.core.View.html">Puremvc.core.View</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Initialize the singleton View instance.'><a href="../symbols/Puremvc.core.View.html#initializeView">initializeView</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Register an Observer to be notified of Notifications with a given name.'><a href="../symbols/Puremvc.core.View.html#registerObserver">registerObserver</a></b><span class='signature'>(<span title="(String) The name of the <code>Notification</code>s to notify this <code>Observer</code> of.">notificationName</span>, <span title="(Puremvc.patterns.Observer) The <code>Observer</code> to register.">observer</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Notify the Observers for a particular Notification.'><a href="../symbols/Puremvc.core.View.html#notifyObservers">notifyObservers</a></b><span class='signature'>(<span title="(Puremvc.patterns.Notification) The <code>Notification</code> to notify <code>Observer</code>s of.">notification</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Remove the Observer for a given notifyContext from an Observer list for a given Notification name.'><a href="../symbols/Puremvc.core.View.html#removeObserver">removeObserver</a></b><span class='signature'>(<span title="(String) which <code>Observer</code> list to remove from.">notificationName</span>, <span title="(Object) remove the <code>Observer</code> with this object as its <i>notifyContext</i>.">notifyContext</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Register an IMediator instance with the View.'><a href="../symbols/Puremvc.core.View.html#registerMediator">registerMediator</a></b><span class='signature'>(<span title="(Puremvc.patterns.Mediator) a reference to the <code>Mediator</code> instance.">mediator</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve a Mediator from the View.'><a href="../symbols/Puremvc.core.View.html#retrieveMediator">retrieveMediator</a></b><span class='signature'>(<span title="(String) the name of the <code>IMediator</code> instance to retrieve.">mediatorName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Remove a Mediator from the View.'><a href="../symbols/Puremvc.core.View.html#removeMediator">removeMediator</a></b><span class='signature'>(<span title="(String) name of the <code>IMediator</code> instance to be removed.">mediatorName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Check if a Mediator is registered or not.'><a href="../symbols/Puremvc.core.View.html#hasMediator">hasMediator</a></b><span class='signature'>(<span title="(String) name of the <code>IMediator</code> instance to verify the existence of its registration.">mediatorName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve the singleton instance of the View.'><a href="../symbols/Puremvc.core.View.html#.getInstance">getInstance</a></b><span class='signature'>()</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName namespace'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.html">Puremvc.patterns</a></span></div><div class='sectionItems'></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.Facade.html">Puremvc.patterns.Facade</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Register a Command with the Controller by Notification name.'><a href="../symbols/Puremvc.patterns.Facade.html#registerCommand">registerCommand</a></b><span class='signature'>(<span title="(String) the name of the <code>Notification</code> to associate the <code>Command</code> with.">notificationName</span>, <span title="(Class) a reference to the Class of the <code>Command</code>.">commandClassRef</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Remove a previously registered Command to Notification mapping from the Controller.'><a href="../symbols/Puremvc.patterns.Facade.html#removeCommand">removeCommand</a></b><span class='signature'>(<span title="(String) the name of the <code>Notification</code> to remove the <code>Command</code> mapping for.">notificationName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Check if a Command is registered for a given Notification.'><a href="../symbols/Puremvc.patterns.Facade.html#hasCommand">hasCommand</a></b><span class='signature'>(<span title="(String) the name of the <code>Notification</code> to verify for the existence of a <code>Command</code> mapping for.">notificationName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Register a Proxy with the Model by name.'><a href="../symbols/Puremvc.patterns.Facade.html#registerProxy">registerProxy</a></b><span class='signature'>(<span title="{Puremvc.patterns.Proxy} the <code>Proxy</code> instance to be registered with the <code>Model</code>.">proxy</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve a Proxy from the Model by name.'><a href="../symbols/Puremvc.patterns.Facade.html#retrieveProxy">retrieveProxy</a></b><span class='signature'>(<span title="(String) the name of the <code>Proxy</code> to be retrieved.">proxyName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Remove an Proxy from the Model by name.'><a href="../symbols/Puremvc.patterns.Facade.html#removeProxy">removeProxy</a></b><span class='signature'>(<span title="(String) the <code>Proxy</code> to remove from the <code>Model</code>.">proxyName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Check if a Proxy is registered.'><a href="../symbols/Puremvc.patterns.Facade.html#hasProxy">hasProxy</a></b><span class='signature'>(<span title="(String) the <code>Proxy</code> to verify the existence of a registration with the <code>Model</code>.">proxyName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Register a Mediator with the View.'><a href="../symbols/Puremvc.patterns.Facade.html#registerMediator">registerMediator</a></b><span class='signature'>(<span title="(Puremvc.patterns.Mediator) a reference to the <code>Mediator</code>.">mediator</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve an IMediator from the View.'><a href="../symbols/Puremvc.patterns.Facade.html#retrieveMediator">retrieveMediator</a></b><span class='signature'>(<span title="(String) the name of the registered <code>Mediator</code> to retrieve.">mediatorName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Remove an Mediator from the View.'><a href="../symbols/Puremvc.patterns.Facade.html#removeMediator">removeMediator</a></b><span class='signature'>(<span title="(String) the name of the <code>Mediator</code> to be removed.">mediatorName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Check if a Mediator is registered or not.'><a href="../symbols/Puremvc.patterns.Facade.html#hasMediator">hasMediator</a></b><span class='signature'>(<span title="(String) the name of the <code>Mediator</code> to verify the existence of a registration for.">mediatorName</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Create and send a Notification.'><a href="../symbols/Puremvc.patterns.Facade.html#sendNotification">sendNotification</a></b><span class='signature'>(<span title="(String) the name of the notification to send.">notificationName</span>, <span title="(Object) the body of the notification.">body</span>, <span title="(String) the type of the notification.">type</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Notify Observers.'><a href="../symbols/Puremvc.patterns.Facade.html#notifyObservers">notifyObservers</a></b><span class='signature'>(<span title="(Puremvc.patterns.Notification) the <code>Notification</code> to have the <code>View</code> notify <code>Observers</code> of.">notification</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Retrieve the singleton instance of the Facade.'><a href="../symbols/Puremvc.patterns.Facade.html#.getInstance">getInstance</a></b><span class='signature'>()</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.MacroCommand.html">Puremvc.patterns.MacroCommand</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Initialize the MacroCommand.'><a href="../symbols/Puremvc.patterns.MacroCommand.html#initializeMacroCommand">initializeMacroCommand</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Add an entry to subCommands list.'><a href="../symbols/Puremvc.patterns.MacroCommand.html#addSubCommand">addSubCommand</a></b><span class='signature'>(<span title="(Class) a reference to the <code>Class</code> of the <code>ICommand</code>.">commandClassRef</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Execute this MacroCommand's SubCommands.'><a href="../symbols/Puremvc.patterns.MacroCommand.html#execute">execute</a></b><span class='signature'>(<span title="(Puremvc.patterns.Notification) the <code>Notification</code> object to be passed to each entry of <i>subCommands</i> list.">notification</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Create and send a Notification.'><a href="../symbols/Puremvc.patterns.Notifier.html#sendNotification">sendNotification</a></b><span class='signature'>(<span title="(String) the name of the notiification to send.">notificationName</span>, <span title="(Object) the (optional) body of the notification.">body</span>, <span title="(String) the (optional) type of the notification.">type</span>)</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.Mediator.html">Puremvc.patterns.Mediator</a></span></div><div class='sectionItems'><div class='sectionItem classProperty'><b class='icon' title='Default name of the Mediator.'><a href="../symbols/Puremvc.patterns.Mediator.html#.NAME">NAME</a></b></div><div class='sectionItem classMethod'><b class='icon' title='List the Notification names this Mediator is interested in being notified of.'><a href="../symbols/Puremvc.patterns.Mediator.html#listNotificationInterests">listNotificationInterests</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Get the name of the Mediator.'><a href="../symbols/Puremvc.patterns.Mediator.html#getMediatorName">getMediatorName</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Get the Mediator's view component.'><a href="../symbols/Puremvc.patterns.Mediator.html#getViewComponent">getViewComponent</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Set the Mediator's view component.'><a href="../symbols/Puremvc.patterns.Mediator.html#setViewComponent">setViewComponent</a></b><span class='signature'>(<span title="(Object) The view component.">viewComponent</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Handle INotifications.'><a href="../symbols/Puremvc.patterns.Mediator.html#handleNotification">handleNotification</a></b><span class='signature'>(<span title="(Puremvc.patterns.Notification) The notification instance to be handled.">notification</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Called by the View when the Mediator is registered.'><a href="../symbols/Puremvc.patterns.Mediator.html#onRegister">onRegister</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Called by the View when the Mediator is removed.'><a href="../symbols/Puremvc.patterns.Mediator.html#onRemove">onRemove</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Create and send a Notification.'><a href="../symbols/Puremvc.patterns.Notifier.html#sendNotification">sendNotification</a></b><span class='signature'>(<span title="(String) the name of the notiification to send.">notificationName</span>, <span title="(Object) the (optional) body of the notification.">body</span>, <span title="(String) the (optional) type of the notification.">type</span>)</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.Notification.html">Puremvc.patterns.Notification</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Get the name of the Notification instance.'><a href="../symbols/Puremvc.patterns.Notification.html#getName">getName</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Set the body of the Notification instance.'><a href="../symbols/Puremvc.patterns.Notification.html#setBody">setBody</a></b><span class='signature'>(<span title="(Object) the body of the notification.">body</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Get the body of the Notification instance.'><a href="../symbols/Puremvc.patterns.Notification.html#getBody">getBody</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Set the type of the Notification instance.'><a href="../symbols/Puremvc.patterns.Notification.html#setType">setType</a></b><span class='signature'>(<span title="(String) the type identifier for the notification.">type</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Get the type of the Notification instance.'><a href="../symbols/Puremvc.patterns.Notification.html#getType">getType</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Get a textual representation of the Notification instance.'><a href="../symbols/Puremvc.patterns.Notification.html#toString">toString</a></b><span class='signature'>()</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.Notifier.html">Puremvc.patterns.Notifier</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Create and send a Notification.'><a href="../symbols/Puremvc.patterns.Notifier.html#sendNotification">sendNotification</a></b><span class='signature'>(<span title="(String) the name of the notiification to send.">notificationName</span>, <span title="(Object) the (optional) body of the notification.">body</span>, <span title="(String) the (optional) type of the notification.">type</span>)</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.Observer.html">Puremvc.patterns.Observer</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Set the notification method.'><a href="../symbols/Puremvc.patterns.Observer.html#setNotifyMethod">setNotifyMethod</a></b><span class='signature'>(<span title="(Function) the notification (callback) method of the interested object.">notifyMethod</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Set the notification context.'><a href="../symbols/Puremvc.patterns.Observer.html#setNotifyContext">setNotifyContext</a></b><span class='signature'>(<span title="(Object) the notification context (this) of the interested object.">notifyContext</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Get the notification method.'><a href="../symbols/Puremvc.patterns.Observer.html#getNotifyMethod">getNotifyMethod</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Get the notification context.'><a href="../symbols/Puremvc.patterns.Observer.html#getNotifyContext">getNotifyContext</a></b><span class='signature'>()</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.Proxy.html">Puremvc.patterns.Proxy</a></span></div><div class='sectionItems'><div class='sectionItem classProperty'><b class='icon' title='The default name of the Proxy'><a href="../symbols/Puremvc.patterns.Proxy.html#.NAME">NAME</a></b></div><div class='sectionItem classMethod'><b class='icon' title='Gets the proxyName.'><a href="../symbols/Puremvc.patterns.Proxy.html#getProxyName">getProxyName</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Sets the data object.'><a href="../symbols/Puremvc.patterns.Proxy.html#setData">setData</a></b><span class='signature'>(<span title="(Object) The data to set.">data</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Gets the data.'><a href="../symbols/Puremvc.patterns.Proxy.html#getData">getData</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Called by the Model when the Proxy is registered.'><a href="../symbols/Puremvc.patterns.Proxy.html#onRegister">onRegister</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Called by the Model when the Proxy is removed.'><a href="../symbols/Puremvc.patterns.Proxy.html#onRemove">onRemove</a></b><span class='signature'>()</span></div><div class='sectionItem classMethod'><b class='icon' title='Create and send a Notification.'><a href="../symbols/Puremvc.patterns.Notifier.html#sendNotification">sendNotification</a></b><span class='signature'>(<span title="(String) the name of the notiification to send.">notificationName</span>, <span title="(Object) the (optional) body of the notification.">body</span>, <span title="(String) the (optional) type of the notification.">type</span>)</span></div></div></div>
+			
+			<div class="section">
+				<div title='' class='itemName'>
+				<div class='method-toggler'>&nbsp;</div><span class='icon'><a href="../symbols/Puremvc.patterns.SimpleCommand.html">Puremvc.patterns.SimpleCommand</a></span></div><div class='sectionItems'><div class='sectionItem classMethod'><b class='icon' title='Fulfill the use-case initiated by the given Notification.'><a href="../symbols/Puremvc.patterns.SimpleCommand.html#execute">execute</a></b><span class='signature'>(<span title="(Puremvc.patterns.Notification) the <code>Notification</code> to handle.">notification</span>)</span></div><div class='sectionItem classMethod'><b class='icon' title='Create and send a Notification.'><a href="../symbols/Puremvc.patterns.Notifier.html#sendNotification">sendNotification</a></b><span class='signature'>(<span title="(String) the name of the notiification to send.">notificationName</span>, <span title="(Object) the (optional) body of the notification.">body</span>, <span title="(String) the (optional) type of the notification.">type</span>)</span></div></div></div>
+			
+		</div>
+	</div>
+</div>
+	
+
+				</div>
+				<div id="index-toggler" class="fixed">&laquo;</div>
+
+<!-- ============================== header ================================= -->	
+				<!-- begin static/header.html -->
+				<div class="header">
+  PureMVC ExtJS Documentation
+</div>
+
+				<!-- end static/header.html -->
+		
+				<div id="content">
+<!-- ============================== class title ============================ -->
+					<h1 class="classTitle">
+						Namespace Puremvc.core
+					</h1>
+		
+<!-- ============================== class summary ========================== -->			
+<!-- 
+					
+-->
+					<div class="full-description">
+						<p>The Puremvc.core namespace.</p>
+					</div>
+					
+						<p class="fileName itemName"><i>Defined in: </i> <span class="icon"><a href="../symbols/src/I__workspace_Javascript_PureMVC_JS_2_0_extjs_lib_JSDOCNamespaces.js.html">JSDOCNamespaces.js</a>.</span></p>
+					
+		
+<!-- ============================== constructor summary ==================== -->			
+					
+		
+<!-- ============================== properties summary ===================== -->
+					
+		
+<!-- ============================== methods summary ======================== -->
+					
+		
+<!-- ============================== constructor details ==================== -->		
+					
+		
+<!-- ============================== field details ========================== -->		
+					
+		
+<!-- ============================== method details ========================= -->		
+					
+					
+				</div>
+				
+<!-- ============================== footer ================================= -->
+				<div class="fineprint" style="clear:both">
+					
+					Documentation generated by <a href="http://www.jsdoctoolkit.org/" target="_blank">JsDoc Toolkit</a> 2.4.0 on Sat Nov 05 2011 20:44:17 GMT-0400 (EDT)
+				</div>
+				
+			</div>
+		</div>
+		
+	</body>
+</html>

@@ -1,7 +1,7 @@
 <project name="PureMVC_ExtJS" basedir=".." default="default">
   <property name="jsdoc-toolkit-home" value="${basedir}/build/jsdoc-toolkit/"/>
   <property name="output-dir" value="${basedir}/bin/js"/>
-  <property name="jsdoc-output-dir" value="${basedir}/jsdoc"/>
+  <property name="jsdoc-output-dir" value="${basedir}/docs"/>
   <property name="output-file" value="PureMVC_JS_ExtJS_2_0.js"/>
   
   <target name="default" depends="cleanup, minify, jsdoc"/>
@@ -79,9 +79,6 @@
     <jsdoctoolkit jsdochome="${jsdoc-toolkit-home}" template="outline" outputdir="${jsdoc-output-dir}/">
       <source file="${basedir}/lib/JSDOCNamespaces.js" />
       <source file="${output-dir}/${output-file}" />
-      <fileset dir="${basedir}/test">
-        <include name="**/*.js"/>
-      </fileset>
     </jsdoctoolkit>
   </target>
 
