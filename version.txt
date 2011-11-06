@@ -34,5 +34,5 @@ License for ExtJS Core: MIT Open Source License
       that is only 10k.  ExtJS Core <http://www.sencha.com/products/core/>
 
 2.0.1 Maintenance release.  Unit tests added.  Fix for defect discovered
-      in MacroCommand.js in which the internal array of subcommands was not being
-      reinitialized with the construction of each new instance.
+      in MacroCommand.js in which the internal array of subcommands was not
+      being reinitialized with the construction of each new instance.
