@@ -6,17 +6,20 @@
 
 /**
  * Create a new Notification.
- * 
- * For the most part, you will never instantiate a 
- * Notification directly,
- * 
+ *
+ * For the most part, you will never instantiate a Notification directly,
+ *
  * @param {string} name
+ *  The Notification name
  * @param {Object} [body]
+ *  The Notification body
  * @param {Object} [type]
+ *  The Notification type
  * @constructor
- * @see Notifier#sendNotification
+ * @see org.puremvc.js.multicore.patterns.facade.Facade#sendNotification
+ * @see org.puremvc.js.multicore.patterns.observer.Notifier#sendNotification
  */
-function Notification (name, body, type)
+function Notification(name, body, type)
 {
     this.name= name;
     this.body= body;
@@ -24,88 +27,83 @@ function Notification (name, body, type)
 };
 
 /**
- * Determine this notifications name. When a Notification
- * is dispatched via PureMVC's observers mechanism, it is
- * the Notifications name which is ultimately the decident
- * factor governing which Command is instantiated and
+ * Determine this notifications name. When a Notification is dispatched via
+ * PureMVC's observers mechanism, it is the Notifications name which is
+ * ultimately the decident factor governing which Command is instantiated and
  * executed.
- * 
+ *
  * Generally speaking, this method is used internally
  * by the framework and you will not have to invoke it.
- * 
+ *
  * @return {string}
  * @see {Facade#registerCommand}
  */
-Notification.prototype.getName = function ()
+Notification.prototype.getName= function()
 {
     return this.name;
 };
 
 /**
- * Set this Notifications body. A Notifications body
- * can have any value, including null or void values
- * (though this is not recommended)
- * 
+ * Set this Notifications body. A Notifications body can have any value,
+ * including null or void values (though this is not recommended)
+ *
  * @param {*} body
  * @return {void}
  */
-Notification.prototype.setBody = function (body)
+Notification.prototype.setBody= function(body)
 {
     this.body= body;
 };
 
 /**
- * Get a Notification body. Ultimately, it is
- * SimpleCommand instances that will retrieve a
- * Notifications body, and pending on this value,
- * take appropriate action, or throw an error.
- * 
- * 
- * 
+ * Get the Notification body.
+ *
  * @return {*}
  */
-Notification.prototype.getBody = function ()
+Notification.prototype.getBody= function()
 {
     return this.body
 };
 
 /**
  * Set the Notifications type.
- * 
+ *
  * @param {Object} type
  * @return {void}
  * @see #getType
  */
-Notification.prototype.setType = function (type)
+Notification.prototype.setType= function(type)
 {
     this.type= type;
 };
 
 /**
  * Determine this Notifications type.
+ * 
  * @return {Object}
  */
-Notification.prototype.getType = function ()
+Notification.prototype.getType= function()
 {
     return this.type;
 };
 
 /**
- * 
- * 
+ * Get a string representation of this Notification
+ *
  * @override
  * @return {string}
  */
-Notification.prototype.toString= function ()
+Notification.prototype.toString= function()
 {
-    var msg = "Notification Name: "+this.getName();
-    msg += "\nBody:"+(( this.body == null )?"null":this.body.toString());
-    msg += "\nType:"+(( this.type == null )?"null":this.type);
-    return msg;};
+    var msg= "Notification Name: " + this.getName();
+    msg+= "\nBody:" + ((this.body == null ) ? "null" : this.body.toString());
+    msg+= "\nType:" + ((this.type == null ) ? "null" : this.type);
+    return msg;
+};
 
 /**
  * The Notifications name.
- * 
+ *
  * @type {string}
  * @private
  */
@@ -113,7 +111,7 @@ Notification.prototype.name= null;
 
 /**
  * The Notifications type.
- * 
+ *
  * @type {String}
  * @private
  */
@@ -121,7 +119,7 @@ Notification.prototype.type= null;
 
 /**
  * The Notifications body.
- * 
+ *
  * @type {Object}
  * @private
  */

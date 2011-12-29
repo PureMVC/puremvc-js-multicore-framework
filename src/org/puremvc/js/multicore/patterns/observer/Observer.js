@@ -5,6 +5,9 @@
  */
 
 /**
+ * An Observer is an encapsulation of a callback Function and an execution
+ * context. Observers are used by PureMVC's notification system and are used
+ * to delegate notifications to arbitrary recievers.
  * 
  * @param {Function} notifyMethod
  * @param {Object} notifyContext
@@ -17,8 +20,10 @@ function Observer (notifyMethod, notifyContext)
 };
 
 /**
+ * Set the Observers notification method.
  * 
  * @param {Function} notifyMethod
+ *  
  * @return {void}
  */
 Observer.prototype.setNotifyMethod= function (notifyMethod)
@@ -27,6 +32,7 @@ Observer.prototype.setNotifyMethod= function (notifyMethod)
 };
 
 /**
+ * Set the Observers notification context.
  * 
  * @param {Object} notifyContext
  * @return {void}
@@ -37,8 +43,10 @@ Observer.prototype.setNotifyContext= function (notifyContext)
 };
 
 /**
- * @return {Function}
+ * Get the Function that this Observer will invoke when it is notified.
+ * 
  * @private
+ * @return {Function}
  */
 Observer.prototype.getNotifyMethod= function ()
 {
@@ -46,8 +54,10 @@ Observer.prototype.getNotifyMethod= function ()
 };
 
 /**
- * @return {Function}
+ * Get the Object that will serve as the Observers callback execution context
+ * 
  * @private
+ * @return {Object}
  */
 Observer.prototype.getNotifyContext= function ()
 {
@@ -55,19 +65,24 @@ Observer.prototype.getNotifyContext= function ()
 };
 
 /**
+ * Dispatch a Notification to this Observer. In turn, the Observer will invoke
+ * its notification method, using its notification context as the methods
+ * execution scope.
  * 
- * @param {org.puremvc.js.multicore.interfaces.INotification} notification
+ * @param {org.puremvc.js.multicore.patterns.observer.Notification} notification
  * @return {void}
  */
 Observer.prototype.notifyObserver= function (notification)
 {
-	// TODO use call instead of apply
-    this.getNotifyMethod().apply(this.getNotifyContext(), [notification]);
+    this.getNotifyMethod().call(this.getNotifyContext(), notification);
 };
 
 /**
+ * Determine if this Observer is equivalent to another. Two Observers are 
+ * equivalent if they have the same notification context.
  * 
  * @param {Object} object
+ *  
  * @return {boolean}
  */
 Observer.prototype.compareNotifyContext= function (object)
@@ -75,15 +90,17 @@ Observer.prototype.compareNotifyContext= function (object)
     return object === this.context;
 };
 
-
 /**
+ * The Observers callback Function
+ * 
  * @private
  * @type {Function}
  */
 Observer.prototype.notify= null;
 
 /**
+ * The Observers callback Object
  * @private
- * @type {Function}
+ * @type {Object}
  */
 Observer.prototype.context= null;
