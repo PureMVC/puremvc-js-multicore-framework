@@ -31,18 +31,11 @@
 				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/View.js" />
 				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/Model.js" />
 				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/Controller.js" />
-				
-				<!--
-				<pathelement location="${basedir}/src/org/puremvc/js/help/adapters/FacadeAdapter.js"/>
-				<pathelement location="${basedir}/src/org/puremvc/js/help/adapters/SimpleCommandAdapter.js"/>
-				<pathelement location="${basedir}/src/org/puremvc/js/help/adapters/MacroCommandAdapter.js"/>
-				<pathelement location="${basedir}/src/org/puremvc/js/help/adapters/MediatorAdapter.js"/>
-				<pathelement location="${basedir}/src/org/puremvc/js/help/adapters/ProxyAdapter.js"/>
-				-->
 				<pathelement location="${basedir}/Build/templates/libraryTemplate.footer.inc"/>
 			</path>
 		</concat>
-
+		
+		<!-- define the Google Closure compression settings -->
 		<jscomp compilationLevel="${google.closure.complevel}" 
 				warning="${google.closure.warnlevel}"
 				debug="false" 
@@ -53,29 +46,4 @@
 			</sources>
 		</jscomp>
 	</target>
-	
-	<!--
-		<jscomp compilationLevel="simple" warning="verbose" debug="false" output="${basedir}/bin/${library.name}.js" customExternsOnly="false">
-			<sources dir="${basedir}/src/">
-				<file name="org/puremvc/js/patterns/observer/Observer.js" />
-				<file name="org/puremvc/js/patterns/observer/Notification.js"/>
-				<file name="org/puremvc/js/patterns/observer/Notifier.js" />
-				<file name="org/puremvc/js/help/adapters/NotifierAdapter.js"/>
-				<file name="org/puremvc/js/patterns/command/SimpleCommand.js" />
-				<file name="org/puremvc/js/patterns/command/MacroCommand.js" />
-				<file name="org/puremvc/js/patterns/mediator/Mediator.js" />
-				<file name="org/puremvc/js/patterns/proxy/Proxy.js" />
-				<file name="org/puremvc/js/patterns/facade/Facade.js" />
-				<file name="org/puremvc/js/core/View.js" />
-				<file name="org/puremvc/js/core/Model.js" />
-				<file name="org/puremvc/js/core/Controller.js" />
-				<file name="org/puremvc/js/help/adapters/FacadeAdapter.js"/>
-				<file name="org/puremvc/js/help/adapters/SimpleCommandAdapter.js"/>
-				<file name="org/puremvc/js/help/adapters/MacroCommandAdapter.js"/>
-				<file name="org/puremvc/js/help/adapters/MediatorAdapter.js"/>
-				<file name="org/puremvc/js/help/adapters/ProxyAdapter.js"/>
-			</sources>
-		</jscomp>
-	-->
-
 </project>
