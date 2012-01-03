@@ -1,24 +1,17 @@
-/**
- * @fileOverview
- * @author David Foley
- * @exports Facade as org.puremvc.js.multicore.patterns.facade.Facade
- * @requires org.puremvc.js.multicore.core.Controller
- * @requires org.puremvc.js.multicore.core.Model
- * @reqruies org.puremvc.js.multicore.patterns.observer.Notification
- */
 
 /**
+ * @class org.puremvc.js.multicore.patterns.facade.Facade
  * Facade exposes the functionality of the Controller, Model and View
- * actors to client facing code. Note that The Facade constructor is
- * used internally by the framework and any attempt to use it directly
- * will throw an instantiation error.
+ * actors to client facing code. 
+ * 
+ * This Facade implementation is a Multiton, so you should not call the 
+ * constructor directly, but instead call the static Factory method, 
+ * passing the unique key for this instance to #getInstance
  *
  * @param {string} key
  * 	The multiton key to use to retrieve the Facade instance.
  * @constructor
- * @throws {Error}
- * 	If an attempt is made to instantiate Facade directly
- * @see #getInstance
+ * @throws {Error} If an attempt is made to instantiate Facade directly
  */
 function Facade(key)
 {
@@ -33,9 +26,16 @@ function Facade(key)
 };
 
 /**
- *
- *
- * @ignore
+ * Initialize the Multiton Facade instance.
+ * 
+ * Called automatically by the constructor. Override in your subclass to any
+ * subclass specific initializations. Be sure to call the 'super' 
+ * initializeFacade method, though
+ * 
+ *     MyFacade.prototype.initializeFacade= function ()
+ *     {
+ *         Facade.call(this);
+ *     };
  * @protected
  * @return {void}
  */
@@ -47,11 +47,11 @@ Facade.prototype.initializeFacade = function()
 };
 
 /**
- *
+ * Facade Multiton Factory method.
+ * 
  * @param {string} key
  * 	The multiton key use to retrieve a particular Facade instance
  * @return {org.puremvc.js.multicore.patterns.facade.Facade}
- * @throws {Error}
  */
 Facade.getInstance = function(key)
 {
@@ -64,8 +64,29 @@ Facade.getInstance = function(key)
 };
 
 /**
- *
- * @ignore
+ * Initialize the {@link org.puremvc.js.multicore.core.Controller Controller}.
+ * 
+ * Called by the #initializeFacade method.
+ * 
+ * Override this method in your subclass of Facade
+ * if one or both of the following are true:
+
+ * - You wish to initialize a different Controller
+ * - You have 
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
+ * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand}s
+ * to register with the Controllerat startup.   
+ * 
+ * If you don't want to initialize a different Controller, 
+ * call the 'super' initializeControlle method at the beginning of your
+ * method, then register commands.
+ * 
+ *     MyFacade.prototype.initializeController= function ()
+ *     {
+ *         Facade.prototype.initializeController.call(this);
+ *         this.registerCommand(AppConstants.A_NOTE_NAME, ABespokeCommand)
+ *     }
+ * 
  * @protected
  * @return {void}
  */
@@ -78,9 +99,29 @@ Facade.prototype.initializeController = function()
 };
 
 /**
- *
- * @ignore
  * @protected
+ * Initialize the {@link org.puremvc.js.multicore.core.Model Model};
+ * 
+ * Called by the #initializeFacade method.
+ * Override this method in your subclass of Facade if one of the following are
+ * true:
+ * 
+ * - You wish to initialize a different Model.
+ * 
+ * - You have {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy}s to 
+ *   register with the Model that do not retrieve a reference to the Facade at 
+ *   construction time.
+ * 
+ * If you don't want to initialize a different Model
+ * call 'super' #initializeModel at the beginning of your method, then register 
+ * Proxys.
+ * 
+ * Note: This method is *rarely* overridden; in practice you are more
+ * likely to use a command to create and registerProxys with the Model>, 
+ * since Proxys with mutable data will likely
+ * need to send Notifications and thus will likely want to fetch a reference to 
+ * the Facade during their construction. 
+ * 
  * @return {void}
  */
 Facade.prototype.initializeModel = function()
@@ -92,9 +133,33 @@ Facade.prototype.initializeModel = function()
 };
 
 /**
- *
- * @ignore
  * @protected
+ * 
+ * Initialize the {@link org.purevmc.js.multicore.core.View View}.
+ * 
+ * Called by the #initializeFacade method.
+ * 
+ * Override this method in your subclass of Facade if one or both of the 
+ * following are true:
+ *
+ * - You wish to initialize a different View.
+ * - You have Observers to register with the View
+ * 
+ * If you don't want to initialize a different View 
+ * call 'super' #initializeView at the beginning of your
+ * method, then register Mediator instances.
+ * 
+ *     MyFacade.prototype.initializeView= function ()
+ *     {
+ *         Facade.prototype.initializeView.call(this);
+ *         this.registerMediator(new MyMediator());
+ *     };
+ * 
+ * Note: This method is *rarely* overridden; in practice you are more
+ * likely to use a command to create and register Mediators
+ * with the View, since Mediator instances will need to send 
+ * Notifications and thus will likely want to fetch a reference 
+ * to the Facade during their construction. 
  * @return {void}
  */
 Facade.prototype.initializeView = function()
@@ -106,9 +171,11 @@ Facade.prototype.initializeView = function()
 };
 
 /**
- *
+ * Register a command with the Controller by Notification name
  * @param {string} notificationName
+ *  The name of the Notification to associate the command with
  * @param {Function} commandClassRef
+ *  A reference ot the commands constructor.
  * @return {void}
  */
 Facade.prototype.registerCommand = function(notificationName, commandClassRef)
@@ -117,8 +184,10 @@ Facade.prototype.registerCommand = function(notificationName, commandClassRef)
 };
 
 /**
- *
+ * Remove a previously registered command to Notification mapping from the
+ * {@link org.puremvc.js.multicore.core.Controller#removeCommand Controller}
  * @param {string} notificationName
+ *  The name of the the Notification to remove from the command mapping for.
  * @return {void}
  */
 Facade.prototype.removeCommand = function(notificationName)
@@ -127,9 +196,12 @@ Facade.prototype.removeCommand = function(notificationName)
 };
 
 /**
- *
+ * Check if a command is registered for a given notification.
+ * 
  * @param {string} notificationName
- * @remove {boolean}
+ *  A Notification name
+ * @return {boolean}
+ *  Whether a comman is currently registered for the given notificationName
  */
 Facade.prototype.hasCommand = function(notificationName)
 {
@@ -137,8 +209,11 @@ Facade.prototype.hasCommand = function(notificationName)
 };
 
 /**
- *
+ * Register a Proxy with the {@link org.puremvc.js.multicore.core.Model#registerProxy Model}
+ * by name.
+ * 
  * @param {org.puremvc.js.multicore.interfaces.IProxy} proxy
+ *  The Proxy instance to be registered with the Model.
  * @return {void}
  */
 Facade.prototype.registerProxy = function(proxy)
@@ -157,9 +232,11 @@ Facade.prototype.retrieveProxy = function(proxyName)
 };
 
 /**
- *
+ * Remove a Proxy from the Model by name
  * @param {string} proxyName
+ *  The name of the Proxy
  * @return {org.puremvc.js.multicore.interfaces.IProxy}
+ *  The Proxy that was removed from the Model
  */
 Facade.prototype.removeProxy = function(proxyName)
 {
@@ -173,9 +250,11 @@ Facade.prototype.removeProxy = function(proxyName)
 };
 
 /**
- *
+ * Check it a Proxy is registered.
  * @param {string} proxyName
+ *  A Proxy name
  * @return {boolean}
+ *  Whether a Proxy is currently registered with the given proxyName
  */
 Facade.prototype.hasProxy = function(proxyName)
 {
@@ -183,8 +262,10 @@ Facade.prototype.hasProxy = function(proxyName)
 };
 
 /**
- *
+ * Register a Mediator with with the View.
+ * 
  * @param {org.puremvc.js.multicore.interfaces.IMediator} mediator
+ *  A reference to the Mediator to register
  * @return {void}
  */
 Facade.prototype.registerMediator = function(mediator)
@@ -196,9 +277,12 @@ Facade.prototype.registerMediator = function(mediator)
 };
 
 /**
- *
+ * Retrieve a Mediator from the View by name
+ * 
  * @param {string} mediatorName
- * @return {org.puremvc.js.multicore.interfaces.IMediator}
+ *  The Mediators name
+ * @return {org.puremvc.js.multicore.patterns.mediator.Mediator}
+ *  The retrieved Mediator
  */
 Facade.prototype.retrieveMediator = function(mediatorName)
 {
@@ -206,9 +290,12 @@ Facade.prototype.retrieveMediator = function(mediatorName)
 };
 
 /**
- *
+ * Remove a Mediator from the View.
+ * 
  * @param {string} mediatorName
- * @return {org.puremvc.js.multicore.interfaces.IMediator}
+ *  The name of the Mediator to remove.
+ * @return {org.puremvc.js.multicore.patterns.mediator.Mediator}
+ *  The removed Mediator
  */
 Facade.prototype.removeMediator = function(mediatorName)
 {
@@ -222,9 +309,12 @@ Facade.prototype.removeMediator = function(mediatorName)
 };
 
 /**
- *
+ * Check if a Mediator is registered or not.
+ * 
  * @param {string} mediatorName
+ *  A Mediator name
  * @return {boolean}
+ *  Whether a Mediator is registered with the given mediatorName
  */
 Facade.prototype.hasMediator = function(mediatorName)
 {
@@ -232,17 +322,19 @@ Facade.prototype.hasMediator = function(mediatorName)
 };
 
 /**
- * Send a notification via the Facade. Any Mediators with
- * notification interests that match the notes name will
- *
- *
- *
+ * Create and send a 
+ * {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}
+ * 
+ * Keeps us from having to construct new Notification instances in our
+ * implementation
+ * 
  * @param {string} notificationName
+ *  The name of the Notification to send
  * @param {Object} [body]
+ *  The body of the notification
  * @param {string} [type]
+ *  The type of the notification
  * @return {void}
- * @see org.puremvc.js.multicore.patterns.mediator.Mediator#handleNotification
- * @see org.puremvc.js.multicore.core.Controller#executeCommand
  */
 Facade.prototype.sendNotification = function(notificationName, body, type)
 {
@@ -250,8 +342,18 @@ Facade.prototype.sendNotification = function(notificationName, body, type)
 };
 
 /**
- *
+ * Notify {@link org.puremvc.js.multicore.patterns.observer.Observer Observer}s
+ * 
+ * This method is left public mostly for backward 
+ * compatibility, and to allow you to send custom 
+ * notification classes using the facade.
+ * 
+ * Usually you should just call sendNotification
+ * and pass the parameters, never having to 
+ * construct the notification yourself.
+ * 
  * @param {org.puremvc.js.multicore.patterns.command.Notification} notification
+ *  The Notification to send
  * @return {void}
  */
 Facade.prototype.notifyObservers = function(notification)
@@ -264,10 +366,13 @@ Facade.prototype.notifyObservers = function(notification)
 
 /**
  * Initialize the Facades Notifier capabilities by
- * setting its multiton key.
- *
- *
- * @protected
+ * setting the Multiton key for this facade instance.
+ * 
+ * Not called directly, but instead from the 
+ * constructor when #getInstance is invoked. 
+ * It is necessary to be public in order to 
+ * implement Notifier
+ * 
  * @param {string} key
  * @return {void}
  */
@@ -277,13 +382,13 @@ Facade.prototype.initializeNotifier = function(key)
 };
 
 /**
- * Determine if there is a Facade, Model, View and
- * Controller association for a particular multiton
- * key.
+ * Check if a *Core* is registered or not
  *
  * @static
  * @param {string} key
+ *  The multiton key for the *Core* in question
  * @return {boolean}
+ *  Whether a *Core* is registered with the given key
  */
 Facade.hasCore = function(key)
 {
@@ -291,15 +396,13 @@ Facade.hasCore = function(key)
 };
 
 /**
- * Instruct the Facade to dump a core, that is, dispose of a Facade instance and
- * its corresponding Model, View and Controller.
+ * Remove a *Core* 
+ * 
+ * Remove the Model, View, Controller and Facade for a given key.
  *
  * @static
  * @param {string} key
  * @return {void}
- * @see org.puremvc.js.multicore.core.Model#removeModel
- * @see org.puremvc.js.multicore.core.View#removeView
- * @see org.puremvc.js.multicore.core.Controller#removeController
  */
 Facade.removeCore = function(key)
 {
@@ -313,6 +416,7 @@ Facade.removeCore = function(key)
 };
 
 /**
+ * @ignore
  * The Facades corresponding Controller
  *
  * @protected
@@ -321,6 +425,7 @@ Facade.removeCore = function(key)
 Facade.prototype.controller = null;
 
 /**
+ * @ignore
  * The Facades corresponding Model instance
  *
  * @protected
@@ -329,6 +434,7 @@ Facade.prototype.controller = null;
 Facade.prototype.model = null;
 
 /**
+ * @ignore
  * The Facades correspnding View instance.
  *
  * @protected
@@ -337,6 +443,7 @@ Facade.prototype.model = null;
 Facade.prototype.view = null;
 
 /**
+ * @ignore
  * The Facades multiton key.
  *
  * @protected
@@ -345,8 +452,8 @@ Facade.prototype.view = null;
 Facade.prototype.multitonKey = null;
 
 /**
- *
- *
+ * @ignore
+ * The Multiton Facade instance map.
  * @static
  * @protected
  * @type Array
@@ -355,6 +462,7 @@ Facade.instanceMap = [];
 
 /**
  * @ignore
+ * Message Constants
  * @protected
  * @type {string}
  * @const

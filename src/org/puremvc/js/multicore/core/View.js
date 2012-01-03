@@ -1,16 +1,45 @@
 /**
- * @fileOverview
- * @author David Foley
- * @exports View as org.puremvc.js.multicore.core.View
- */
-
-/**
- * View
+ * @class org.puremvc.js.multicore.core.View
  * 
+ * A Multiton View implementation.
+ * 
+ * In PureMVC, the View class assumes these responsibilities
+ * 
+ * - Maintain a cache of {@link org.puremvc.js.multicore.patterns.mediator.Mediator Mediator}
+ *   instances.
+ * 
+ * - Provide methods for registering, retrieving, and removing 
+ *   {@link org.puremvc.js.multicore.patterns.mediator.Mediator Mediator}.
+ * 
+ * - Notifiying {@link org.puremvc.js.multicore.patterns.mediator.Mediator Mediator} 
+ *   when they are registered or removed.
+ * 
+ * - Managing the observer lists for each 
+ *   {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}  
+ *   in the application.
+ * 
+ * - Providing a method for attaching 
+ *   {@link org.puremvc.js.multicore.patterns.observer.Observer Observer} to an 
+ *   {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}'s 
+ *   observer list.
+ * 
+ * - Providing a method for broadcasting a 
+ *   {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}.
+ * 
+ * - Notifying the 
+ *   {@link org.puremvc.js.multicore.patterns.observer.Observer Observer}s 
+ *   of a given 
+ *   {@link org.puremvc.js.multicore.patterns.observer.Notification Notification} 
+ *   when it broadcast.
+ * 
+ * This View implementation is a Multiton, so you should not call the 
+ * constructor directly, but instead call the static Multiton 
+ * Factory #getInstance method.
  * 
  * @param {string} key
  * @constructor
- * @see org.puremvc.js.multicore.core.View#getInstance
+ * @throws {Error} 
+ *  if instance for this Multiton key has already been constructed
  */
 function View(key)
 {
@@ -27,10 +56,13 @@ function View(key)
 };
 
 /**
- * The Views proteted initialization method. Though you will probably never
- * subclass View, you can override thie method to implementation your own View
- * initialization logic here.
- *
+ * @protected
+ * Initialize the Singleton View instance
+ * 
+ * Called automatically by the constructor, this is your opportunity to
+ * initialize the Singleton instance in your subclass without overriding the
+ * constructor
+ * 
  * @return {void}
  */
 View.prototype.initializeView = function()
@@ -39,13 +71,10 @@ View.prototype.initializeView = function()
 };
 
 /**
- * Retrieve a previously instantiated View using the multiton key to look it up. If
- * no View exits with they key, a new one will be instantiated automaticlly.
+ * View Singleton Factory method.
  * 
- * @static
- * @param {string} key
- *  A Views multiton key
  * @return {org.puremvc.js.multicore.core.View}
+ *  The Singleton instance of View
  */
 View.getInstance = function(key)
 {
@@ -58,8 +87,12 @@ View.getInstance = function(key)
 };
 
 /**
+ * Register an Observer to be notified of Notifications with a given name
+ * 
  * @param {string} notificationName
- * @param {org.puremvc.js.multicore.patterns.observer.Observer}
+ *  The name of the Notifications to notify this Observer of
+ * @param {org.puremvc.js.multicore.patterns.observer.Observer} observer
+ *  The Observer to register.
  * @return {void}
  */
 View.prototype.registerObserver = function(notificationName, observer)
@@ -75,9 +108,14 @@ View.prototype.registerObserver = function(notificationName, observer)
 };
 
 /**
- * Dispatch a Notification through the core
- *
+ * Notify the Observersfor a particular Notification.
+ * 
+ * All previously attached Observers for this Notification's
+ * list are notified and are passed a reference to the INotification in 
+ * the order in which they were registered.
+ * 
  * @param {org.puremvc.js.multicore.patterns.observer.Notification} notification
+ *  The Notification to notify Observers of
  * @return {void}
  */
 View.prototype.notifyObservers = function(notification)
@@ -102,12 +140,13 @@ View.prototype.notifyObservers = function(notification)
 };
 
 /**
- * Remove an Observer from the View.
- *
+ * Remove the Observer for a given notifyContext from an observer list for
+ * a given Notification name
+ * 
  * @param {string} notificationName
- *  The name of a notification that the observer is currently observing
- * @param {Observer} notifyContext
- *  The observer to remove.
+ *  Which observer list to remove from
+ * @param {Object} notifyContext
+ *  Remove the Observer with this object as its notifyContext
  * @return {void}
  */
 View.prototype.removeObserver = function(notificationName, notifyContext)
@@ -130,20 +169,21 @@ View.prototype.removeObserver = function(notificationName, notifyContext)
 };
 
 /**
- * Register a Mediator with the View. If the Mediator is already registered,
- * no action is taken, Otherwise, the return value of Mediators#getMediatorName
- * is used to reference the Mediator, and the Mediators#onRegister method is
- * invoked.
+ * Register a Mediator instance with the View.
+ * 
+ * Registers the Mediator so that it can be retrieved by name,
+ * and further interrogates the Mediator for its 
+ * {@link org.puremvc.js.multicore.patterns.mediator.Mediator#listNotificationInterests interests}.
  *
- * You will most likely use this method indirectly via Facade, rather than on
- * View instances.
- *
- * @param {org.puremvc.js.multicore.patterns.mediator.Mediator} mediator
- *  The Mediator to register.
- * @return {void}
- * @see org.puremvc.js.multicore.patterns.facade.Facade#registerMediator
- * @see org.puremvc.js.multicore.patterns.mediator.Mediator#getMediatorName
- * @see org.puremvc.js.multicore.patterns.mediator.Mediator#onRegister
+ * If the Mediator returns any Notification
+ * names to be notified about, an Observer is created encapsulating 
+ * the Mediator instance's 
+ * {@link org.puremvc.js.multicore.patterns.mediator.Mediator#handleNotification handleNotification}
+ * method and registering it as an Observer for all Notifications the 
+ * Mediator is interested in.
+ * 
+ * @param {org.puremvc.js.multicore.patterns.mediator.Mediator} 
+ *  a reference to the Mediator instance
  */
 View.prototype.registerMediator = function(mediator)
 {
@@ -174,17 +214,12 @@ View.prototype.registerMediator = function(mediator)
 }
 
 /**
- * Retrieve a Mediator from the View. If a Mediator with the name provided is
- * registered with the View, it is returned, otherwise, the method will return
- * null.
- *
- * You will most likely use this method indirectly via Facade, and not directly
- * on View instances.
- *
+ * Retrieve a Mediator from the View
+ * 
  * @param {string} mediatorName
- *  The name of a Mediator
- * @return {org.puremvc.js.multicore.patterns.mediator.Mediator|null}
- * @see org.puremvc.js.multicore.patterns.facade.Facade#retreiveMediator
+ *  The name of the Mediator instance to retrieve
+ * @return {org.puremvc.js.multicore.patterns.mediator.Mediator}
+ *  The Mediator instance previously registered with the given mediatorName
  */
 View.prototype.retrieveMediator = function(mediatorName)
 {
@@ -192,16 +227,12 @@ View.prototype.retrieveMediator = function(mediatorName)
 };
 
 /**
- * Remove a Mediator from the View by its name. No action is taken if the View
- * does not have a Mediator with that name. Otherwise, the Mediators #onRemove
- * method is invoked and the Mediator is unregistered with the view.
- *
- * You will most likely use this method indirectly via Facade, and not directly
- * on View instances.
- *
- * @return {org.puremvc.js.multicore.patterns.mediator.Mediator|null}
- * @see org.puremvc.js.multicore.patterns.facade.Facade#removeMediator
- * @see org.puremvc.js.multicore.patterns.mediator.Mediator#onRemove
+ * Remove a Mediator from the View.
+ * 
+ * @param {string} mediatorName
+ *  Name of the Mediator instance to be removed
+ * @return {org.puremvc.js.multicore.patterns.mediator.Mediator}
+ *  The Mediator that was removed from the View
  */
 View.prototype.removeMediator = function(mediatorName)
 {
@@ -228,12 +259,11 @@ View.prototype.removeMediator = function(mediatorName)
 };
 
 /**
- * Determine if a Mediator has been registered with this View
- *
+ * Check if a Mediator is registered or not.
+ * 
  * @param {string} mediatorName
- *  The name of a Mediator
  * @return {boolean}
- *  True if the View has a Mediator with that name, otherwise false
+ *  Whether a Mediator is registered with the given mediatorname
  */
 View.prototype.hasMediator = function(mediatorName)
 {
@@ -241,9 +271,8 @@ View.prototype.hasMediator = function(mediatorName)
 };
 
 /**
- * Dispose of a View instance.
- *
- * @param {string} key
+ * Remove a View instance
+ * 
  * @return {void}
  */
 View.removeView = function(key)
@@ -252,6 +281,7 @@ View.removeView = function(key)
 };
 
 /**
+ * @ignore
  * The Views internal mapping of mediator names to mediator instances
  *
  * @type Array
@@ -260,6 +290,7 @@ View.removeView = function(key)
 View.prototype.mediatorMap = null;
 
 /**
+ * @ignore
  * The Views internal mapping of Notification names to Observer lists
  *
  * @type Array
@@ -268,6 +299,7 @@ View.prototype.mediatorMap = null;
 View.prototype.observerMap = null;
 
 /**
+ * @ignore
  * The internal map used to store multiton View instances
  *
  * @type Array
@@ -276,6 +308,7 @@ View.prototype.observerMap = null;
 View.instanceMap = [];
 
 /**
+ * @ignore
  * The Views internal multiton key.
  *
  * @type string
@@ -284,6 +317,7 @@ View.instanceMap = [];
 View.prototype.multitonKey = null;
 
 /**
+ * @ignore
  * The error message used if an attempt is made to instantiate View directly
  *
  * @type string

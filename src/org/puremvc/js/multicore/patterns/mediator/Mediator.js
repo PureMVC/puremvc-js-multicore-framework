@@ -1,36 +1,12 @@
 /**
- * @fileOverview
- * @author David Foley
- * @exports Mediator as org.puremvc.js.multicore.patterns.mediator.Mediator
- * @requires org.puremvc.js.multicore.patterns.observer.Notifier
- */
-
-/**
- * The Mediators name. Just as with Proxy's, its common practice for Mediators
- * to define their name as a static property.
- * 
- * @example
- * ButtonMediator.NAME= 'buttonMediator';
- * 
- * @type String
- * @const
- * @static
- */
-Mediator.NAME= "Mediator";
-
-/**
- * Create a new Mediator to mediate between a view component and the rest of the
- * PureMVC actors.
- * 
- * 
- * @param {string} [mediatorName]
- *  The Mediators name. If not supplied, the Mediator will use its own static
- *  NAME property
- * @param {Object} [viewComponent]
- *  The Mediators view component.
- * @constructor
+ * @class org.puremvc.js.multicore.patterns.mediator.Mediator
  * @extends org.puremvc.js.multicore.patterns.observer.Notifier
- * @see #setViewComponent
+ * @param {string} [mediatorName]
+ *  The Mediators name. Default value is the static #NAME property of a Mediator
+ *  class
+ * @param {Object} [viewComponent]
+ *  The Mediators {@link #setViewComponent viewComponent}.
+ * @constructor
  */
 function Mediator (mediatorName, viewComponent)
 {
@@ -38,14 +14,27 @@ function Mediator (mediatorName, viewComponent)
     this.viewComponent=viewComponent;  
 };
 
+/**
+ * @static
+ * The name of the Mediator.
+ * 
+ * Typically, a Mediator will be written to serve one specific control or group
+ * of controls and so, will not have a need to be dynamically named.
+ * 
+ * @const
+ * @type {string}
+ */
+Mediator.NAME= "Mediator";
+
 /* subclass */
 Mediator.prototype= new Notifier;
 Mediator.prototype.constructor= Mediator;
 
 /**
- * Determine the Mediators name.
+ * Get the name of the Mediator
  * 
- * @return {String}
+ * @return {string}
+ *  The Mediator name
  */
 Mediator.prototype.getMediatorName= function ()
 {
@@ -53,11 +42,14 @@ Mediator.prototype.getMediatorName= function ()
 };
 
 /**
- * Set the Mediators view component. A view component could be a HTMLElement
- * retrieved using the DOM API, or an object produced by a DOM abstraction 
- * library such as MooTools or JQuery.
+ * Set the Mediators view component. This could
+ * be a HTMLElement, a bespoke UiComponent wrapper
+ * class, a MooTools Element, a jQuery result or a
+ * css selector, depending on which DOM abstraction 
+ * library you are using.
  * 
- * @param {Object} viewComponent
+ * 
+ * @param {Object} the view component
  * @return {void}
  */
 Mediator.prototype.setViewComponent= function (viewComponent)
@@ -66,9 +58,24 @@ Mediator.prototype.setViewComponent= function (viewComponent)
 };
 
 /**
- * Get the Mediators view component
+ * Get the Mediators view component.
+ * 
+ * Additionally, an optional explicit getter can be
+ * be defined in the subclass that defines the 
+ * view components, providing a more semantic interface
+ * to the Mediator.
+ * 
+ * This is different from the AS3 implementation in
+ * the sense that no casting is required from the
+ * object supplied as the view component.
+ * 
+ *     MyMediator.prototype.getComboBox= function ()
+ *     {
+ *         return this.viewComponent;  
+ *     }
  * 
  * @return {Object}
+ *  The view component
  */
 Mediator.prototype.getViewComponent= function ()
 {
@@ -76,12 +83,11 @@ Mediator.prototype.getViewComponent= function ()
 };
 
 /**
- * Determine which notifications the Mediator is interested in. Once a Mediator
- * is registered with a Views, its #handleNotification method is invoked once
- * a matching notification is dispatched through the actors.
+ * List the Notification names this Mediator is interested
+ * in being notified of.
  * 
- * @return {Array.<String>}
- * @see #handleNotification
+ * @return {Array.<string>} 
+ *  The list of Notification names.
  */
 Mediator.prototype.listNotificationInterests= function ()
 {
@@ -89,11 +95,12 @@ Mediator.prototype.listNotificationInterests= function ()
 };
 
 /**
- * The method invoked when a notification matching a notification interest is
- * dispatched. Typically speaking, notification handling is managed within a
- * switch statement, rather than delegating out to other methods.
+ * Handle Notifications.
  * 
- * @protected
+ * Typically this will be handled in a switch statement
+ * with one 'case' entry per Notification the Mediator
+ * is interested in
+ * 
  * @param {org.puremvc.js.multicore.patterns.observer.Notification} notification
  * @return {void}
  */
@@ -103,9 +110,7 @@ Mediator.prototype.handleNotification= function (notification)
 };
 
 /**
- * The method invoked when the Mediator is registered with a View.
- * 
- * @protected
+ * Called by the View when the Mediator is registered
  * @return {void}
  */
 Mediator.prototype.onRegister= function ()
@@ -114,10 +119,7 @@ Mediator.prototype.onRegister= function ()
 };
 
 /**
- * The method invoked when the Mediator is removed from a View.
- * 
- * @protected
- * @return void
+ * Called by the View when the Mediator is removed
  */
 Mediator.prototype.onRemove= function ()
 {
@@ -125,6 +127,7 @@ Mediator.prototype.onRemove= function ()
 };
 
 /**
+ * @ignore
  * The Mediators name. Should only be accessed by Mediator subclasses.
  * 
  * @protected
@@ -133,6 +136,7 @@ Mediator.prototype.onRemove= function ()
 Mediator.prototype.mediatorName= null;
 
 /**
+ * @ignore
  * The Mediators viewComponent. Should only be accessed by Mediator subclasses.
  * 
  * @protected

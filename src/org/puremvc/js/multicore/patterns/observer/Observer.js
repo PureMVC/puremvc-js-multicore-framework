@@ -1,16 +1,28 @@
 /**
- * @fileOverview
- * @author David Foley
- * @exports Observer as org.puremvc.js.multicore.patterns.observer.Observer
- */
-
-/**
- * An Observer is an encapsulation of a callback Function and an execution
- * context. Observers are used by PureMVC's notification system and are used
- * to delegate notifications to arbitrary recievers.
+ * @class org.puremvc.js.multicore.patterns.observer.Observer
  * 
- * @param {Function} notifyMethod
- * @param {Object} notifyContext
+ * A base Observer implementation.
+ * 
+ * An Observer is an object that encapsulates information
+ * about an interested object with a method that should 
+ * be called when a particular Notification is broadcast. 
+ * 
+ * In PureMVC, the Observer class assumes these responsibilities:
+ * 
+ * - Encapsulate the notification (callback) method of the interested object.
+ * - Encapsulate the notification context (this) of the interested object.
+ * - Provide methods for setting the notification method and context.
+ * - Provide a method for notifying the interested object.
+ * 
+ * 
+ * The notification method on the interested object should take 
+ * one parameter of type Notification.
+ * 
+ * 
+ * @param {Function} notifyMethod 
+ *  the notification method of the interested object
+ * @param {Object} notifyContext 
+ *  the notification context of the interested object
  * @constructor
  */
 function Observer (notifyMethod, notifyContext)
@@ -22,8 +34,9 @@ function Observer (notifyMethod, notifyContext)
 /**
  * Set the Observers notification method.
  * 
+ * The notification method should take one parameter of type Notification
  * @param {Function} notifyMethod
- *  
+ *  the notification (callback) method of the interested object.
  * @return {void}
  */
 Observer.prototype.setNotifyMethod= function (notifyMethod)
@@ -35,6 +48,8 @@ Observer.prototype.setNotifyMethod= function (notifyMethod)
  * Set the Observers notification context.
  * 
  * @param {Object} notifyContext
+ *  the notification context (this) of the interested object.
+ * 
  * @return {void}
  */
 Observer.prototype.setNotifyContext= function (notifyContext)
@@ -65,11 +80,10 @@ Observer.prototype.getNotifyContext= function ()
 };
 
 /**
- * Dispatch a Notification to this Observer. In turn, the Observer will invoke
- * its notification method, using its notification context as the methods
- * execution scope.
+ * Notify the interested object.
  * 
  * @param {org.puremvc.js.multicore.patterns.observer.Notification} notification
+ *  The Notification to pass to the interested objects notification method
  * @return {void}
  */
 Observer.prototype.notifyObserver= function (notification)
@@ -78,8 +92,7 @@ Observer.prototype.notifyObserver= function (notification)
 };
 
 /**
- * Determine if this Observer is equivalent to another. Two Observers are 
- * equivalent if they have the same notification context.
+ * Compare an object to this Observers notification context.
  * 
  * @param {Object} object
  *  

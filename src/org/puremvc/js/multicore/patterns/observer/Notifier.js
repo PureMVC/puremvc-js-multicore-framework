@@ -1,14 +1,36 @@
 /**
- * @fileOverview
- * @author David Foley
- * @exports Notifier as org.puremvc.js.multicore.patterns.observer.Notifier
- */
-
-/**
- * Create a new Notifier. Notifiers are generally used internally by the
- * framework and are used as entry points to PureMVC's notification system,
- * delegating to Facade instances.
- *
+ * @class org.puremvc.js.multicore.patterns.observer.Notifier
+ * 
+ * A Base Notifier implementation.
+ * 
+ * {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand}, 
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}, 
+ * {@link org.puremvc.js.multicore.patterns.mediator.Mediator Mediator} and 
+ * {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy}
+ * all have a need to send Notifications
+ * 
+ * The Notifier interface provides a common method called
+ * #sendNotification that relieves implementation code of 
+ * the necessity to actually construct Notifications.
+ * 
+ * The Notifier class, which all of the above mentioned classes
+ * extend, provides an initialized reference to the 
+ * {@link org.puremvc.js.multicore.patterns.facade.Facade Facade}
+ * Multiton, which is required for the convienience method
+ * for sending Notifications but also eases implementation as these
+ * classes have frequent 
+ * {@link org.puremvc.js.multicore.patterns.facade.Facade Facade} interactions 
+ * and usually require access to the facade anyway.
+ * 
+ * NOTE: In the MultiCore version of the framework, there is one caveat to
+ * notifiers, they cannot send notifications or reach the facade until they
+ * have a valid multitonKey. 
+ * 
+ * The multitonKey is set:
+ *   - on a Command when it is executed by the Controller
+ *   - on a Mediator is registered with the View
+ *   - on a Proxy is registered with the Model. 
+ * 
  * @constructor
  */
 function Notifier()
@@ -16,8 +38,11 @@ function Notifier()
 };
 
 /**
- * Dispatch a notification through PureMVC's notification system.
+ * Create and send a Notification.
  *
+ * Keeps us from having to construct new Notification instances in our 
+ * implementation code.
+ * 
  * @param {string} notificationName
  *  A notification name
  * @param {Object} [body]
@@ -25,7 +50,6 @@ function Notifier()
  * @param {string} [type]
  *  The notification type
  * @return {void}
- * @see org.puremvc.js.multicore.patterns.facade.Facade#sendNotification
  */
 Notifier.prototype.sendNotification = function(notificationName, body, type)
 {
@@ -37,9 +61,20 @@ Notifier.prototype.sendNotification = function(notificationName, body, type)
 };
 
 /**
- * The Notifiers framework initialization method. This method is rarely if ever
- * called by client code, and is used by the framework to associate this Notifier
- * with a PureMVC core.
+ * Initialize this Notifier instance.
+ * 
+ * This is how a Notifier gets its multitonKey. 
+ * Calls to #sendNotification or to access the
+ * facade will fail until after this method 
+ * has been called.
+ * 
+ * Mediators, Commands or Proxies may override 
+ * this method in order to send notifications
+ * or access the Multiton Facade instance as
+ * soon as possible. They CANNOT access the facade
+ * in their constructors, since this method will not
+ * yet have been called.
+ * 
  *
  * @param {string} key
  *  The Notifiers multiton key;
@@ -51,7 +86,7 @@ Notifier.prototype.initializeNotifier = function(key)
 };
 
 /**
- * Retrieve the Facade associated with the Notifier
+ * Retrieve the Multiton Facade instance
  *
  *
  * @protected
@@ -68,6 +103,7 @@ Notifier.prototype.getFacade = function()
 };
 
 /**
+ * @ignore
  * The Notifiers internal multiton key.
  *
  * @protected
@@ -76,6 +112,7 @@ Notifier.prototype.getFacade = function()
 Notifier.prototype.multitonKey = null;
 
 /**
+ * @ignore
  * The error message used if the Notifier is not initialized correctly and
  * attempts to retrieve its own multiton key
  *

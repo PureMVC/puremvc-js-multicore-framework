@@ -1,14 +1,18 @@
 /**
- * @fileOverview
- * @author David Foley
- * @exports SimpleCommand as org.puremvc.js.multicore.patterns.command.SimpleCommand
- */
-
-/**
- * SimpleCommands encapsulate the business logic of your application.
+ * @class org.puremvc.js.multicore.patterns.command.SimpleCommand
+ * @extends org.puremvc.js.multicore.patterns.observer.Notifier
+ *
+ * SimpleCommands encapsulate the business logic of your application. Your 
+ * subclass should override the #execute method where your business logic will
+ * handle the 
+ * {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}
+ * 
+ * Take a look at 
+ * {@link org.puremvc.js.multicore.patterns.facade.Facade#registerCommand Facade's registerCommand}
+ * or {@link org.puremvc.js.multicore.core.Controller#registerCommand Controllers registerCommand}
+ * methods to see how to add commands to your application.
  * 
  * @constructor
- * @extends org.puremvc.js.multicore.patterns.observer.Notifier
  */
 function SimpleCommand () { };
 
@@ -16,13 +20,14 @@ SimpleCommand.prototype= new Notifier;
 SimpleCommand.prototype.constructor= SimpleCommand;
 
 /**
- * Execute the SimpleCommans business logic, using the Notification body as the
- * carrier of the information needed to perform this logic.
+ * Fulfill the use-case initiated by the given Notification
+ * 
+ * In the Command Pattern, an application use-case typically begins with some
+ * user action, which results in a Notification is handled by the business logic
+ * in the #execute method of a command.
  * 
  * @param {org.puremvc.js.multicore.patterns.observer.Notification} notification
+ *  The notification to handle.
  * @return {void}
- * 
- * @see org.puremvc.js.multicore.patterns.facade.Facade#registerCommand
- * @see org.puremvc.js.multicore.core.Controller#registerCommand
  */
 SimpleCommand.prototype.execute= function (notification) { };

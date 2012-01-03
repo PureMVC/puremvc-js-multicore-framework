@@ -1,14 +1,33 @@
 /**
- * @fileOverview
- * @exports Notification as org.puremvc.js.multicore.patterns.observer.Notification
- * @author David Foley | david@objectkit.com
- */
-
-/**
- * Create a new Notification.
- *
- * For the most part, you will never instantiate a Notification directly,
- *
+ * @class org.puremvc.js.multicore.patterns.observer.Notification
+ * 
+ * A base Notification implementation.
+ * 
+ * PureMVC does not rely upon underlying event models such as the one provided 
+ * with the DOM or other browser centric W3C event models.
+ * 
+ * The Observer Pattern as implemented within PureMVC exists to support 
+ * event-driven communication between the application and the actors of the MVC 
+ * triad.
+ * 
+ * Notifications are not meant to be a replacement for events in the browser. 
+ * Generally, Mediator implementors place event listeners on their view 
+ * components, which they then handle in the usual way. This may lead to the 
+ * broadcast of Notifications to trigger commands or to communicate with other 
+ * Mediators. {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy},
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}
+ * and {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand}
+ * instances communicate with each other and 
+ * {@link org.puremvc.js.multicore.patterns.mediator.Mediator Mediator}s
+ * by broadcasting Notifications.
+ * 
+ * A key difference between browser events and PureMVC Notifications is that
+ * events follow the 'Chain of Responsibility' pattern, 'bubbling' up the 
+ * display hierarchy until some parent component handles the event, while 
+ * PureMVC Notification follow a 'Publish/Subscribe' pattern. PureMVC classes 
+ * need not be related to each other in a parent/child relationship in order to 
+ * communicate with one another using Notifications.
+ *  
  * @param {string} name
  *  The Notification name
  * @param {Object} [body]
@@ -27,16 +46,10 @@ function Notification(name, body, type)
 };
 
 /**
- * Determine this notifications name. When a Notification is dispatched via
- * PureMVC's observers mechanism, it is the Notifications name which is
- * ultimately the decident factor governing which Command is instantiated and
- * executed.
- *
- * Generally speaking, this method is used internally
- * by the framework and you will not have to invoke it.
+ * Get the name of the Notification instance
  *
  * @return {string}
- * @see {Facade#registerCommand}
+ *  The name of the Notification instance
  */
 Notification.prototype.getName= function()
 {
@@ -44,10 +57,8 @@ Notification.prototype.getName= function()
 };
 
 /**
- * Set this Notifications body. A Notifications body can have any value,
- * including null or void values (though this is not recommended)
- *
- * @param {*} body
+ * Set this Notifications body. 
+ * @param {Object} body
  * @return {void}
  */
 Notification.prototype.setBody= function(body)
@@ -58,7 +69,7 @@ Notification.prototype.setBody= function(body)
 /**
  * Get the Notification body.
  *
- * @return {*}
+ * @return {Object}
  */
 Notification.prototype.getBody= function()
 {
@@ -66,7 +77,7 @@ Notification.prototype.getBody= function()
 };
 
 /**
- * Set the Notifications type.
+ * Set the type of the Notification instance.
  *
  * @param {Object} type
  * @return {void}
@@ -78,7 +89,7 @@ Notification.prototype.setType= function(type)
 };
 
 /**
- * Determine this Notifications type.
+ * Get the type of the Notification instance.
  * 
  * @return {Object}
  */
@@ -88,9 +99,8 @@ Notification.prototype.getType= function()
 };
 
 /**
- * Get a string representation of this Notification
+ * Get a string representation of the Notification instance
  *
- * @override
  * @return {string}
  */
 Notification.prototype.toString= function()

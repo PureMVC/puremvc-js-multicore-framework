@@ -1,223 +1,214 @@
 /**
- * @fileOverview
- * @author David Foley
- * @exports Controller as org.puremvc.js.multicore.core.Controller
- * @requires org.puremvc.js.multicore.core.View
- * @requires org.puremvc.js.multicore.patterns.observer.Notification
- * @requires org.puremvc.js.multicore.patterns.observer.Observer
- */
-
-/**
- * Create a new Controller instance. Note that the Controller 
- * constructor is used internally by the framework, and any attempt 
- * to use it directly will throw an error. 
+ * @class org.puremvc.js.multicore.core.Controller
  * 
- * You will most likely never access Controller instances or its
- * methods directly, but indirectly, via Facade.
+ * In PureMVC, the Controller class follows the
+ * 'Command and Controller' strategy, and assumes these
+ * responsibilities:
  * 
+ * - Remembering which
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
+ * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand
+ * MacroCommand}s
+ * are intended to handle which {@link
+ * org.puremvc.js.multicore.patterns.observer.Notification Notification}s
+ * - Registering itself as an {@link
+ * org.puremvc.js.multicore.patterns.observer.Observer Observer} with
+ * the {@link org.puremvc.js.multicore.core.View View} for each {@link
+ * org.puremvc.js.multicore.patterns.observer.Notification Notification}
+ * that it has an {@link org.puremvc.js.multicore.patterns.command.SimpleCommand
+ * SimpleCommand} or {@link
+ * org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand} mapping
+ * for.
+ * - Creating a new instance of the proper {@link
+ * org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
+ * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand
+ * MacroCommand}s
+ * to handle a given {@link
+ * org.puremvc.js.multicore.patterns.observer.Notification Notification} when
+ * notified by the
+ * {@link
+ * org.puremvc.js.multicore.core.View View}.
+ * - Calling the command's execute
+ * method, passing in the {@link
+ * org.puremvc.js.multicore.patterns.observer.Notification Notification}.
+ *
+ * Your application must register {@link
+ * org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
+ * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand
+ * MacroCommand}s with the
+ * Controller.
+ *
+ * The simplest way is to subclass {@link
+ * org.puremvc.js.multicore.patterns.facade.Facade Facade},
+ * and use its {@link
+ * org.puremvc.js.multicore.patterns.facade.Facade#initializeController
+ * initializeController} method to add your
+ * registrations.
+ *
+ * This Controller implementation is a Multiton, so you should not call the 
+ * constructor directly, but instead call the static #getInstance factory method, 
+ * passing the unique key for this instance to it.
  * @param {string} key
- * 	The Controllers multiton key.
- * @constructor
  * @throws {Error}
- * 	If an attempt is made to instantiate a Controller directly
- * @see org.puremvc.js.multicore.core.Controller.getInstance
- * @see org.puremvc.js.multicore.patterns.facade.Facade
+ *  If instance for this Multiton key has already been constructed
+ * @constructor
  */
-function Controller (key)
+function Controller(key)
 {
-	if (Controller.instanceMap[key] != null)
-	{
-		throw new Error(Controller.MULTITON_MSG);
-	}
+    if(Controller.instanceMap[key] != null)
+    {
+        throw new Error(Controller.MULTITON_MSG);
+    }
 
-	this.multitonKey= key;
-	Controller.instanceMap[this.multitonKey]= this;
-	this.commandMap= new Array();
-	this.initializeController();
+    this.multitonKey= key;
+    Controller.instanceMap[this.multitonKey]= this;
+    this.commandMap= new Array();
+    this.initializeController();
 }
 
 /**
- * Generally speaking, you should not subclass Controller, and
- * there should be no need to do so. However, if you do decide 
- * to subclass Controller, you can override this method to 
- * perform additional initialization, such as the registration
- * of commands. As retrieval of the Controllers corresponding
- * View is necessary at initialization time, ensure to either
- * call this method before executing your logic, or implement
- * the same view retrieval logic again in your overridden method.
- * 
- * @ignore
  * @protected
+ * 
+ * Initialize the multiton Controller instance.
+ *
+ * Called automatically by the constructor.
+ *
+ * Note that if you are using a subclass of View
+ * in your application, you should *also* subclass Controller
+ * and override the initializeController method in the
+ * following way.
+ * 
+ *     MyController.prototype.initializeController= function ()
+ *     {
+ *         this.view= MyView.getInstance(this.multitonKey);
+ *     };
+ * 
  * @return {void}
  */
-Controller.prototype.initializeController= function ()
+Controller.prototype.initializeController= function()
 {
-	this.view= View.getInstance(this.multitonKey);
+    this.view= View.getInstance(this.multitonKey);
 };
 
 /**
- * Retrieve a Controller by its multiton key. If no existing
- * Controller has the multiton key provided, a new Controller 
- * instance will be created automatically.
- * 
- * Typically, you will not use this method directly. Instead, your
- * use of Facade will drive Controller instantiation as needed.
- * 
- * @param {string} key
- * 	A multiton key	
+ * The Controllers multiton factory method.
+ *
  * @return {org.puremvc.js.multicore.core.Controller}
- * @see org.puremvc.js.multicore.patterns.facade.Facade.getInstance
- * @see org.puremvc.js.multicore.core.Controller.removeController
+ *  the Multiton instance of Controller
  */
-Controller.getInstance= function (key)
+Controller.getInstance= function(key)
 {
-	if (null == this.instanceMap[key])
-	{
-		this.instanceMap[key]= new this(key);
-	}
+    if(null == this.instanceMap[key])
+    {
+        this.instanceMap[key]= new this(key);
+    }
 
-	return this.instanceMap[key];
+    return this.instanceMap[key];
 };
 
 /**
- * Instruct the Controller to execute a Command. The supplied notes name
- * will be used to determine which Command to execute. If the note name
- * does not correspond to any registered Command, no action will be taken
- * by the Controller.
- * 
- * Note that Commands are instantiated prior to execution.
- * 
+ * If a SimpleCommand or MacroCommand has previously been registered to handle
+ * the given Notification then it is executed.
+ *
  * @param {org.puremvc.js.multicore.patterns.observer.Notification} note
  * @return {void}
- * @see #registerCommand
- * @see org.puremvc.js.multicore.patterns.observer.Notification#getName
  */
 Controller.prototype.executeCommand= function(note)
 {
-	var commandClassRef= this.commandMap[note.getName()];
-	if (commandClassRef == null)
-		return;
+    var commandClassRef= this.commandMap[note.getName()];
+    if(commandClassRef == null)
+        return;
 
-	var commandInstance= new commandClassRef();
-	commandInstance.initializeNotifier(this.multitonKey);
-	commandInstance.execute(note);
+    var commandInstance= new commandClassRef();
+    commandInstance.initializeNotifier(this.multitonKey);
+    commandInstance.execute(note);
 };
 
 /**
- * Register a Command with the Controller, associating it with a 
- * notification name. Note that you supply Command constructors, and
- * not Command instances to this method. You can think of the relationship
- * between Commands and notification names in terms of a key-value pair, where
- * the notification name is the key, and the Command constructor is the value
- * associated with that key.
- * 
- * Note that you will most likely not use this method directly, but indirectly
- * via Facade.
- * 
+ * Register a particular SimpleCommand or MacroCommand
+ * class as the handler for a particular Notification.
+ *
+ * If an command already been registered to
+ * handle Notifications with this name, it is no longer
+ * used, the new command is used instead.
+ *
+ * The Observer for the new command is only created if this the
+ * first time an ICommand has been regisered for this Notification name.
+ *
  * @param {string} notificationName
- * 	Any string to associate with the command.
+ *  the name of the Notification
  * @param {Function} commandClassRef
- * 	A SimpleCommand or MacroCommand constructor.
+ *  a command constructor
  * @return {void}
- * @see org.puremvc.js.multicore.patterns.facade.Facade#registerCommand
  */
-Controller.prototype.registerCommand= function (notificationName, commandClassRef)
+Controller.prototype.registerCommand= function(notificationName, commandClassRef)
 {
-	if (this.commandMap[notificationName] == null)
-	{
-		this.view.registerObserver(notificationName, new Observer(this.executeCommand, this));
-	}
+    if(this.commandMap[notificationName] == null)
+    {
+        this.view.registerObserver(notificationName, new Observer(this.executeCommand, this));
+    }
 
-	this.commandMap[notificationName]= commandClassRef;
+    this.commandMap[notificationName]= commandClassRef;
 };
 
 /**
- * Determine if the Controller has any Command associated with a particular
- * notification name.
- * 
+ * Check if a command is registered for a given Notification
+ *
  * @param {string} notificationName
- * 	A notification name.
  * @return {boolean}
- * 	Whether this Controller associates the notification name with a Command or not
- * @see org.puremvc.js.multicore.patterns.facade.Facade#hasCommand
+ *  whether a Command is currently registered for the given notificationName.
  */
-Controller.prototype.hasCommand= function (notificationName)
+Controller.prototype.hasCommand= function(notificationName)
 {
-	return this.commandMap[notificationName] != null;
+    return this.commandMap[notificationName] != null;
 };
 
 /**
- * Unregister any Command previously registered with the Controller.
- * 
+ * Remove a previously registered command to
+ * {@link org.puremvc.js.multicore.patterns.observer.Notifcation Notification}
+ * mapping.
+ *
  * @param {string} notificationName
+ *  the name of the Notification to remove the command mapping for
  * @return {void}
- * @see #hasCommand
- * @see #registerCommand
- * @see org.puremvc.js.multicore.patterns.facade.Facade#removeCommand
  */
-Controller.prototype.removeCommand= function (notificationName)
+Controller.prototype.removeCommand= function(notificationName)
 {
-	if(this.hasCommand(notificationName))
-	{
-		this.view.removeObserver(notificationName, this);
-		this.commandMap[notificationName]= null;
-	}
+    if(this.hasCommand(notificationName))
+    {
+        this.view.removeObserver(notificationName, this);
+        this.commandMap[notificationName]= null;
+    }
 };
 
 /**
- * Dispose of a particular Controller by its multiton key. 
- * 
- * @static
- * @param {string} key
+ * Remove a Controller instance
+ *
+ * @param {string} multitonKey of #Controller instance to remove
  * @return {void}
- * @see org.puremvc.js.multicore.patterns.facade.Facade#removeCore
  */
-Controller.removeController= function (key)
+Controller.removeController= function(key)
 {
-	delete this.instanceMap[key];
+    delete this.instanceMap[key];
 };
 
 /**
- * Local reference to view.
- *
- * @type org.puremvc.js.multicore.core.View
- * @protected
- */
-Controller.prototype.view;
-
-/**
- * Mapping of notification names to Command class references
- *
- * @type Object
- * @protected
- */
-Controller.prototype.commandMap;
-
-/**
- * The multiton key for this Core.
- *
- * @type string
- * @protected
- */
-Controller.prototype.multitonKey;
-
-/**
- * Multion instances.
- *
- * @type Object
- * @protected
  * @ignore
- * @static
+ * Local reference to the Controllers View
+ * @protected
+ * @type {View}
  */
+Controller.prototype.view
+Controller.prototype.commandMap
+Controller.prototype.multitonKey
 Controller.instanceMap= [];
 
 /**
- * The multiton error message thrown by the constructor in cases of instantiation
- * error.
+ * @ignore
+ * Message constants
  *
- * @protected
  * @static
- * @const
- * @type string
+ * @protected
+ * @type {string}
  */
 Controller.MULTITON_MSG= "controller key for this Multiton key already constructed"

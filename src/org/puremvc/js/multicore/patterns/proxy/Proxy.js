@@ -1,34 +1,30 @@
 /**
- * @fileOverview
- * @author David Foley
- * @exports Proxy as org.puremvc.js.multicore.patterns.proxy.Proxy
- * @requires org.puremvc.js.multicore.patterns.observer.Notifier
- */
-
-/**
- * The Proxy's name defined as a static string property. It is common practice
- * for Proxy's to define their name as static properties
+ * @class org.puremvc.js.multicore.patterns.proxy.Proxy
+ * @extends org.puremvc.js.multicore.patterns.observer.Notifier
+ *
+ * A base Proxy implementation. 
  * 
- * @example
- * // a UserProxy subclass would define its NAME property like so
- * UserProxy.NAME= 'userProxy';
+ * In PureMVC, Proxy classes are used to manage parts of the application's data 
+ * model.
  * 
- * @static
- * @const
- * @type string
- */
-Proxy.NAME= "Proxy";
-
-/**
- * Create a new Proxy.
+ * A Proxy might simply manage a reference to a local data object, in which case 
+ * interacting with it might involve setting and getting of its data in 
+ * synchronous fashion.
+ * 
+ * Proxy classes are also used to encapsulate the application's interaction with 
+ * remote services to save or retrieve data, in which case, we adopt an 
+ * asyncronous idiom; setting data (or calling a method) on the Proxy and 
+ * listening for a 
+ * {@link org.puremvc.js.multicore.patterns.observer.Notification Notification} 
+ * to be sent  when the Proxy has retrieved the data from the service. 
+ * 
  * 
  * @param {string} [proxyName]
  *  The Proxy's name. If none is provided, the Proxy will use its constructors
  *  NAME property.
  * @param {Object} [data]
- *  The Proxy;s data
+ *  The Proxy's data object
  * @constructor
- * @extends org.puremvc.js.multicore.patterns.observer.Notifier
  */
 function Proxy(proxyName, data)
 {
@@ -38,6 +34,9 @@ function Proxy(proxyName, data)
         this.setData(data);
     }
 };
+
+
+Proxy.NAME= "Proxy";
 
 Proxy.prototype= new Notifier;
 Proxy.prototype.constructor= Proxy;
@@ -53,7 +52,7 @@ Proxy.prototype.getProxyName= function()
 };
 
 /**
- * Set the Proxy's data
+ * Set the Proxy's data object
  *
  * @param {Object} data
  * @return {void}
@@ -64,9 +63,9 @@ Proxy.prototype.setData= function(data)
 };
 
 /**
- * Get the Proxy's data
+ * Get the Proxy's data object
  *
- * @return {Object|null}
+ * @return {Object}
  */
 Proxy.prototype.getData= function()
 {
@@ -74,9 +73,8 @@ Proxy.prototype.getData= function()
 };
 
 /**
- * The method invoked when the Proxy is registered with a Model. Override this
- * method to implement any data initialization logic you may need, such as 
- * loading data from a remote service or local storage.
+ * Called by the {@link org.puremvc.js.multicore.core.Model Model} when
+ * the Proxy is registered.
  *
  * @return {void}
  */
@@ -86,9 +84,8 @@ Proxy.prototype.onRegister= function()
 };
 
 /**
- * The method invoked with the Proxy is removed from a Model. Override this 
- * method to implement any data de-initialization logic you may need, such as
- * closing any requests to remote services, or commiting data to local storage.
+ * Called by the {@link org.puremvc.js.multicore.core.Model Model} when
+ * the Proxy is removed.
  * 
  * @return {void}
  */
@@ -98,6 +95,7 @@ Proxy.prototype.onRemove= function()
 };
 
 /**
+ * @ignore
  * The Proxys name.
  *
  * @protected
@@ -106,6 +104,7 @@ Proxy.prototype.onRemove= function()
 Proxy.prototype.proxyName= null;
 
 /**
+ * @ignore
  * The Proxy's data object.
  *
  * @protected
