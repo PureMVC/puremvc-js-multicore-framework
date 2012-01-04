@@ -9,9 +9,9 @@
  * {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy}
  * all have a need to send Notifications
  * 
- * The Notifier interface provides a common method called
- * #sendNotification that relieves implementation code of 
- * the necessity to actually construct Notifications.
+ * The Notifier interface provides a common method called #sendNotification that 
+ * relieves implementation code of the necessity to actually construct 
+ * Notifications.
  * 
  * The Notifier class, which all of the above mentioned classes
  * extend, provides an initialized reference to the 

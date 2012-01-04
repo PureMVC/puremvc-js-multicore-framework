@@ -27,16 +27,14 @@
  * PureMVC Notification follow a 'Publish/Subscribe' pattern. PureMVC classes 
  * need not be related to each other in a parent/child relationship in order to 
  * communicate with one another using Notifications.
- *  
+ * 
+ * @constructor 
  * @param {string} name
  *  The Notification name
  * @param {Object} [body]
  *  The Notification body
  * @param {Object} [type]
  *  The Notification type
- * @constructor
- * @see org.puremvc.js.multicore.patterns.facade.Facade#sendNotification
- * @see org.puremvc.js.multicore.patterns.observer.Notifier#sendNotification
  */
 function Notification(name, body, type)
 {
@@ -81,7 +79,6 @@ Notification.prototype.getBody= function()
  *
  * @param {Object} type
  * @return {void}
- * @see #getType
  */
 Notification.prototype.setType= function(type)
 {

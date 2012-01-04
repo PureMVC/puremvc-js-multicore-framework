@@ -8,27 +8,28 @@
  *
  * The Model assumes these responsibilities:
  *
- * - Maintain a cache of {@link org.puremvc.js.patterns.proxy.Proxy Proxy}
+ * - Maintain a cache of {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy}
  *   instances.
  * - Provide methods for registering, retrieving, and removing
- *   {@link org.puremvc.js.patterns.proxy.Proxy Proxy} instances.
+ *   {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy} instances.
  *
  * Your application must register 
- * {@link org.puremvc.js.patterns.proxy.Proxy Proxy} instances with the Model. 
+ * {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy} instances with the Model. 
  * Typically, you use a 
- * {@link org.puremvc.js.patterns.command.SimpleCommand SimpleCommand} or
- * {@link org.puremvc.js.patterns.command.MacroCommand MacroCommand} to create 
- * and register Proxy instances once the Facade has initialized the Core
- * actors.
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand} 
+ * or
+ * {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand} 
+ * to create and register Proxy instances once the Facade has initialized the 
+ * *Core* actors.
  *
  * This Model implementation is a Multiton, so you should not call the 
- * constructor directly, but instead call the static Multiton Factory method 
- * 
+ * constructor directly, but instead call the 
+ * {@link #getInstance static Multiton Factory method} 
+ * @constructor
  * @param {string} key
  *  The Models multiton key
  * @throws {Error}
  *  An error is thrown if this multitons key is already in use by another instance
- * @constructor
  */
 function Model(key)
 {
@@ -59,6 +60,8 @@ Model.prototype.initializeModel= function(){};
 /**
  * Model Multiton Factory method.
  * 
+ * @param {string} key
+ *  The multiton key for the Model to retrieve
  * @return {org.puremvc.js.multicore.core.Model}
  *  the instance for this Multiton key 
  */

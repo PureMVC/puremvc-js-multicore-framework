@@ -8,10 +8,11 @@
  * constructor directly, but instead call the static Factory method, 
  * passing the unique key for this instance to #getInstance
  *
+ * @constructor
  * @param {string} key
  * 	The multiton key to use to retrieve the Facade instance.
- * @constructor
- * @throws {Error} If an attempt is made to instantiate Facade directly
+ * @throws {Error} 
+ *  If an attempt is made to instantiate Facade directly
  */
 function Facade(key)
 {
@@ -235,7 +236,7 @@ Facade.prototype.retrieveProxy = function(proxyName)
  * Remove a Proxy from the Model by name
  * @param {string} proxyName
  *  The name of the Proxy
- * @return {org.puremvc.js.multicore.interfaces.IProxy}
+ * @return {org.puremvc.js.multicore.patterns.proxy.Proxy}
  *  The Proxy that was removed from the Model
  */
 Facade.prototype.removeProxy = function(proxyName)
@@ -264,7 +265,7 @@ Facade.prototype.hasProxy = function(proxyName)
 /**
  * Register a Mediator with with the View.
  * 
- * @param {org.puremvc.js.multicore.interfaces.IMediator} mediator
+ * @param {org.puremvc.js.multicore.patterns.mediator.Mediator} mediator
  *  A reference to the Mediator to register
  * @return {void}
  */
@@ -344,13 +345,11 @@ Facade.prototype.sendNotification = function(notificationName, body, type)
 /**
  * Notify {@link org.puremvc.js.multicore.patterns.observer.Observer Observer}s
  * 
- * This method is left public mostly for backward 
- * compatibility, and to allow you to send custom 
- * notification classes using the facade.
+ * This method is left public mostly for backward compatibility, and to allow
+ * you to send custom notification classes using the facade.
  * 
- * Usually you should just call sendNotification
- * and pass the parameters, never having to 
- * construct the notification yourself.
+ * Usually you should just call sendNotification and pass the parameters, never 
+ * having to construct the notification yourself.
  * 
  * @param {org.puremvc.js.multicore.patterns.command.Notification} notification
  *  The Notification to send
@@ -365,13 +364,11 @@ Facade.prototype.notifyObservers = function(notification)
 };
 
 /**
- * Initialize the Facades Notifier capabilities by
- * setting the Multiton key for this facade instance.
+ * Initialize the Facades Notifier capabilities by setting the Multiton key for 
+ * this facade instance.
  * 
- * Not called directly, but instead from the 
- * constructor when #getInstance is invoked. 
- * It is necessary to be public in order to 
- * implement Notifier
+ * Not called directly, but instead from the constructor when #getInstance is 
+ * invoked. It is necessary to be public in order to implement Notifier
  * 
  * @param {string} key
  * @return {void}

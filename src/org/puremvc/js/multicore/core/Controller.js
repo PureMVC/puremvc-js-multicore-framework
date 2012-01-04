@@ -21,37 +21,33 @@
  * for.
  * - Creating a new instance of the proper {@link
  * org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
- * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand
- * MacroCommand}s
- * to handle a given {@link
- * org.puremvc.js.multicore.patterns.observer.Notification Notification} when
- * notified by the
- * {@link
- * org.puremvc.js.multicore.core.View View}.
- * - Calling the command's execute
- * method, passing in the {@link
- * org.puremvc.js.multicore.patterns.observer.Notification Notification}.
+ * or 
+ * {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand}s
+ * to handle a given 
+ * {@link org.puremvc.js.multicore.patterns.observer.Notification Notification} 
+ * when notified by the
+ * {@link org.puremvc.js.multicore.core.View View}.
+ * - Calling the command's execute method, passing in the 
+ * {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}.
  *
- * Your application must register {@link
- * org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
- * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand
- * MacroCommand}s with the
- * Controller.
+ * Your application must register 
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
+ * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand}s 
+ * with the Controller.
  *
- * The simplest way is to subclass {@link
- * org.puremvc.js.multicore.patterns.facade.Facade Facade},
- * and use its {@link
- * org.puremvc.js.multicore.patterns.facade.Facade#initializeController
- * initializeController} method to add your
- * registrations.
+ * The simplest way is to subclass 
+ * {@link org.puremvc.js.multicore.patterns.facade.Facade Facade},
+ * and use its 
+ * {@link org.puremvc.js.multicore.patterns.facade.Facade#initializeController initializeController} 
+ * method to add your registrations.
  *
+ * @constructor
  * This Controller implementation is a Multiton, so you should not call the 
  * constructor directly, but instead call the static #getInstance factory method, 
  * passing the unique key for this instance to it.
  * @param {string} key
  * @throws {Error}
  *  If instance for this Multiton key has already been constructed
- * @constructor
  */
 function Controller(key)
 {
@@ -125,15 +121,14 @@ Controller.prototype.executeCommand= function(note)
 };
 
 /**
- * Register a particular SimpleCommand or MacroCommand
- * class as the handler for a particular Notification.
+ * Register a particular SimpleCommand or MacroCommand class as the handler for 
+ * a particular Notification.
  *
- * If an command already been registered to
- * handle Notifications with this name, it is no longer
- * used, the new command is used instead.
+ * If an command already been registered to handle Notifications with this name, 
+ * it is no longer used, the new command is used instead.
  *
- * The Observer for the new command is only created if this the
- * first time an ICommand has been regisered for this Notification name.
+ * The Observer for the new command is only created if this the irst time a
+ * command has been regisered for this Notification name.
  *
  * @param {string} notificationName
  *  the name of the Notification
@@ -182,9 +177,11 @@ Controller.prototype.removeCommand= function(notificationName)
 };
 
 /**
- * Remove a Controller instance
+ * @static
+ * Remove a Controller instance.
  *
- * @param {string} multitonKey of #Controller instance to remove
+ * @param {string} key 
+ *  multitonKey of Controller instance to remove
  * @return {void}
  */
 Controller.removeController= function(key)
@@ -194,7 +191,7 @@ Controller.removeController= function(key)
 
 /**
  * @ignore
- * Local reference to the Controllers View
+ * Local reference to the Controller's View
  * @protected
  * @type {View}
  */

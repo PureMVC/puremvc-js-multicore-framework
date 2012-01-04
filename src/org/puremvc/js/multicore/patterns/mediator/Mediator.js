@@ -1,12 +1,35 @@
 /**
  * @class org.puremvc.js.multicore.patterns.mediator.Mediator
  * @extends org.puremvc.js.multicore.patterns.observer.Notifier
+ * 
+ * A base Mediator implementation.
+ *
+ * In PureMVC, Mediator classes are used to mediate communication between a view 
+ * component and the rest of the application.
+ *
+ * A Mediator should listen to its view components for events, and handle them 
+ * by sending notifications (to be handled by other Mediators, 
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommands} 
+ * or
+ * {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommands}) 
+ * or passing data from the view component directly to a 
+ * {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy}, such as submitting 
+ * the contents of a form to a service.
+ * 
+ * Mediators should not perform business logic, maintain state or other 
+ * information for its view component, or break the encapsulation of the view 
+ * component by manipulating the view component's children. It should only call 
+ * methods or set properties on the view component.
+ *  
+ * The view component should encapsulate its own behavior and implementation by 
+ * exposing methods and properties that the Mediator can call without having to 
+ * know about the view component's children.
+ * 
+ * @constructor
  * @param {string} [mediatorName]
- *  The Mediators name. Default value is the static #NAME property of a Mediator
- *  class
+ *  The Mediators name. The Mediators static #NAME value is used by default
  * @param {Object} [viewComponent]
  *  The Mediators {@link #setViewComponent viewComponent}.
- * @constructor
  */
 function Mediator (mediatorName, viewComponent)
 {
@@ -21,7 +44,6 @@ function Mediator (mediatorName, viewComponent)
  * Typically, a Mediator will be written to serve one specific control or group
  * of controls and so, will not have a need to be dynamically named.
  * 
- * @const
  * @type {string}
  */
 Mediator.NAME= "Mediator";
