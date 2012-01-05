@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <title>The source code</title>
+  <link href="../resources/prettify/prettify.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript" src="../resources/prettify/prettify.js"></script>
+  <style type="text/css">
+    .highlight { display: block; background-color: #ddd; }
+  </style>
+  <script type="text/javascript">
+    function highlight() {
+      document.getElementById(location.hash.replace(/#/, "")).className = "highlight";
+    }
+  </script>
+</head>
+<body onload="prettyPrint(); highlight();">
+  <pre class="prettyprint lang-js"><span id='org-puremvc-js-multicore-core-Model-method-constructor'><span id='org-puremvc-js-multicore-core-Model'>/**
+</span></span> * @class org.puremvc.js.multicore.core.Model
+ *
+ * A Multiton Model implementation.
+ *
+ * In PureMVC, the Model class provides
+ * access to model objects (Proxies) by named lookup.
+ *
+ * The Model assumes these responsibilities:
+ *
+ * - Maintain a cache of {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy}
+ *   instances.
+ * - Provide methods for registering, retrieving, and removing
+ *   {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy} instances.
+ *
+ * Your application must register 
+ * {@link org.puremvc.js.multicore.patterns.proxy.Proxy Proxy} instances with the Model. 
+ * Typically, you use a 
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand} 
+ * or
+ * {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand} 
+ * to create and register Proxy instances once the Facade has initialized the 
+ * *Core* actors.
+ *
+ * This Model implementation is a Multiton, so you should not call the 
+ * constructor directly, but instead call the 
+ * {@link #getInstance static Multiton Factory method} 
+ * @constructor
+ * @param {string} key
+ *  The Models multiton key
+ * @throws {Error}
+ *  An error is thrown if this multitons key is already in use by another instance
+ */
+function Model(key)
+{
+    if(Model.instanceMap[key])
+    {
+        throw new Error(Model.MULTITON_MSG);
+    }
+
+    this.multitonKey= key;
+    Model.instanceMap[key]= this;
+    this.proxyMap= [];
+    this.initializeModel();
+};
+
+<span id='org-puremvc-js-multicore-core-Model-method-initializeModel'>/**
+</span> * Initialize the Model instance.
+ * 
+ * Called automatically by the constructor, this
+ * is your opportunity to initialize the Singleton
+ * instance in your subclass without overriding the
+ * constructor.
+ * 
+ * @return void
+ */
+Model.prototype.initializeModel= function(){};
+
+
+<span id='org-puremvc-js-multicore-core-Model-method-getInstance'>/**
+</span> * Model Multiton Factory method.
+ * 
+ * @param {string} key
+ *  The multiton key for the Model to retrieve
+ * @return {org.puremvc.js.multicore.core.Model}
+ *  the instance for this Multiton key 
+ */
+Model.getInstance= function(key)
+{
+    if(Model.instanceMap[key] == null)
+    {
+        Model.instanceMap[key]= new Model(key);
+    }
+
+    return Model.instanceMap[key];
+};
+
+<span id='org-puremvc-js-multicore-core-Model-method-registerProxy'>/**
+</span> * Register a Proxy with the Model
+ * @param {org.puremvc.js.multicore.patterns.proxy.Proxy}
+ */
+Model.prototype.registerProxy= function(proxy)
+{
+    proxy.initializeNotifier(this.multitonKey);
+    this.proxyMap[proxy.getProxyName()]= proxy;
+    proxy.onRegister();
+};
+
+<span id='org-puremvc-js-multicore-core-Model-method-retrieveProxy'>/**
+</span> * @param {string} proxyName
+ * @return {org.puremvc.js.multicore.patterns.proxy.Proxy}
+ *  The Proxy instance previously registered with the provided proxyName
+ */
+Model.prototype.retrieveProxy= function(proxyName)
+{
+    return this.proxyMap[proxyName];
+};
+
+<span id='org-puremvc-js-multicore-core-Model-method-hasProxy'>/**
+</span> * Check if a Proxy is registered
+ * @param {string} proxyName
+ * @return {boolean}
+ *  whether a Proxy is currently registered with the given proxyName.
+ */
+Model.prototype.hasProxy= function(proxyName)
+{
+    return this.proxyMap[proxyName] != null;
+};
+
+<span id='org-puremvc-js-multicore-core-Model-method-removeProxy'>/**
+</span> * Remove a Proxy from the Model.
+ * 
+ * @param {string} proxyName
+ *  The name of the Proxy instance to remove
+ * @return {org.puremvc.js.multicore.patterns.proxy.Proxy}
+ *  The Proxy that was removed from the Model
+ */
+Model.prototype.removeProxy= function(proxyName)
+{
+    var proxy= this.proxyMap[proxyName];
+    if(proxy)
+    {
+        this.proxyMap[proxyName]= null;
+        proxy.onRemove();
+    }
+
+    return proxy;
+};
+
+<span id='org-puremvc-js-multicore-core-Model-static-method-removeModel'>/**
+</span> * @static
+ * Remove a Model instance.
+ * 
+ * @param {string} key
+ * @return {void}
+ */
+Model.removeModel= function(key)
+{
+    delete Model.instanceMap[key];
+};
+
+<span id='org-puremvc-js-multicore-core-Model-property-proxyMap'>/**
+</span> * @ignore
+ * The map used by the Model to store Proxy instances.
+ *
+ * @protected
+ * @type Array
+ */
+Model.prototype.proxyMap= null;
+
+<span id='org-puremvc-js-multicore-core-Model-static-property-instanceMap'>/**
+</span> * @ignore
+ * The map used by the Model to store multiton instances
+ *
+ * @protected
+ * @static
+ * @type Array
+ */
+Model.instanceMap= [];
+
+<span id='org-puremvc-js-multicore-core-Model-property-multitonKey'>/**
+</span> * @ignore
+ * The Models multiton key.
+ *
+ * @protected
+ * @type string
+ */
+Model.prototype.multitonKey;
+
+<span id='org-puremvc-js-multicore-core-Model-static-property-MULTITON_MSG'>/**
+</span> * @ignore
+ * Message Constants
+ * 
+ * @static
+ * @type {string}
+ */
+Model.MULTITON_MSG= &quot;Model instance for this Multiton key already constructed!&quot;;
+</pre>
+</body>
+</html>
