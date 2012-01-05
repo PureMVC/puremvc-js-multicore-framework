@@ -1,26 +1,25 @@
 /**
  * @class org.puremvc.js.multicore.core.Controller
  * 
- * In PureMVC, the Controller class follows the
- * 'Command and Controller' strategy, and assumes these
- * responsibilities:
+ * In PureMVC, the Controller class follows the 'Command and Controller' 
+ * strategy, and assumes these responsibilities:
  * 
  * - Remembering which
  * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
- * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand
- * MacroCommand}s
- * are intended to handle which {@link
- * org.puremvc.js.multicore.patterns.observer.Notification Notification}s
- * - Registering itself as an {@link
- * org.puremvc.js.multicore.patterns.observer.Observer Observer} with
- * the {@link org.puremvc.js.multicore.core.View View} for each {@link
- * org.puremvc.js.multicore.patterns.observer.Notification Notification}
- * that it has an {@link org.puremvc.js.multicore.patterns.command.SimpleCommand
- * SimpleCommand} or {@link
- * org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand} mapping
- * for.
- * - Creating a new instance of the proper {@link
- * org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
+ * or 
+ * {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand}s
+ * are intended to handle which 
+ * {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}s
+ * - Registering itself as an 
+ * {@link org.puremvc.js.multicore.patterns.observer.Observer Observer} with
+ * the {@link org.puremvc.js.multicore.core.View View} for each 
+ * {@link org.puremvc.js.multicore.patterns.observer.Notification Notification}
+ * that it has an 
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand} 
+ * or {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand} 
+ * mapping for.
+ * - Creating a new instance of the proper 
+ * {@link org.puremvc.js.multicore.patterns.command.SimpleCommand SimpleCommand}s
  * or 
  * {@link org.puremvc.js.multicore.patterns.command.MacroCommand MacroCommand}s
  * to handle a given 
@@ -191,19 +190,45 @@ Controller.removeController= function(key)
 
 /**
  * @ignore
+ * 
  * Local reference to the Controller's View
  * @protected
  * @type {View}
  */
 Controller.prototype.view
+
+/**
+ * @ignore
+ * 
+ * Note name to command constructor mappings
+ * @protected
+ * @type {Object}
+ */
 Controller.prototype.commandMap
+
+/**
+ * @ignore
+ * 
+ * The Controller's multiton key
+ * @protected
+ * @type {string}
+ */
 Controller.prototype.multitonKey
+
+/**
+ * @ignore
+ * 
+ * Multiton key to Controller instance mappings
+ * @static
+ * @protected
+ * @type {Object}
+ */
 Controller.instanceMap= [];
 
 /**
  * @ignore
+ * 
  * Message constants
- *
  * @static
  * @protected
  * @type {string}

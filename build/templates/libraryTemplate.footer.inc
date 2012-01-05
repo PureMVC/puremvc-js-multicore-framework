@@ -43,4 +43,4 @@
 			}
 		}
 	};
-}(this); // the 'this' parameter will resolve to global scope in all environments
+})(this); // the 'this' parameter will resolve to global scope in all environments

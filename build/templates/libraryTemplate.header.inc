@@ -1,18 +1,10 @@
 /**
  * @fileOverview
- * @author David Foley | david.foley@puremvc.org
+ * PureMVC multicore native JavaScript port.
+ * @author David Foley | david@objectkit.com
  */
-
-/**
- * An anonymous object scope is used to protect against
- * global variable leakage while we export the library classes
- * to the org.puremvc.js.multicore namespace
- * 
- * @constructor
- * @param {Object} scope
- */
-new function (scope)
-{
+(function (scope){
+	
 	// create the org.puremvc.js object hierarchy
 	// if the hierarchy does not yet exist
 	if (null == scope['org'])

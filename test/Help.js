@@ -101,4 +101,27 @@ Help=
         error.type= Help.TYPE_ERROR;
         throw error;
     }
+
+,	exportPureMvcActors: function ()
+	{
+		var global= window
+		,	pmvc= org.puremvc.js.multicore
+		
+		global.Model			= pmvc.core.Model;
+		global.View				= pmvc.core.View;
+		global.Controller		= pmvc.core.Controller;
+		global.SimpleCommand	= pmvc.patterns.command.SimpleCommand;
+		global.MacroCommand		= pmvc.patterns.command.MacroCommand;
+		global.Facade			= pmvc.patterns.facade.Facade;
+		global.Mediator			= pmvc.patterns.mediator.Mediator;
+		global.Observer			= pmvc.patterns.observer.Observer;
+		global.Notifier			= pmvc.patterns.observer.Notifier;
+		global.Notification		= pmvc.patterns.observer.Notification;
+		global.Proxy			= pmvc.patterns.proxy.Proxy;
+		
+		if (console)
+			console.info('Exported PureMVC actors', this)
+	}
 };
+
+Help.exportPureMvcActors();

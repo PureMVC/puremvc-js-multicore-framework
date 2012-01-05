@@ -40,6 +40,7 @@ ModelTestProxy.ON_REMOVE_CALLED= "onRemove Called";
 /** @override */
 ModelTestProxy.prototype.onRegister= function ()
 {
+	console.info('setting data', this, ModelTestProxy.ON_REGISTER_CALLED)
     this.setData(ModelTestProxy.ON_REGISTER_CALLED);
 };
 

@@ -96,24 +96,32 @@ TestCase
         
     ,   testOnRegisterAndOnRemove: function ()
         {
-            // Get a Multiton View instance
-            var model = Model.getInstance('ModelTestKey4');
+    		try
+    		{
+                // Get a Multiton View instance
+                var model = Model.getInstance('ModelTestKey4');
 
-            // Create and register the test mediator
-            var proxy = new ModelTestProxy( );
-            
-            model.registerProxy( proxy);
+                // Create and register the test mediator
+                var proxy = new ModelTestProxy( );
+                
+                model.registerProxy( proxy);
 
-            // assert that onRegsiter was called, and the proxy responded by setting its data accordingly
-            assertTrue( "Expecting proxy.getData() == ModelTestProxy.ON_REGISTER_CALLED", 
-                        proxy.getData() == ModelTestProxy.ON_REGISTER_CALLED );
-            
-            // Remove the component
-            model.removeProxy( ModelTestProxy.NAME );
-            
-            // assert that onRemove was called, and the proxy responded by setting its data accordingly
-            assertTrue( "Expecting proxy.getData() == ModelTestProxy.ON_REMOVE_CALLED", 
-                        proxy.getData() == ModelTestProxy.ON_REMOVE_CALLED );
+                // assert that onRegsiter was called, and the proxy responded by setting its data accordingly
+                assertTrue( "Expecting proxy.getData() == ModelTestProxy.ON_REGISTER_CALLED", 
+                            proxy.getData() == ModelTestProxy.ON_REGISTER_CALLED );
+                
+                // Remove the component
+                model.removeProxy( ModelTestProxy.NAME );
+                
+                // assert that onRemove was called, and the proxy responded by setting its data accordingly
+                assertTrue( "Expecting proxy.getData() == ModelTestProxy.ON_REMOVE_CALLED", 
+                            proxy.getData() == ModelTestProxy.ON_REMOVE_CALLED );
+    		}
+    		catch (thrown)
+    		{
+    			console.error(thrown);
+    		}
+
         }
     }
 );
