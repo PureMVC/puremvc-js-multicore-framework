@@ -1,7 +1,7 @@
 /**
  * @fileOverview
  * PureMVC multicore native JavaScript port.
- * @author David Foley | david@objectkit.com
+ * @author David Foley | david.foley@puremvc.org
  */
 (function (scope){
 	
