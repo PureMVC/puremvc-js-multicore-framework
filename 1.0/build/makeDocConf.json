@@ -1,0 +1,8 @@
+{
+	"--title": "PureMVC Multicore"
+,	"--output": "../docs"
+,	"--": 
+	[
+		"../src"
+	]
+}
