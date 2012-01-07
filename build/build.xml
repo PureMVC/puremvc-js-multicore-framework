@@ -1,41 +1,76 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="org.puremvc.js-standard" basedir="../" default="packageLibrary">
+<!-- BUILD PUREMVC JS -->
+<project name="org.puremvc.js-standard" basedir="../" default="buildLib">
 
-	<property file="${basedir}/build/build.properties" />
-	<target name="packageLibrary" description="Package the PureMVC library">
+	<!-- PROPERTIES -->
+    <property name="src.dir" 		value="${basedir}/src"/>
+    <property name="bin.dir" 		value="${basedir}/bin"/>
+    <property name="build.dir"  	value="${basedir}/build"/>
+    <property name="template.dir" 	value="${build.dir}/template"/>
+    <property name="config.dir" 	value="${build.dir}/config"/>
+    <property name="lib.dir" 		value="${build.dir}/lib"/>
+	<property file="${config.dir}/build.properties" />
+	<property name="jscompjar" 		location="${lib.dir}/${google.closure.jar}" />
+	<property name="jsduckexe" 		location="${lib.dir}/${jsduck.win.executable}" />
 
-		<!-- define the Google Closure compiler task -->
-		<taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask" classpath="${google.closure.classpath}" />
+	<!-- TARGET: buildLib -->
+	<target name="buildLib" description="Package the PureMVC JS MultiCore library">
+
+		<!-- COMPILER TASK -->
+		<taskdef classname="com.google.javascript.jscomp.ant.CompileTask" 
+				 name="jscomp" classpath="${jscompjar}"/>
+		
+		<!-- CLEAN -->
 		<delete>
-			<fileset dir="${basedir}/bin" includes="*.js" />
+			<fileset dir="${bin.dir}" includes="*.js" />
 		</delete>
 
-		<!-- define the scripts and their ordering for concatenation -->
-		<concat destfile="${basedir}/bin/${library.name}.js" append="no" encoding="UTF-8" outputencoding="UTF-8" fixlastline="true">
+		<!-- CONCATENATE SCRIPTS -->
+		<concat destfile="${bin.dir}/${library.name}.js" append="no" 
+				encoding="UTF-8" outputencoding="UTF-8" fixlastline="true">
 			<path>
-				<pathelement location="${basedir}/build/templates/libraryTemplate.header.inc" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/observer/Observer.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/observer/Notification.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/observer/Notifier.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/command/SimpleCommand.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/command/MacroCommand.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/mediator/Mediator.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/proxy/Proxy.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/facade/Facade.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/View.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/Model.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/Controller.js" />
-				<pathelement location="${basedir}/build/templates/libraryTemplate.footer.inc" />
+				<pathelement location="${template.dir}/libraryTemplate.header.inc" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/observer/Observer.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/observer/Notification.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/observer/Notifier.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/command/SimpleCommand.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/command/MacroCommand.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/mediator/Mediator.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/proxy/Proxy.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/facade/Facade.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/View.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/Model.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/Controller.js" />
+				<pathelement location="${template.dir}/libraryTemplate.footer.inc" />
 			</path>
 		</concat>
 
-		<!-- define the Google Closure compression settings -->
-		<jscomp compilationLevel="${google.closure.complevel}" warning="${google.closure.warnlevel}" 
-			debug="false" output="${basedir}/bin/${library.name}_Mini.js">
+		<!-- MINIFY -->
+		<jscomp warning="${google.closure.warnlevel}" debug="false" 
+				compilationLevel="${google.closure.complevel}" 
+				output="${bin.dir}/${library.name}_Mini.js">
 
-			<sources dir="${basedir}/bin/">
+			<sources dir="${bin.dir}">
 				<file name="${library.name}.js" />
 			</sources>
+			
 		</jscomp>
+
 	</target>
+	
+	<!-- TARGET: buildDocWindows -->
+	<target name="buildDocWindows">
+	  <exec executable="${lib.dir}/${jsduck.win.executable}">
+	    <arg value="--config"/>
+	    <arg value="${config.dir}/${jsduck.config}"/>
+	  </exec>
+	</target>
+	
+	<!-- TARGET: buildDocUnix -->
+	<target name="buildDocUnix">
+	  <exec executable="${build.dir}/${jsduck.shell.script}"/>
+	</target>
+	
+	
+	
 </project>
