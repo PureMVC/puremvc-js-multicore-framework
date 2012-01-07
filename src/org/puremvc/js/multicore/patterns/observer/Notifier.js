@@ -83,6 +83,7 @@ Notifier.prototype.sendNotification = function(notificationName, body, type)
 Notifier.prototype.initializeNotifier = function(key)
 {
     this.multitonKey = key;
+    this.facade = this.getFacade();
 };
 
 /**

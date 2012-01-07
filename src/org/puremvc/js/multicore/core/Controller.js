@@ -55,9 +55,8 @@ function Controller(key)
         throw new Error(Controller.MULTITON_MSG);
     }
 
-    this.multitonKey= key;
-    Controller.instanceMap[this.multitonKey]= this;
-    this.commandMap= new Array();
+    this.multitonKey = key;
+    Controller.instanceMap[ this.multitonKey ] = this;
     this.initializeController();
 }
 
@@ -195,7 +194,7 @@ Controller.removeController= function(key)
  * @protected
  * @type {View}
  */
-Controller.prototype.view
+Controller.prototype.view = null;
 
 /**
  * @ignore
@@ -204,7 +203,7 @@ Controller.prototype.view
  * @protected
  * @type {Object}
  */
-Controller.prototype.commandMap
+Controller.prototype.commandMap = [];
 
 /**
  * @ignore
@@ -213,7 +212,7 @@ Controller.prototype.commandMap
  * @protected
  * @type {string}
  */
-Controller.prototype.multitonKey
+Controller.prototype.multitonKey = null;
 
 /**
  * @ignore
@@ -223,7 +222,7 @@ Controller.prototype.multitonKey
  * @protected
  * @type {Object}
  */
-Controller.instanceMap= [];
+Controller.instanceMap = [];
 
 /**
  * @ignore
