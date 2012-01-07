@@ -35,6 +35,7 @@
  	/* implementation begin */
 	
 	
+
 /**
  * @class org.puremvc.js.multicore.patterns.observer.Observer
  * 
@@ -287,6 +288,7 @@ Notification.prototype.type= null;
  * @private
  */
 Notification.prototype.body= null;
+
 /**
  * @class org.puremvc.js.multicore.patterns.observer.Notifier
  * 
@@ -372,6 +374,7 @@ Notifier.prototype.sendNotification = function(notificationName, body, type)
 Notifier.prototype.initializeNotifier = function(key)
 {
     this.multitonKey = key;
+    this.facade = this.getFacade();
 };
 
 /**
@@ -411,6 +414,7 @@ Notifier.prototype.multitonKey = null;
  * @type string
  */
 Notifier.MULTITON_MSG = "multitonKey for this Notifier not yet initialized!";
+
 /**
  * @class org.puremvc.js.multicore.patterns.command.SimpleCommand
  * @extends org.puremvc.js.multicore.patterns.observer.Notifier
@@ -545,6 +549,7 @@ MacroCommand.prototype.execute= function(note)
         cmd.execute(note);
     }
 };
+
 /**
  * @class org.puremvc.js.multicore.patterns.mediator.Mediator
  * @extends org.puremvc.js.multicore.patterns.observer.Notifier
@@ -712,6 +717,7 @@ Mediator.prototype.mediatorName= null;
  * @type Object
  */
 Mediator.prototype.viewComponent=null;
+
 /**
  * @class org.puremvc.js.multicore.patterns.proxy.Proxy
  * @extends org.puremvc.js.multicore.patterns.observer.Notifier
@@ -825,6 +831,7 @@ Proxy.prototype.proxyName= null;
  * @type Object
  */
 Proxy.prototype.data= null;
+
 
 /**
  * @class org.puremvc.js.multicore.patterns.facade.Facade
@@ -1293,6 +1300,7 @@ Facade.instanceMap = [];
  * @static
  */
 Facade.MULTITON_MSG = "Facade instance for this Multiton key already constructed!";
+
 /**
  * @class org.puremvc.js.multicore.core.View
  * 
@@ -1621,6 +1629,7 @@ View.prototype.multitonKey = null;
  * @static
  */
 View.MULTITON_MSG = "View instance for this Multiton key already constructed!";
+
 /**
  * @class org.puremvc.js.multicore.core.Model
  *
@@ -1798,6 +1807,7 @@ Model.prototype.multitonKey;
  * @type {string}
  */
 Model.MULTITON_MSG= "Model instance for this Multiton key already constructed!";
+
 /**
  * @class org.puremvc.js.multicore.core.Controller
  * 
@@ -1855,9 +1865,8 @@ function Controller(key)
         throw new Error(Controller.MULTITON_MSG);
     }
 
-    this.multitonKey= key;
-    Controller.instanceMap[this.multitonKey]= this;
-    this.commandMap= new Array();
+    this.multitonKey = key;
+    Controller.instanceMap[ this.multitonKey ] = this;
     this.initializeController();
 }
 
@@ -1995,7 +2004,7 @@ Controller.removeController= function(key)
  * @protected
  * @type {View}
  */
-Controller.prototype.view
+Controller.prototype.view = null;
 
 /**
  * @ignore
@@ -2004,7 +2013,7 @@ Controller.prototype.view
  * @protected
  * @type {Object}
  */
-Controller.prototype.commandMap
+Controller.prototype.commandMap = [];
 
 /**
  * @ignore
@@ -2013,7 +2022,7 @@ Controller.prototype.commandMap
  * @protected
  * @type {string}
  */
-Controller.prototype.multitonKey
+Controller.prototype.multitonKey = null;
 
 /**
  * @ignore
@@ -2023,7 +2032,7 @@ Controller.prototype.multitonKey
  * @protected
  * @type {Object}
  */
-Controller.instanceMap= [];
+Controller.instanceMap = [];
 
 /**
  * @ignore
@@ -2080,3 +2089,4 @@ Controller.MULTITON_MSG= "controller key for this Multiton key already construct
 		}
 	};
 })(this); // the 'this' parameter will resolve to global scope in all environments
+
