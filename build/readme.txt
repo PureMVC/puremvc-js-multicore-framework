@@ -32,8 +32,9 @@ TOOLING PREREQUISITES:
       > https://github.com/senchalabs/jsduck
       $ [sudo] gem install jsduck
     
-  * JsTestDriver (Optional, Eclipse plugin or command line)
+  * JsTestDriver 
     > http://code.google.com/p/js-test-driver/
+    > jsTestDriver is included for your convenience
     
 STEP 1: BUILDING LIBRARY
 
@@ -58,8 +59,8 @@ STEP 2: BUILDING DOCS
   * Building the Documentation on Windows
   
     * From the Command Line with Ant...
-       > cd PureMVC_JS/build
-       > ant -f build.xml buildDocWindows
+      > cd PureMVC_JS/build
+      > ant -f build.xml buildDocWindows
 
     * From within Eclipse...
       > Window -> Other Views... -> Ant
@@ -70,12 +71,12 @@ STEP 2: BUILDING DOCS
   * Building the Documentation on Mac / Unix
   
     * From the Command Line with Ant...
-       $ cd PureMVC_JS/build
-       $ ant -f build.xml buildDocUnix
+      $ cd PureMVC_JS/build
+      $ ant -f build.xml buildDocUnix
 
     * From the Command Line with shell script...
-       $ cd PureMVC_JS/build
-       $ ./makeDoc.sh
+      $ cd PureMVC_JS/build
+      $ ./makeDoc.sh
 
     * From within Eclipse...
       > Window -> Other Views... -> Ant
@@ -85,12 +86,13 @@ STEP 2: BUILDING DOCS
       
 STEP 3: RUNNING THE UNIT TESTS
 
-JsTestDriver is used to run unit tests. This project used the JsTestDriver
-plugin for Eclipse, but you may be able to run the tool from the command line
-if this suits you better. For more information, please visit 
-http://code.google.com/p/js-test-driver/
+    * From the Command Line with Ant...
+      $ cd PureMVC_JS/build
+      $ ant -f build.xml runUnitTests
 
+    * From within Eclipse...
+      > Window -> Other Views... -> Ant
+      > Drag build.xml to Ant View
+      > Right-click on 'runUnitTests' target
+      > Run As... -> Ant Build...
 
-
-
-	
