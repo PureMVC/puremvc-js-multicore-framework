@@ -24,7 +24,6 @@ TOOLING PREREQUISITES:
     > Closure is included for your convenience
     
   * JsDuck 
-  
     * If you have Windows and ruby is not installed
       > https://github.com/senchalabs/jsduck/downloads
       > jduck executable is included for your convenience
@@ -42,7 +41,7 @@ STEP 1: BUILDING LIBRARY
     > cd PureMVC_JS/build
     > ant -f build.xml buildLib
 	
-  * Within Eclipse...
+  * From within Eclipse...
     > Right-click on build.xml
     > Run As... -> Ant Build...
 	  
@@ -62,7 +61,7 @@ STEP 2: BUILDING DOCS
        > cd PureMVC_JS/build
        > ant -f build.xml buildDocWindows
 
-    * Within Eclipse...
+    * From within Eclipse...
       > Window -> Other Views... -> Ant
       > Drag build.xml to Ant View
       > Right-click on 'buildDocWindows' target
@@ -74,21 +73,17 @@ STEP 2: BUILDING DOCS
        $ cd PureMVC_JS/build
        $ ant -f build.xml buildDocUnix
 
-    * From the Command Line with shell...
+    * From the Command Line with shell script...
        $ cd PureMVC_JS/build
        $ ./makeDoc.sh
 
-    * Within Eclipse...
+    * From within Eclipse...
       > Window -> Other Views... -> Ant
       > Drag build.xml to Ant View
       > Right-click on 'buildDocUnix' target
       > Run As... -> Ant Build...
       
-
-
-
-Documentation is generated with JsDuck (https://github.com/senchalabs/jsduck).
-Once installed, run makeDoc.sh to build the documentation.
+STEP 3: RUNNING THE UNIT TESTS
 
 JsTestDriver is used to run unit tests. This project used the JsTestDriver
 plugin for Eclipse, but you may be able to run the tool from the command line
