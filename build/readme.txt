@@ -85,6 +85,9 @@ STEP 2: BUILDING DOCS
       > Run As... -> Ant Build...
       
 STEP 3: RUNNING THE UNIT TESTS
+    * Change browser paths 
+      > Open PureMVC_JS/build/config/build.properties
+      > Modify js.test.browser property 
 
     * From the Command Line with Ant...
       $ cd PureMVC_JS/build
