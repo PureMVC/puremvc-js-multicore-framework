@@ -14,7 +14,8 @@ License for Objs: GNU General Public License Version 3
 
 Releases
 
-Version 1.0
+--------------------------------------------------------------------------
+Version 2.0
 
 This port is inspired originally from PureMVC for AS3 multicore port and the
 Objs standard port respectively by Cliff Hall and Frederic Saunier.
@@ -39,7 +40,7 @@ port.
 Example:
 
 <script type="text/javascript">HidePureMVC=true</script>
-<script type="text/javascript" src="lib/objs-2.0.js"></script>
+<script type="text/javascript" src="lib/objs-2.1.1.js"></script>
 
 This made classes from the PureMVC framework will not pollute the global
 context and can only be accessed through their namespace.
@@ -68,3 +69,8 @@ Unit tests are built upon
 The tests run by opening the /index.html. The test runner and Unit Test
 framework loads all the libraries it needs from the /lib/yuitest folder. They
 were first built upon YUI 3.2.0 and YUITest 1.0.0 b1 standalone libraries.
+
+--------------------------------------------------------------------------
+Version 1.0
+
+No release was made for the multicore por on the version 1.0 PureMVC port
