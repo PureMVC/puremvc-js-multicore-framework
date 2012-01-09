@@ -14,17 +14,14 @@ License for Objs: GNU General Public License Version 3
 
 Releases
 
+--------------------------------------------------------------------------
 Version 2.0
 
 This port, inspired originally from PureMVC for AS3 standard port by Cliff
 Hall. The source classes are in separate files mirroring the original and the
 minified library is about 9K. The minification is brought to this port using
 YUICompressor.
-		
-Version 1.0
 
-First official PureMVC JavaScript port released on PureMVC.org with the
-Framework source and a demo based on the Employee Admin AS3 demo.
 
 Usage
 
@@ -72,3 +69,9 @@ Unit tests are built upon
 The tests run by opening the /index.html. The test runner and Unit Test
 framework loads all the libraries it needs from the /lib/yuitest folder. They
 were first built upon YUI 3.2.0 and YUITest 1.0.0 b1 standalone libraries.
+
+--------------------------------------------------------------------------
+Version 1.0
+
+First official PureMVC JavaScript port released on PureMVC.org with the
+Framework source and a demo based on the Employee Admin AS3 demo.
