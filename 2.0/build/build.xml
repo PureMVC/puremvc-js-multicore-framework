@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="YUICompression" basedir=".." default="ConcatenateAndCompress">
+
+    <target name="ConcatenateAndCompress" description="Concatenate and minifiy a set of files">
+
+        <taskdef name="yuicompress" classname="com.yahoo.platform.yui.compressor.YUICompressTask">
+            <classpath>
+                <pathelement path="${basedir}/build/lib/yuicompressor-2.4.2.jar"/>
+                <pathelement path="${basedir}/build/lib/yuiant.jar"/>
+            </classpath>
+        </taskdef>
+
+        <delete>
+           <fileset dir="${basedir}/bin/" includes="*.js"/>
+        </delete>
+
+		<concat
+			destfile="${basedir}/bin/puremvc-objs-2.0.js"
+			append="no"
+			encoding="UTF-8"
+			outputencoding="UTF-8"
+			fixlastline="true"
+		>
+			
+			<!--
+				We need to respect an order for classes declaration to allow
+				classes to inherit from their dependencies
+		 	-->
+			<path>
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/observer/Observer.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/observer/Notification.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/core/View.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/core/Model.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/core/Controller.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/facade/Facade.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/observer/Notifier.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/command/SimpleCommand.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/command/MacroCommand.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/mediator/Mediator.js" />
+				<pathelement location="${basedir}/src/org/puremvc/js/objs/patterns/proxy/Proxy.js" />
+			</path>
+
+        </concat>
+
+        <yuicompress
+			charset="UTF-8"
+			linebreak="500"
+			warn="false"
+			munge="yes"
+			preserveallsemicolons="false"
+			preservestringlitterals="false"
+			outputfolder="${basedir}/bin/"
+			outputsuffix="-min"
+		>
+            <fileset dir="${basedir}/bin/">
+                <include name="**/*.js"/>
+            </fileset>
+        </yuicompress>
+
+    </target>
+
+</project>
