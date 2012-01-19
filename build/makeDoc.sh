@@ -1,0 +1,1 @@
+jsduck --config makeDocConf.json
