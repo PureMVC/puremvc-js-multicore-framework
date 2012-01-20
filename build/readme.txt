@@ -84,11 +84,11 @@ STEP 2: BUILDING DOCS
       > Right-click on 'buildDocUnix' target
       > Run As... -> Ant Build...
       
-STEP 3: RUNNING THE UNIT TESTS
+STEP 3: RUNNING THE UNIT TESTS (SIMPLE)
     * Change browser paths 
       > Open PureMVC_JS/build/config/build.properties
-      > Modify js.test.browser property 
-
+      > Modify js.test.browser property. 
+      
     * From the Command Line with Ant...
       $ cd PureMVC_JS/build
       $ ant -f build.xml runUnitTests
@@ -98,4 +98,37 @@ STEP 3: RUNNING THE UNIT TESTS
       > Drag build.xml to Ant View
       > Right-click on 'runUnitTests' target
       > Run As... -> Ant Build...
+      
+	
+	  RUNNING UNIT TESTS AGAINST OS / BROWSER COMBINATIONS (ADVANCED)
+	  You may also want to run tests across a mix of OS / Browser combinations.
+	  In order to this you will need to first start the test server in standalone
+	  mode and be able to access it over your physical or virtualized network. 
+	  
+	  These instructions are for running the test server on OSX, but you can 
+	  find more information on how to do this with other operating systems in 
+	  the links below, but the process is essentially the same.
+	  
+	  To begin, you must first pick a port and start the test server via 
+	  terminal, with build/lib as your cwd. In this case & is added at the
+	  end of the startup command to run the server as a background process.
+	  
+	  $ cd PureMVC_JS/build/lib
+	  $ java -jar JsTestDriver-1.3.3.d.jar --port <PORTNUMBER> &
+	
+      For testing on your local machine, open each browser you want the tests
+      to run in and visit http://localhost:<PORTNUMBER> to capture each browser.
+	  If your machine is accessible over the network, visit its network address
+	  using the same port number from another machine and repeat the capture
+	  process.
+      
+	  Once you have captured all browsers you want to test against, use the
+	  following commands from the host machines terminal to run the tests.
+	  
+      $ java -jar JsTestDriver-1.3.3.d.jar --config ../config/testdriver.conf
+      
+      $ java -jar JsTestDriver-1.3.3.d.jar --config ../config/testdriver-compiled.conf
+
+      More information can be found at the jstestdriver wiki:
+      http://code.google.com/p/js-test-driver/w/list
 

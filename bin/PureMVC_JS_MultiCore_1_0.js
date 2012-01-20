@@ -5,6 +5,9 @@
  */
 (function (scope){
 	
+	if (null == scope)
+	    scope= window;
+	
 	// if the global puremvc namespace already exists, turn back now
 	if (scope.puremvc)
 	{
@@ -1983,36 +1986,32 @@ Controller.removeController= function(key)
 };
 
 /**
- * @ignore
- * 
  * Local reference to the Controller's View
+ * 
  * @protected
  * @type {View}
  */
-Controller.prototype.view
+Controller.prototype.view= null;
 
 /**
- * @ignore
- * 
  * Note name to command constructor mappings
+ * 
  * @protected
  * @type {Object}
  */
-Controller.prototype.commandMap
+Controller.prototype.commandMap= null;
 
 /**
- * @ignore
- * 
  * The Controller's multiton key
+ * 
  * @protected
  * @type {string}
  */
-Controller.prototype.multitonKey
+Controller.prototype.multitonKey= null;
 
 /**
- * @ignore
- * 
  * Multiton key to Controller instance mappings
+ * 
  * @static
  * @protected
  * @type {Object}
