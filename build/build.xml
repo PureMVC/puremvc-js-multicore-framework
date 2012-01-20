@@ -1,41 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="puremvc.js" basedir="../" default="packageLibrary">
+<!-- BUILD PUREMVC JS -->
+<project name="puremvc.js" basedir="../" default="buildLib">
 
-	<property file="${basedir}/build/build.properties" />
-	<target name="packageLibrary" description="Package the PureMVC library">
+	<!-- PROPERTIES -->
+	<property name="src.dir" 		value="${basedir}/src"/>
+	<property name="bin.dir" 		value="${basedir}/bin"/>
+	<property name="build.dir"  	value="${basedir}/build"/>
+	<property name="report.dir"  	value="${basedir}/report"/>
+	<property name="template.dir" 	value="${build.dir}/template"/>
+	<property name="config.dir" 	value="${build.dir}/config"/>
+	<property name="lib.dir" 		value="${build.dir}/lib"/>
+	<property file="${config.dir}/build.properties" />
+	<property name="jscompjar" 		location="${lib.dir}/${google.closure.jar}" />
+	<property name="jstestjar" 		location="${lib.dir}/${js.test.driver.jar}" />
+	<property name="jsduckexe" 		location="${lib.dir}/${jsduck.win.executable}" />
 
-		<!-- define the Google Closure compiler task -->
-		<taskdef name="jscomp" classname="com.google.javascript.jscomp.ant.CompileTask" classpath="${google.closure.classpath}" />
+	<!-- TARGET: buildLib -->
+	<target name="buildLib" description="Package the PureMVC JS MultiCore library">
+
+		<!-- DEFINE COMPILER TASK -->
+		<taskdef classname="com.google.javascript.jscomp.ant.CompileTask" 
+				 name="jscomp" classpath="${jscompjar}"/>
+		
+		<!-- CLEAN OUTPUT DIR -->
 		<delete>
-			<fileset dir="${basedir}/bin" includes="*.js" />
+			<fileset dir="${bin.dir}" includes="*.js" />
 		</delete>
 
-		<!-- define the scripts and their ordering for concatenation -->
-		<concat destfile="${basedir}/bin/${framework.name}-source.js" append="no" encoding="UTF-8" outputencoding="UTF-8" fixlastline="true">
+		<!-- CONCATENATE SCRIPTS -->
+		<concat destfile="${bin.dir}/${library.name}.js" append="no" 
+				encoding="UTF-8" outputencoding="UTF-8" fixlastline="true">
 			<path>
-				<pathelement location="${basedir}/build/templates/libraryTemplate.header.inc" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/observer/Observer.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/observer/Notification.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/observer/Notifier.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/command/SimpleCommand.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/command/MacroCommand.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/mediator/Mediator.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/proxy/Proxy.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/patterns/facade/Facade.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/View.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/Model.js" />
-				<pathelement location="${basedir}/src/org/puremvc/js/multicore/core/Controller.js" />
-				<pathelement location="${basedir}/build/templates/libraryTemplate.footer.inc" />
+				<pathelement location="${template.dir}/libraryTemplate.header.inc" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/observer/Observer.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/observer/Notification.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/observer/Notifier.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/command/SimpleCommand.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/command/MacroCommand.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/mediator/Mediator.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/proxy/Proxy.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/patterns/facade/Facade.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/View.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/Model.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/Controller.js" />
+				<pathelement location="${template.dir}/libraryTemplate.footer.inc" />
 			</path>
 		</concat>
 
-		<!-- define the Google Closure compression settings -->
-		<jscomp compilationLevel="${google.closure.complevel}" warning="${google.closure.warnlevel}" 
-			debug="false" output="${basedir}/bin/${framework.name}.js">
+		<!-- MINIFY -->
+		<jscomp warning="${google.closure.warnlevel}" debug="false" 
+			    compilationLevel="${google.closure.complevel}" 
+			    output="${bin.dir}/${library.name}_Mini.js">
 
-			<sources dir="${basedir}/bin/">
-				<file name="${framework.name}-source.js" />
+			<sources dir="${bin.dir}">
+				<file name="${library.name}.js" />
 			</sources>
+			
 		</jscomp>
+
 	</target>
+	
+	<!-- TARGET: buildDocWindows -->
+	<target name="buildDocWindows" description="Build the documentation on Mac/Unix">
+		<exec executable="${lib.dir}/${jsduck.win.executable}" osfamily="windows">
+			<arg value="--config"/>
+			<arg value="${config.dir}/${jsduck.config}"/>
+		</exec>
+	</target>
+	
+	<!-- TARGET: buildDocUnix -->
+	<target name="buildDocUnix" description="Build the documentation on Mac/Unix">
+		<exec executable="/bin/bash" dir="${build.dir}" osfamily="unix">
+			<arg value="${jsduck.shell.script}" />
+		</exec>
+	</target>
+		
+	<!-- TARGET: runUnitTests -->
+	<target name="runUnitTests">
+		
+		<!-- CREATE REPORT DIR -->
+		<mkdir dir="${report.dir}" /> 
+		<mkdir dir="${report.dir}/compressed" /> 
+		<mkdir dir="${report.dir}/uncompressed" /> 
+
+		<!-- RUN TESTS ON UNCOMPRESSED LIB -->
+		<java jar="${jstestjar}" dir="${lib.dir}" fork="true"
+			  resultproperty="uncompressedUnitTestsPassed"> 
+
+            <arg value="--config" /> 
+            <arg value="${config.dir}/${js.test.driver.config.mini}" /> 
+			
+			<arg value="--browser" /> 
+            <arg value="${js.test.browsers}" /> 
+
+			<arg value="--port" /> 
+            <arg value="${js.test.driver.port}" /> 
+
+            <arg value="--tests" /> 
+            <arg value="all" /> 
+			
+            <arg value="--testOutput" /> 
+            <arg value="${report.dir}/uncompressed" /> 
+		</java>
+		
+		<!-- RUN TESTS ON COMPRESSED LIB -->
+		<java jar="${jstestjar}" dir="${lib.dir}" fork="true"
+			  resultproperty="compressedUnitTestsPassed">
+			
+			<arg value="--config" /> 
+            <arg value="${config.dir}/${js.test.driver.config}" /> 
+			
+			<arg value="--browser" /> 
+            <arg value="${js.test.browsers}" /> 
+
+			<arg value="--port" /> 
+            <arg value="${js.test.driver.port}" /> 
+
+            <arg value="--tests" /> 
+            <arg value="all" /> 
+			
+            <arg value="--testOutput" /> 
+            <arg value="${report.dir}/compressed" /> 
+		</java>
+		
+	</target>
+	
 </project>

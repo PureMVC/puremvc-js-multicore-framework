@@ -1,12 +1,20 @@
-PureMVC Port to Javascript by David Foley
-PureMVC - Copyright(c) 2006-2011 Futurescale, Inc., Some rights reserved.
+PureMVC Port to Javascript by David Foley, Frédéric Saunier, & Alain Duchesneau
+PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
 --------------------------------------------------------------------------
-Release Date: 08/09/11
+Release Date: 01/05/12
     Platform: JavaScript (Native)
      Version: 1
     Revision: 0
-      Author: David Foley <david.foley@puremvc.org>
+     Authors: David Foley <david.foley@puremvc.org>
+            : Frédéric Saunier <frederic.saunier@puremvc.org>
+            : Alain Duchesneau <alain.duchesneau@gmail.com>
      License: Creative Commons Attribution 3.0 United States License
 --------------------------------------------------------------------------
-1.0   Inital version of Javascript native port on PureMVC.org. 
+1.0   Initial version of Javascript native port on PureMVC.org. 
       Does not require or depend on any class emulation library.
+      This port is an summation of three separate JS native ports 
+      that were created around the same time. The goal was to use
+      the very best implementation of each method in each 'class'.
+	  David Foley took the reigns of the project doing the 
+	  integration, documentation, and testing and will carry on
+	  as the official project owner.
