@@ -15,7 +15,7 @@
  	,	Notification: Notification
  	,	Notifier: Notifier
  	,	Proxy: Proxy
- 	,	implementClass: implementClass
+ 	,	define: define
  	}; 
  	
 })(this); // the 'this' parameter will resolve to global scope in all environments

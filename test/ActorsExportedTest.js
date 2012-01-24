@@ -25,7 +25,7 @@ TestCase
 			assertInstanceOf('Facade is defined', Function, puremvc.Facade);
 			assertInstanceOf('SimpleCommand is defined', Function, puremvc.SimpleCommand);
 			assertInstanceOf('MacroCommand is defined', Function, puremvc.MacroCommand);
-			assertInstanceOf('implementClass is defined', Function, puremvc.implementClass);
+			assertInstanceOf('define is defined', Function, puremvc.define);
 			
 			         
 			// for convenience during testing, Help.exportPureMvcActors() is
@@ -43,7 +43,7 @@ TestCase
 			assertInstanceOf('Facade is defined', Function, Facade);
 			assertInstanceOf('SimpleCommand is defined', Function, SimpleCommand);
 			assertInstanceOf('MacroCommand is defined', Function, MacroCommand);
-			assertInstanceOf('implementClass is defined', Function, implementClass);
+			assertInstanceOf('define is defined', Function, define);
 		}
 	}
 );

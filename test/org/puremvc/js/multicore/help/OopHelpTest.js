@@ -4,7 +4,7 @@
  */
 TestCase
 (
-    'org.puremvc.js.multicore.help.HelpTest'
+    'org.puremvc.js.multicore.help.OopHelpTest'
     
 ,   {
         
