@@ -22,30 +22,6 @@ TestCase
         }
         
         /**
-         * A helper method called before each test is run. Use it to setup the 
-         * conditions required to facilitate each test.
-         *
-         * @return {void}
-         * @protected
-         */
-    ,   setUp: function ()
-        {
-            
-        }
-        
-        /**
-         * A helper method called after each test is run. Use it to clean uo anything
-         * left over after running a test.
-         *
-         * @return {void}
-         * @protected
-         */
-    ,   tearDown: function ()
-        {
-        
-        }
-        
-                /**
          * Tests the Controller Multiton Factory Method 
          */
     ,   testGetInstance: function ()

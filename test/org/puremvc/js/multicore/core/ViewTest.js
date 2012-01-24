@@ -145,14 +145,18 @@ TestCase
         {
             // Get the Multiton View instance
             var view = View.getInstance('ViewTestKey3');
-
+            
+            
+            
             // Create and register the test mediator
             var viewTestMediator = new ViewTestMediator( this );
             view.registerMediator( viewTestMediator );
             
             // Retrieve the component
             var mediator = view.retrieveMediator( ViewTestMediator.NAME);
-
+            console.dir(mediator);
+            
+            assertTrue('The mediator is not undefined', void(0) !== mediator);
             assertTrue( "Expecting comp is ViewTestMediator", mediator instanceof ViewTestMediator );
         }
         
