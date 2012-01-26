@@ -17,6 +17,7 @@
  	/* implementation begin */
 	
 	
+
 /**
  * @class puremvc.Observer
  * 
@@ -269,6 +270,7 @@ Notification.prototype.type= null;
  * @private
  */
 Notification.prototype.body= null;
+
 /**
  * @class puremvc.Notifier
  * 
@@ -413,6 +415,7 @@ Notifier.prototype.facade= null
  * @type string
  */
 Notifier.MULTITON_MSG = "multitonKey for this Notifier not yet initialized!";
+
 /**
  * @class puremvc.SimpleCommand
  * @extends puremvc.Notifier
@@ -547,6 +550,7 @@ MacroCommand.prototype.execute= function(note)
         cmd.execute(note);
     }
 };
+
 /**
  * @class puremvc.Mediator
  * @extends puremvc.Notifier
@@ -714,6 +718,7 @@ Mediator.prototype.mediatorName= null;
  * @type Object
  */
 Mediator.prototype.viewComponent=null;
+
 /**
  * @class puremvc.Proxy
  * @extends purevmc.Notifier
@@ -827,6 +832,7 @@ Proxy.prototype.proxyName= null;
  * @type Object
  */
 Proxy.prototype.data= null;
+
 
 /**
  * @class puremvc.Facade
@@ -1295,6 +1301,7 @@ Facade.instanceMap = [];
  * @static
  */
 Facade.MULTITON_MSG = "Facade instance for this Multiton key already constructed!";
+
 /**
  * @class puremvc.View
  * 
@@ -1616,6 +1623,7 @@ View.prototype.multitonKey = null;
  * @static
  */
 View.MULTITON_MSG = "View instance for this Multiton key already constructed!";
+
 /**
  * @class puremvc.Model
  *
@@ -1793,6 +1801,7 @@ Model.prototype.multitonKey;
  * @type {string}
  */
 Model.MULTITON_MSG= "Model instance for this Multiton key already constructed!";
+
 /**
  * @class puremvc.Controller
  * 
@@ -2247,7 +2256,7 @@ var OopHelp=
  */
 function define (classInfo, traits, staticTraits)
 {
-    if (null == classInfo)
+    if (!classInfo)
     {
         classInfo= {}
     }
@@ -2292,7 +2301,7 @@ function define (classInfo, traits, staticTraits)
         OopHelp.extend(classConstructor, classParent);
     }
     
-    if (null != traits)
+    if (traits)
     {
         prototype= classConstructor.prototype
         OopHelp.decorate(prototype, traits);
@@ -2300,7 +2309,7 @@ function define (classInfo, traits, staticTraits)
         prototype.constructor= classConstructor;
     }
     
-    if (null != staticTraits)
+    if (staticTraits)
     {
         OopHelp.decorate(classConstructor, staticTraits)
     }
@@ -2317,6 +2326,7 @@ function define (classInfo, traits, staticTraits)
     
     return classConstructor;            
 };
+
 	
  	/* implementation end */
  	 
@@ -2338,3 +2348,4 @@ function define (classInfo, traits, staticTraits)
  	}; 
  	
 })(this); // the 'this' parameter will resolve to global scope in all environments
+
