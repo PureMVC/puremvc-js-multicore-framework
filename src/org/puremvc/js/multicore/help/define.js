@@ -218,7 +218,7 @@ var OopHelp=
  */
 function define (classInfo, traits, staticTraits)
 {
-    if (null == classInfo)
+    if (!classInfo)
     {
         classInfo= {}
     }
@@ -263,7 +263,7 @@ function define (classInfo, traits, staticTraits)
         OopHelp.extend(classConstructor, classParent);
     }
     
-    if (null != traits)
+    if (traits)
     {
         prototype= classConstructor.prototype
         OopHelp.decorate(prototype, traits);
@@ -271,7 +271,7 @@ function define (classInfo, traits, staticTraits)
         prototype.constructor= classConstructor;
     }
     
-    if (null != staticTraits)
+    if (staticTraits)
     {
         OopHelp.decorate(classConstructor, staticTraits)
     }
