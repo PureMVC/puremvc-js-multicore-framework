@@ -87,7 +87,10 @@ STEP 2: BUILDING DOCS
 STEP 3: RUNNING THE UNIT TESTS (SIMPLE)
     * Change browser paths 
       > Open PureMVC_JS/build/config/build.properties
-      > Modify js.test.browser property. 
+      > Find the JS TEST DRIVER SETTINGS section
+      > Un-comment one of the 'js.test.browsers' property declarations
+      > depending on your OS. Modify the paths to the browsers if 
+      > necessary.
       
     * From the Command Line with Ant...
       $ cd PureMVC_JS/build
