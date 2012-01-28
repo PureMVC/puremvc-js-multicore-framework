@@ -1,5 +1,7 @@
-
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Facade
  * Facade exposes the functionality of the Controller, Model and View
  * actors to client facing code. 
@@ -210,7 +212,7 @@ Facade.prototype.hasCommand = function(notificationName)
 };
 
 /**
- * Register a Proxy with the {@link org.puremvc.js.multicore.core.Model#registerProxy Model}
+ * Register a Proxy with the {@link puremvc.Model#registerProxy Model}
  * by name.
  * 
  * @param {puremvc.Proxy} proxy
@@ -223,7 +225,8 @@ Facade.prototype.registerProxy = function(proxy)
 };
 
 /**
- *
+ * Retrieve a Proxy from the Model
+ * 
  * @param {string} proxyName
  * @return {puremvc.Proxy}
  */

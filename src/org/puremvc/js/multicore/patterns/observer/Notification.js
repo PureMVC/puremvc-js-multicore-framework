@@ -1,4 +1,7 @@
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Notification
  * 
  * A base Notification implementation.
@@ -119,7 +122,7 @@ Notification.prototype.name= null;
 /**
  * The Notifications type.
  *
- * @type {String}
+ * @type {string}
  * @private
  */
 Notification.prototype.type= null;

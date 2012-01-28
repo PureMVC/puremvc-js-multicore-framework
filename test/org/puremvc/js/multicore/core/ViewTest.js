@@ -154,7 +154,6 @@ TestCase
             
             // Retrieve the component
             var mediator = view.retrieveMediator( ViewTestMediator.NAME);
-            console.dir(mediator);
             
             assertTrue('The mediator is not undefined', void(0) !== mediator);
             assertTrue( "Expecting comp is ViewTestMediator", mediator instanceof ViewTestMediator );

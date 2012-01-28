@@ -51,7 +51,7 @@
 		<!-- MINIFY -->
 		<jscomp warning="${google.closure.warnlevel}" debug="false" 
 			    compilationLevel="${google.closure.complevel}" 
-			    output="${bin.dir}/${library.name}_Mini.js">
+			    output="${bin.dir}/${library.name}.min.js">
 
 			<sources dir="${bin.dir}">
 				<file name="${library.name}.js" />

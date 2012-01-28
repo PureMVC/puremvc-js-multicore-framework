@@ -1,4 +1,7 @@
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Mediator
  * @extends puremvc.Notifier
  * 
@@ -108,7 +111,7 @@ Mediator.prototype.getViewComponent= function ()
  * List the Notification names this Mediator is interested
  * in being notified of.
  * 
- * @return {Array.<string>} 
+ * @return {Array} 
  *  The list of Notification names.
  */
 Mediator.prototype.listNotificationInterests= function ()

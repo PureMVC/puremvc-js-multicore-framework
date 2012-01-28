@@ -1,4 +1,7 @@
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Model
  *
  * A Multiton Model implementation.
@@ -87,6 +90,8 @@ Model.prototype.registerProxy= function(proxy)
 };
 
 /**
+ * Retrieve a Proxy from the Model
+ * 
  * @param {string} proxyName
  * @return {puremvc.Proxy}
  *  The Proxy instance previously registered with the provided proxyName

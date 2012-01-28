@@ -1,4 +1,7 @@
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Notifier
  * 
  * A Base Notifier implementation.
@@ -121,15 +124,6 @@ Notifier.prototype.getFacade = function()
  * @type string
  */
 Notifier.prototype.multitonKey = null;
-
-/**
- * A reference to this Mediators facade. Any attempt to reference
- * this property in the constructor will fail.
- * 
- * @protected
- * @type {string}
- */
-Notifier.prototype.facade= null
 
 /**
  * @ignore

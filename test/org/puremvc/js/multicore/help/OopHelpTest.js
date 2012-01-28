@@ -84,7 +84,7 @@ TestCase
             assertInstanceOf('The namespace child node was created', Object, global.puremvctest.ns);
             assertSame('#declare returns the referent of the namespace (the last node)', global.puremvctest.ns, returned);
             
-            delete global.puremvctest;
+            global.puremvctest = undefined;
    
             assertUndefined('The test ns is not defined', global.puremvctest);
         }

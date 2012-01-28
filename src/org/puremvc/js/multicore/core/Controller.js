@@ -1,4 +1,7 @@
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Controller
  * 
  * In PureMVC, the Controller class follows the 'Command and Controller' 
@@ -161,7 +164,7 @@ Controller.prototype.hasCommand= function(notificationName)
 
 /**
  * Remove a previously registered command to
- * {@link puremvc.Notifcation Notification}
+ * {@link puremvc.Notification Notification}
  * mapping.
  *
  * @param {string} notificationName
@@ -194,7 +197,7 @@ Controller.removeController= function(key)
  * Local reference to the Controller's View
  * 
  * @protected
- * @type {View}
+ * @type {puremvc.View}
  */
 Controller.prototype.view= null;
 

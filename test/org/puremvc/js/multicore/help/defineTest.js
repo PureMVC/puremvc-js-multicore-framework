@@ -47,7 +47,7 @@ TestCase
             assertInstanceOf('xyz.Abc refers to an automatically created constructor Function', Function, xyz.Abc);
             assertSame('The returned object is the xzy.Abc constructor', xyz.Abc, returned);
             
-            delete global.xyz;
+            global.xyz = null;
             
             
             var classConstructor= new Function
@@ -65,7 +65,7 @@ TestCase
             assertSame('The class constructor was returned', classConstructor, returned);
             assertSame('The class constructor was exported', classConstructor, global[className]);
             
-            delete global[className];
+            global[className] = null;
             
             assertInstanceOf('the method always returned a Function', Function, define());
         }        
@@ -86,7 +86,7 @@ TestCase
             
             assertInstanceOf('The UserObject constructor was exported to global scope', Function, global.UserObject);
             assertSame('The method returned a reference to UserObject', global.UserObject, returned);
-            delete global.UserObject
+            global.UserObject = null;
         }
         
         /**
@@ -216,7 +216,7 @@ TestCase
             
             assertSame('A default constructor ws created and returned', global[name], returned);
 
-            delete global[name];
+            global[name] = null;
 
             define
             (
@@ -242,9 +242,9 @@ TestCase
             
             assertSame('The parent constructor was invoked', expected, b.id);
             
-            delete test.A;
-            delete test.B;
-            delete global.test
+            test.A = null;
+            test.B = null;
+            global.test = null;
         }
 
         /**

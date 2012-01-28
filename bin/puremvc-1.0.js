@@ -1,7 +1,10 @@
 /**
  * @fileOverview
- * PureMVC multicore native JavaScript port.
- * @author David Foley | david@objectkit.com
+ * PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * Reuse governed by Creative Commons Attribution 3.0 
+ * http://creativecommons.org/licenses/by/3.0/us/
+ * @author david.foley@puremvc.org 
  */
 (function (scope){
 	
@@ -19,6 +22,9 @@
 	
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Observer
  * 
  * A base Observer implementation.
@@ -138,6 +144,9 @@ Observer.prototype.notify= null;
  */
 Observer.prototype.context= null;
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Notification
  * 
  * A base Notification implementation.
@@ -258,7 +267,7 @@ Notification.prototype.name= null;
 /**
  * The Notifications type.
  *
- * @type {String}
+ * @type {string}
  * @private
  */
 Notification.prototype.type= null;
@@ -272,6 +281,9 @@ Notification.prototype.type= null;
 Notification.prototype.body= null;
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Notifier
  * 
  * A Base Notifier implementation.
@@ -396,15 +408,6 @@ Notifier.prototype.getFacade = function()
 Notifier.prototype.multitonKey = null;
 
 /**
- * A reference to this Mediators facade. Any attempt to reference
- * this property in the constructor will fail.
- * 
- * @protected
- * @type {string}
- */
-Notifier.prototype.facade= null
-
-/**
  * @ignore
  * The error message used if the Notifier is not initialized correctly and
  * attempts to retrieve its own multiton key
@@ -417,6 +420,9 @@ Notifier.prototype.facade= null
 Notifier.MULTITON_MSG = "multitonKey for this Notifier not yet initialized!";
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.SimpleCommand
  * @extends puremvc.Notifier
  *
@@ -450,6 +456,9 @@ SimpleCommand.prototype.constructor= SimpleCommand;
  */
 SimpleCommand.prototype.execute= function (notification) { };
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.MacroCommand
  * @extends puremvc.Notifier
  * 
@@ -552,6 +561,9 @@ MacroCommand.prototype.execute= function(note)
 };
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Mediator
  * @extends puremvc.Notifier
  * 
@@ -661,7 +673,7 @@ Mediator.prototype.getViewComponent= function ()
  * List the Notification names this Mediator is interested
  * in being notified of.
  * 
- * @return {Array.<string>} 
+ * @return {Array} 
  *  The list of Notification names.
  */
 Mediator.prototype.listNotificationInterests= function ()
@@ -720,8 +732,11 @@ Mediator.prototype.mediatorName= null;
 Mediator.prototype.viewComponent=null;
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Proxy
- * @extends purevmc.Notifier
+ * @extends puremvc.Notifier
  *
  * A base Proxy implementation. 
  * 
@@ -833,8 +848,10 @@ Proxy.prototype.proxyName= null;
  */
 Proxy.prototype.data= null;
 
-
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Facade
  * Facade exposes the functionality of the Controller, Model and View
  * actors to client facing code. 
@@ -1045,7 +1062,7 @@ Facade.prototype.hasCommand = function(notificationName)
 };
 
 /**
- * Register a Proxy with the {@link org.puremvc.js.multicore.core.Model#registerProxy Model}
+ * Register a Proxy with the {@link puremvc.Model#registerProxy Model}
  * by name.
  * 
  * @param {puremvc.Proxy} proxy
@@ -1058,7 +1075,8 @@ Facade.prototype.registerProxy = function(proxy)
 };
 
 /**
- *
+ * Retrieve a Proxy from the Model
+ * 
  * @param {string} proxyName
  * @return {puremvc.Proxy}
  */
@@ -1303,6 +1321,9 @@ Facade.instanceMap = [];
 Facade.MULTITON_MSG = "Facade instance for this Multiton key already constructed!";
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.View
  * 
  * A Multiton View implementation.
@@ -1625,6 +1646,9 @@ View.prototype.multitonKey = null;
 View.MULTITON_MSG = "View instance for this Multiton key already constructed!";
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Model
  *
  * A Multiton Model implementation.
@@ -1713,6 +1737,8 @@ Model.prototype.registerProxy= function(proxy)
 };
 
 /**
+ * Retrieve a Proxy from the Model
+ * 
  * @param {string} proxyName
  * @return {puremvc.Proxy}
  *  The Proxy instance previously registered with the provided proxyName
@@ -1803,6 +1829,9 @@ Model.prototype.multitonKey;
 Model.MULTITON_MSG= "Model instance for this Multiton key already constructed!";
 
 /**
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @class puremvc.Controller
  * 
  * In PureMVC, the Controller class follows the 'Command and Controller' 
@@ -1965,7 +1994,7 @@ Controller.prototype.hasCommand= function(notificationName)
 
 /**
  * Remove a previously registered command to
- * {@link puremvc.Notifcation Notification}
+ * {@link puremvc.Notification Notification}
  * mapping.
  *
  * @param {string} notificationName
@@ -1998,7 +2027,7 @@ Controller.removeController= function(key)
  * Local reference to the Controller's View
  * 
  * @protected
- * @type {View}
+ * @type {puremvc.View}
  */
 Controller.prototype.view= null;
 
@@ -2037,6 +2066,9 @@ Controller.instanceMap= [];
  */
 Controller.MULTITON_MSG= "controller key for this Multiton key already constructed"
 /*
+ * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
+ * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+ * 
  * @hide
  * A an internal helper class used to assist classlet implementation. This
  * class is not accessible by client code.
