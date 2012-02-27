@@ -26,12 +26,11 @@ TestCase
 			assertInstanceOf('SimpleCommand is defined', Function, puremvc.SimpleCommand);
 			assertInstanceOf('MacroCommand is defined', Function, puremvc.MacroCommand);
 			assertInstanceOf('define is defined', Function, puremvc.define);
-			
+			assertInstanceOf('declare is defined', Function, puremvc.declare);
 			         
 			// for convenience during testing, Help.exportPureMvcActors() is
 			// used to export otherwise namespaced classes to the global scope
 
-			
 			assertInstanceOf('Model is defined', Function, Model);
 			assertInstanceOf('View is defined', Function, View);
 			assertInstanceOf('Controller is defined', Function, Controller);

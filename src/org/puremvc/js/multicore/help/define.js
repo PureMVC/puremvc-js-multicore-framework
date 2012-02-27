@@ -18,13 +18,13 @@ var OopHelp=
      */
     global: (function(){return this})()
 
-    /*
-     * @private
+    /**
+     * @member puremvc.declare 
      * Declare a namespace, creating an arbitrary object hierarchy to
      * represent that namespace. Note that the method will NOT override
-     * any existing node in the hierarchy, the exemption being that if
+     * any existing node in the hierarchy, the exception being that if
      * the a non-null value is supplied as the second argument, it will
-     * become the hierarchys ultimate referent.
+     * become the hierarchies ultimate referent.
      * 
      * @param {string} string
      *  A qualified object name, e.g. 'com.example.Class'
@@ -34,11 +34,11 @@ var OopHelp=
      * 
      * @param {Object} [scope]
      *  Optional. The namespace's root node. If not supplied, the global
-     *  scope will be namespaces
+     *  scope will be namespaces root node.
      * 
      * @return {Object}
      * 
-     *  A reference to the last node of the Object hierarchy created
+     *  A reference to the last node of the Object hierarchy created.
      */
  ,  declare: function (qualifiedName, object, scope)
     {

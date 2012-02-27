@@ -20,7 +20,6 @@
  	/* implementation begin */
 	
 	
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -279,7 +278,6 @@ Notification.prototype.type= null;
  * @private
  */
 Notification.prototype.body= null;
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -418,7 +416,6 @@ Notifier.prototype.multitonKey = null;
  * @type string
  */
 Notifier.MULTITON_MSG = "multitonKey for this Notifier not yet initialized!";
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -559,7 +556,6 @@ MacroCommand.prototype.execute= function(note)
         cmd.execute(note);
     }
 };
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -730,7 +726,6 @@ Mediator.prototype.mediatorName= null;
  * @type Object
  */
 Mediator.prototype.viewComponent=null;
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -847,7 +842,6 @@ Proxy.prototype.proxyName= null;
  * @type Object
  */
 Proxy.prototype.data= null;
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -1319,7 +1313,6 @@ Facade.instanceMap = [];
  * @static
  */
 Facade.MULTITON_MSG = "Facade instance for this Multiton key already constructed!";
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -1644,7 +1637,6 @@ View.prototype.multitonKey = null;
  * @static
  */
 View.MULTITON_MSG = "View instance for this Multiton key already constructed!";
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -1827,7 +1819,6 @@ Model.prototype.multitonKey;
  * @type {string}
  */
 Model.MULTITON_MSG= "Model instance for this Multiton key already constructed!";
-
 /**
  * @author PureMVC JS Native Port by David Foley, Frédéric Saunier, & Alain Duchesneau 
  * @author Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
@@ -2085,13 +2076,13 @@ var OopHelp=
      */
     global: (function(){return this})()
 
-    /*
-     * @private
+    /**
+     * @member puremvc.declare 
      * Declare a namespace, creating an arbitrary object hierarchy to
      * represent that namespace. Note that the method will NOT override
-     * any existing node in the hierarchy, the exemption being that if
+     * any existing node in the hierarchy, the exception being that if
      * the a non-null value is supplied as the second argument, it will
-     * become the hierarchys ultimate referent.
+     * become the hierarchies ultimate referent.
      * 
      * @param {string} string
      *  A qualified object name, e.g. 'com.example.Class'
@@ -2101,11 +2092,11 @@ var OopHelp=
      * 
      * @param {Object} [scope]
      *  Optional. The namespace's root node. If not supplied, the global
-     *  scope will be namespaces
+     *  scope will be namespaces root node.
      * 
      * @return {Object}
      * 
-     *  A reference to the last node of the Object hierarchy created
+     *  A reference to the last node of the Object hierarchy created.
      */
  ,  declare: function (qualifiedName, object, scope)
     {
@@ -2358,7 +2349,6 @@ function define (classInfo, traits, staticTraits)
     
     return classConstructor;            
 };
-
 	
  	/* implementation end */
  	 
@@ -2377,7 +2367,7 @@ function define (classInfo, traits, staticTraits)
  	,	Notifier: Notifier
  	,	Proxy: Proxy
  	,	define: define
+ 	,	declare: OopHelp.declare
  	}; 
  	
 })(this); // the 'this' parameter will resolve to global scope in all environments
-
