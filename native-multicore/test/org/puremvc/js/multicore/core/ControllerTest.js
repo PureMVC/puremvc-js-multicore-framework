@@ -141,5 +141,11 @@ TestCase
             
             assertSame("Expecting vo.result == 48", 48, vo.result);
         }
+        
+    ,	testNullMultitonKeyReturnsNull: function ()
+    	{
+    		assertNull('Multiton key was undefined, so #getInstance returned null', Controller.getInstance());
+    		assertNull('Multiton key was null, so Controller#getInstance returned null', Controller.getInstance(null));
+    	}
     }
 );

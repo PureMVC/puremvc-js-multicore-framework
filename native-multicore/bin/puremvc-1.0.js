@@ -1389,6 +1389,9 @@ View.prototype.initializeView = function()
  */
 View.getInstance = function(key)
 {
+	if (null == key)
+		return null;
+		
     if(View.instanceMap[key] == null)
     {
         View.instanceMap[key] = new View(key);
@@ -1709,6 +1712,9 @@ Model.prototype.initializeModel= function(){};
  */
 Model.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(Model.instanceMap[key] == null)
     {
         Model.instanceMap[key]= new Model(key);
@@ -1919,6 +1925,9 @@ Controller.prototype.initializeController= function()
  */
 Controller.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(null == this.instanceMap[key])
     {
         this.instanceMap[key]= new this(key);

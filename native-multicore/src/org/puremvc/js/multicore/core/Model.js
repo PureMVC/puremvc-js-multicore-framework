@@ -70,6 +70,9 @@ Model.prototype.initializeModel= function(){};
  */
 Model.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(Model.instanceMap[key] == null)
     {
         Model.instanceMap[key]= new Model(key);

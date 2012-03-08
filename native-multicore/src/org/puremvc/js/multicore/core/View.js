@@ -74,6 +74,9 @@ View.prototype.initializeView = function()
  */
 View.getInstance = function(key)
 {
+	if (null == key)
+		return null;
+		
     if(View.instanceMap[key] == null)
     {
         View.instanceMap[key] = new View(key);

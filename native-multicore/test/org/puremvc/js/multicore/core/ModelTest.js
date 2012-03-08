@@ -119,9 +119,15 @@ TestCase
     		}
     		catch (thrown)
     		{
-    			console.error(thrown);
+    			// console.error(thrown);
     		}
-
         }
+        
+        
+    ,	testNullMultitonKeyReturnsNull: function ()
+    	{
+    		assertNull('Multiton key was undefined, so #getInstance returned null', Model.getInstance());
+    		assertNull('Multiton key was null, so Controller#getInstance returned null', Model.getInstance(null));
+    	}
     }
 );

@@ -481,5 +481,10 @@ TestCase
             assertEquals( "Expecting counter == 0", 0, this.counter);
         }    
         
+    ,	testNullMultitonKeyReturnsNull: function ()
+    	{
+    		assertNull('Multiton key was undefined, so #getInstance returned null', View.getInstance());
+    		assertNull('Multiton key was null, so Controller#getInstance returned null', View.getInstance(null));
+    	} 
     }
 );

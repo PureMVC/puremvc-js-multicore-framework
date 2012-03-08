@@ -98,6 +98,9 @@ Controller.prototype.initializeController= function()
  */
 Controller.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(null == this.instanceMap[key])
     {
         this.instanceMap[key]= new this(key);
