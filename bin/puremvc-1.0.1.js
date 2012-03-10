@@ -894,7 +894,9 @@ Facade.prototype.initializeFacade = function()
 };
 
 /**
- * Facade Multiton Factory method.
+ * Facade Multiton Factory method. 
+ * Note that this method will return null if supplied a
+ * null or undefined multiton key.
  * 
  * @param {string} key
  * 	The multiton key use to retrieve a particular Facade instance
@@ -902,6 +904,9 @@ Facade.prototype.initializeFacade = function()
  */
 Facade.getInstance = function(key)
 {
+	if (null == key)
+		return null;
+		
     if(Facade.instanceMap[key] == null)
     {
         Facade.instanceMap[key] = new Facade(key);
@@ -1383,12 +1388,17 @@ View.prototype.initializeView = function()
 
 /**
  * View Singleton Factory method.
- * 
+ * Note that this method will return null if supplied a null 
+ * or undefined multiton key.
+ *  
  * @return {puremvc.View}
  *  The Singleton instance of View
  */
 View.getInstance = function(key)
 {
+	if (null == key)
+		return null;
+		
     if(View.instanceMap[key] == null)
     {
         View.instanceMap[key] = new View(key);
@@ -1701,7 +1711,9 @@ Model.prototype.initializeModel= function(){};
 
 /**
  * Model Multiton Factory method.
- * 
+ * Note that this method will return null if supplied a null 
+ * or undefined multiton key.
+ *  
  * @param {string} key
  *  The multiton key for the Model to retrieve
  * @return {puremvc.Model}
@@ -1709,6 +1721,9 @@ Model.prototype.initializeModel= function(){};
  */
 Model.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(Model.instanceMap[key] == null)
     {
         Model.instanceMap[key]= new Model(key);
@@ -1910,7 +1925,9 @@ Controller.prototype.initializeController= function()
 };
 
 /**
- * The Controllers multiton factory method.
+ * The Controllers multiton factory method. 
+ * Note that this method will return null if supplied a null 
+ * or undefined multiton key. 
  *
  * @param {string} key
  *  A Controller's multiton key
@@ -1919,6 +1936,9 @@ Controller.prototype.initializeController= function()
  */
 Controller.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(null == this.instanceMap[key])
     {
         this.instanceMap[key]= new this(key);
@@ -2066,7 +2086,6 @@ Controller.MULTITON_MSG= "controller key for this Multiton key already construct
  */
 var OopHelp=
 {
-    
     /*
      * @private
      * A reference to the global scope. We use this rather than window
@@ -2074,51 +2093,7 @@ var OopHelp=
      * JavaScript interpreters.
      * @type {Object}
      */
-    global: (function(){return this})()
-
-    /**
-     * @member puremvc.declare 
-     * Declare a namespace, creating an arbitrary object hierarchy to
-     * represent that namespace. Note that the method will NOT override
-     * any existing node in the hierarchy, the exception being that if
-     * the a non-null value is supplied as the second argument, it will
-     * become the hierarchies ultimate referent.
-     * 
-     * @param {string} string
-     *  A qualified object name, e.g. 'com.example.Class'
-     * 
-     * @param {Object} [object]
-     *  Optional. An object to make the referent of the namespace. 
-     * 
-     * @param {Object} [scope]
-     *  Optional. The namespace's root node. If not supplied, the global
-     *  scope will be namespaces root node.
-     * 
-     * @return {Object}
-     * 
-     *  A reference to the last node of the Object hierarchy created.
-     */
- ,  declare: function (qualifiedName, object, scope)
-    {
-        var nodes= qualifiedName.split('.')
-        ,   node= scope || OopHelp.global
-        ,   lastNode
-        ,   newNode
-        ,   nodeName;
-                    
-        for (var i= 0, n= nodes.length; i < n; i++)
-        {
-            lastNode= node;
-            nodeName= nodes[i];
-            
-            node= (null == node[nodeName] ? node[nodeName] = {} : node[nodeName]);
-        }
-                        
-        if (null == object)
-            return node;
-                            
-        return lastNode[nodeName]= object;
-    }
+	global: (function(){return this})()
     
     /*
      * @private
@@ -2179,8 +2154,122 @@ var OopHelp=
     }
 };
 
+
 /**
- * @member puremvc.define
+ * @member puremvc
+ * 
+ * Declare a namespace and optionally make an Object the referent
+ * of that namespace.
+ * 
+ *     console.assert(null == window.tld, 'No tld namespace');
+ *     // declare the tld namespace
+ *     puremvc.declare('tld');
+ *     console.assert('object' === typeof tld, 'The tld namespace was declared');
+ * 
+ *     // the method returns a reference to last namespace node in a created hierarchy
+ *     var reference= puremvc.declare('tld.domain.app');
+ *     console.assert(reference === tld.domain.app)
+ *    
+ *     // of course you can also declare your own objects as well
+ *     var AppConstants=
+ *         {
+ * 	           APP_NAME: 'tld.domain.app.App'
+ *         };
+ * 
+ *     puremvc.declare('tld.domain.app.AppConstants', AppConstants);
+ *     console.assert(AppConstants === tld.domain.app.AppConstants
+ * 	   , 'AppConstants was exported to the namespace');
+ * 
+ * Note that you can also #declare within a closure. That way you
+ * can selectively export Objects to your own namespaces without
+ * leaking variables into the global scope.
+ *    
+ *     (function(){
+ *         // this var is not accessible outside of this
+ *         // closures call scope
+ *         var hiddenValue= 'defaultValue';
+ * 
+ *         // export an object that references the hidden
+ *         // variable and which can mutate it
+ *         puremvc.declare
+ *         (
+ *              'tld.domain.app.backdoor'
+ * 
+ *         ,    {
+ *                  setValue: function (value)
+ *                  {
+ *                      // assigns to the hidden var
+ *                      hiddenValue= value;
+ *                  }
+ * 
+ *         ,        getValue: function ()
+ *                  {
+ *                      // reads from the hidden var
+ *                      return hiddenValue;
+ *                  }
+ *              }
+ *         );
+ *     })();
+ *     // indirectly retrieve the hidden variables value
+ *     console.assert('defaultValue' === tld.domain.app.backdoor.getValue());
+ *     // indirectly set the hidden variables value
+ *     tld.domain.app.backdoor.setValue('newValue');
+ *     // the hidden var was mutated
+ *     console.assert('newValue' === tld.domain.app.backdoor.getValue());
+ * 
+ * On occasion, primarily during testing, you may want to use declare, 
+ * but not have the global object be the namespace root. In these cases you
+ * can supply the optional third scope argument.
+ * 
+ *     var localScope= {}
+ *     ,   object= {}
+ * 
+ *     puremvc.declare('mock.object', object, localScope);
+ * 
+ *     console.assert(null == window.mock, 'mock namespace is not in global scope');
+ *     console.assert(object === localScope.mock.object, 'mock.object is available in localScope');    
+ * 
+ * @param {string} string
+ *  A qualified object name, e.g. 'com.example.Class'
+ * 
+ * @param {Object} [object]
+ *  An object to make the referent of the namespace. 
+ * 
+ * @param {Object} [scope]
+ *  The namespace's root node. If not supplied, the global
+ *  scope will be namespaces root node.
+ * 
+ * @return {Object}
+ * 
+ *  A reference to the last node of the Object hierarchy created.
+ */
+function declare (qualifiedName, object, scope)
+{
+    var nodes= qualifiedName.split('.')
+    ,   node= scope || OopHelp.global
+    ,   lastNode
+    ,   newNode
+    ,   nodeName;
+                
+    for (var i= 0, n= nodes.length; i < n; i++)
+    {
+        lastNode= node;
+        nodeName= nodes[i];
+        
+        node= (null == node[nodeName] ? node[nodeName] = {} : node[nodeName]);
+    }
+                    
+    if (null == object)
+        return node;
+                        
+    return lastNode[nodeName]= object;
+};
+
+
+
+
+/**
+ * @member puremvc
  * 
  * Define a new classlet. Current editions of JavaScript do not have classes,
  * but they can be emulated, and this method does this for you, saving you
@@ -2271,7 +2360,7 @@ var OopHelp=
  *  class constructors prototype.
  * 
  * @param {Object} [staitcTraits]
- *  An object, the properties of which will be added directly
+ *  An Object, the properties of which will be added directly
  *  to this class constructor
  * 
  * @return {Function}
@@ -2344,11 +2433,13 @@ function define (classInfo, traits, staticTraits)
             throw new TypeError('Class name must be primitive string');
         }
             
-        OopHelp.declare (className, classConstructor, classScope);
+        declare (className, classConstructor, classScope);
     }    
     
     return classConstructor;            
 };
+
+
 	
  	/* implementation end */
  	 
@@ -2367,7 +2458,7 @@ function define (classInfo, traits, staticTraits)
  	,	Notifier: Notifier
  	,	Proxy: Proxy
  	,	define: define
- 	,	declare: OopHelp.declare
+ 	,	declare: declare
  	}; 
  	
 })(this); // the 'this' parameter will resolve to global scope in all environments

@@ -28,7 +28,8 @@ Help=
 		Notifier		= puremvc.Notifier;
 		Notification	= puremvc.Notification;
 		Proxy			= puremvc.Proxy;
-		define          = puremvc.define
+		define          = puremvc.define;
+		declare			= puremvc.declare;
 		
 		if (console)
 			console.info('Exported PureMVC actors', this)

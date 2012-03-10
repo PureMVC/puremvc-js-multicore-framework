@@ -43,7 +43,7 @@
 				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/View.js" />
 				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/Model.js" />
 				<pathelement location="${src.dir}/org/puremvc/js/multicore/core/Controller.js" />
-				<pathelement location="${src.dir}/org/puremvc/js/multicore/help/define.js" />
+				<pathelement location="${src.dir}/org/puremvc/js/multicore/help/oop.js" />
 				<pathelement location="${template.dir}/libraryTemplate.footer.inc" />
 			</path>
 		</concat>

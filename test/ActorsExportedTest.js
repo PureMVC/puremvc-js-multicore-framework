@@ -43,6 +43,7 @@ TestCase
 			assertInstanceOf('SimpleCommand is defined', Function, SimpleCommand);
 			assertInstanceOf('MacroCommand is defined', Function, MacroCommand);
 			assertInstanceOf('define is defined', Function, define);
+			assertInstanceOf('declare is defined', Function, define);
 		}
 	}
 );

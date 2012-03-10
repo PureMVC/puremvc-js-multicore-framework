@@ -62,7 +62,9 @@ Model.prototype.initializeModel= function(){};
 
 /**
  * Model Multiton Factory method.
- * 
+ * Note that this method will return null if supplied a null 
+ * or undefined multiton key.
+ *  
  * @param {string} key
  *  The multiton key for the Model to retrieve
  * @return {puremvc.Model}
@@ -70,6 +72,9 @@ Model.prototype.initializeModel= function(){};
  */
 Model.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(Model.instanceMap[key] == null)
     {
         Model.instanceMap[key]= new Model(key);

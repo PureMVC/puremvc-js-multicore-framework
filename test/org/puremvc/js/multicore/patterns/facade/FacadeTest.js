@@ -196,5 +196,16 @@ TestCase
             assertTrue( "Expecting facade.hasCore('FacadeTestKey11') == false", 
                         Facade.hasCore('FacadeTestKey11') == false);
         }
+        
+        
+        /**
+         * Ensures that #getInstance returns null if supplied a multitonKey
+         * that is either null or undefined
+         */
+    ,	testNullMultitonKeyReturnsNull: function ()
+    	{
+    		assertNull('Multiton key was undefined, so #getInstance returned null', Facade.getInstance());
+    		assertNull('Multiton key was null, so #getInstance returned null', Facade.getInstance(null));
+    	}    
     }
 );

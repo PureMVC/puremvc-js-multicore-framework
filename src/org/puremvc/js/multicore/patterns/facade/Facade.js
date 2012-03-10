@@ -50,7 +50,9 @@ Facade.prototype.initializeFacade = function()
 };
 
 /**
- * Facade Multiton Factory method.
+ * Facade Multiton Factory method. 
+ * Note that this method will return null if supplied a
+ * null or undefined multiton key.
  * 
  * @param {string} key
  * 	The multiton key use to retrieve a particular Facade instance
@@ -58,6 +60,9 @@ Facade.prototype.initializeFacade = function()
  */
 Facade.getInstance = function(key)
 {
+	if (null == key)
+		return null;
+		
     if(Facade.instanceMap[key] == null)
     {
         Facade.instanceMap[key] = new Facade(key);

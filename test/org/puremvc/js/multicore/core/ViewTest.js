@@ -479,7 +479,17 @@ TestCase
             view.notifyObservers( new Notification( ViewTestConstants.NOTE6 ) );
             // verify the count is 0
             assertEquals( "Expecting counter == 0", 0, this.counter);
-        }    
+        } 
         
+        
+        /**
+         * Ensures that #getInstance returns null if supplied a multitonKey
+         * that is either null or undefined
+         */
+    ,	testNullMultitonKeyReturnsNull: function ()
+    	{
+    		assertNull('Multiton key was undefined, so #getInstance returned null', View.getInstance());
+    		assertNull('Multiton key was null, so Controller#getInstance returned null', View.getInstance(null));
+    	}        
     }
 );

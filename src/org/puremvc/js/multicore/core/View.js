@@ -68,12 +68,17 @@ View.prototype.initializeView = function()
 
 /**
  * View Singleton Factory method.
- * 
+ * Note that this method will return null if supplied a null 
+ * or undefined multiton key.
+ *  
  * @return {puremvc.View}
  *  The Singleton instance of View
  */
 View.getInstance = function(key)
 {
+	if (null == key)
+		return null;
+		
     if(View.instanceMap[key] == null)
     {
         View.instanceMap[key] = new View(key);

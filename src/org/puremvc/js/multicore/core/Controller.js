@@ -89,7 +89,9 @@ Controller.prototype.initializeController= function()
 };
 
 /**
- * The Controllers multiton factory method.
+ * The Controllers multiton factory method. 
+ * Note that this method will return null if supplied a null 
+ * or undefined multiton key. 
  *
  * @param {string} key
  *  A Controller's multiton key
@@ -98,6 +100,9 @@ Controller.prototype.initializeController= function()
  */
 Controller.getInstance= function(key)
 {
+	if (null == key)
+		return null;
+		
     if(null == this.instanceMap[key])
     {
         this.instanceMap[key]= new this(key);
