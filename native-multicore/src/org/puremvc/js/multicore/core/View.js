@@ -67,7 +67,9 @@ View.prototype.initializeView = function()
 };
 
 /**
- * View Singleton Factory method.
+ * View Singleton Factory method. Note that if
+ * the multiton key argument is null or undefined, that
+ * #getInstance will return null.
  * 
  * @return {puremvc.View}
  *  The Singleton instance of View

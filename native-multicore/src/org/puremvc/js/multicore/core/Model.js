@@ -61,7 +61,9 @@ Model.prototype.initializeModel= function(){};
 
 
 /**
- * Model Multiton Factory method.
+ * Model Multiton Factory method. Note that if
+ * the multiton key argument is null or undefined, that
+ * #getInstance will return null.
  * 
  * @param {string} key
  *  The multiton key for the Model to retrieve

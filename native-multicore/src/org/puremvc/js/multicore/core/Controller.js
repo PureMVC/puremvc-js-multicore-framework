@@ -89,7 +89,9 @@ Controller.prototype.initializeController= function()
 };
 
 /**
- * The Controllers multiton factory method.
+ * The Controllers multiton factory method. Note that if
+ * the multiton key argument is null or undefined, that
+ * #getInstance will return null.
  *
  * @param {string} key
  *  A Controller's multiton key
