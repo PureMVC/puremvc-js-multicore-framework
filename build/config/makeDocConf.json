@@ -1,8 +1,0 @@
-{
-	"--title": "PureMVC JS Native MultiCore",
-	"--output": "../../docs",
-	"--": 
-	[
-		"../../src"
-	]
-}
