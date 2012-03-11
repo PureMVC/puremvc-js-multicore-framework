@@ -1,15 +1,28 @@
 PureMVC Port to Javascript by David Foley, Frédéric Saunier, & Alain Duchesneau
 PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
 --------------------------------------------------------------------------
-Release Date: 01/28/12
+Release Date: 3/11/12
     Platform: JavaScript (Native)
      Version: 1
-    Revision: 0
+    Revision: 1
      Authors: David Foley <david.foley@puremvc.org>
             : Frédéric Saunier <frederic.saunier@puremvc.org>
             : Alain Duchesneau <alain.duchesneau@gmail.com>
      License: Creative Commons Attribution 3.0 United States License
 --------------------------------------------------------------------------
+1.1   Exposed the previously puremvc.declare() for use by developers.
+      puremvc.declare() allows you to declare a namespace, and optionally 
+      make an Object the referent of that namespace (e.g., a set of 
+      notification constants). puremvc.declare() is also used by 
+      puremvc.define() to automatically declare namespaces from class 
+      definitions.
+	  
+	  Also we made the decision to dissallow null multiton keys. In 
+	  the original ActionScript, this is never a problem, but in JavaScript
+	  contention could arise if multiple apps by different vendors appear 
+	  in the same page and both call Facade.getInstance() without a Multiton 
+	  key. 
+	  
 1.0   Initial version of Javascript native port on PureMVC.org. 
       Does not require or depend on any class emulation library.
       
