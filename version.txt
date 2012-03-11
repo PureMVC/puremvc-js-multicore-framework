@@ -17,10 +17,10 @@ Release Date: 3/11/12
       puremvc.define() to automatically declare namespaces from class 
       definitions.
 	  
-	  Also we made the decision to dissallow null multiton keys. In 
+	  Also we made the decision to disallow null multiton keys. In 
 	  the original ActionScript, this is never a problem, but in JavaScript
 	  contention could arise if multiple apps by different vendors appear 
-	  in the same page and both call Facade.getInstance() without a Multiton 
+	  in the same page and both call Facade.getInstance() without a multiton 
 	  key. 
 	  
 1.0   Initial version of Javascript native port on PureMVC.org. 
