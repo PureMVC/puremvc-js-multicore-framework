@@ -1,5 +1,4 @@
-﻿PureMVC Port to Javascript by David Foley, Frédéric Saunier, & Alain Duchesneau
-PureMVC - Copyright(c) 2006-2012 Futurescale, Inc., Some rights reserved.
+PureMVC MultiCore Framework for Javascript (Ported)
 --------------------------------------------------------------------------
 Release Date: 3/11/12
     Platform: JavaScript (Native)
@@ -9,8 +8,7 @@ Release Date: 3/11/12
      Authors: David Foley <david.foley@puremvc.org>
             : Frédéric Saunier <frederic.saunier@puremvc.org>
             : Alain Duchesneau <alain.duchesneau@gmail.com>
-     License: Creative Commons Attribution 3.0 United States License
---------------------------------------------------------------------------
+-------------------------------------------------------------------------
 1.0.1   Exposed the previously internal puremvc.declare() for use by 
 	  developers. puremvc.declare() allows you to declare a namespace, 
 	  and optionally make an Object the referent of that namespace 
