@@ -9,11 +9,15 @@ Unit Tests are included in this repository.
 * [Discussion](http://forums.puremvc.org/index.php?board=95.0)
 * [Overview Presentation](http://puremvc.tv/#P002)
 
+## Utilities
+* [Utility: State Machine](https://github.com/PureMVC/puremvc-js-util-statemachine/wiki)
+
 ## Demos
 * [Demo: Employee Admin](https://github.com/PureMVC/puremvc-js-demo-employeeadmin/wiki)
 * [Demo: Reverse Text](https://github.com/PureMVC/puremvc-js-demo-reversetext/wiki)
 * [Demo: Box Splash](https://github.com/PureMVC/puremvc-js-demo-boxsplash/wiki)
 * [Demo: TodoMVC](https://github.com/PureMVC/puremvc-js-demo-todomvc/wiki)
+* [Demo: Lockable Door](https://github.com/PureMVC/puremvc-js-demo-lockabledoor/wiki)
 
 ## Status
 Production - [Version 1.0.1](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
