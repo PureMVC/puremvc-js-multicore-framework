@@ -5,7 +5,7 @@ This port contains additional functionality not found in other ports - lightweig
 
 Unit Tests are included in this repository.
 
-* [API Docs](http://darkstar.puremvc.org/content_header.html?url=http://puremvc.org/pages/docs/JS/native-multicore/&desc=PureMVC%20API%20Docs:%20PureMVC%20MultiCore%20for%20JavaScript)
+* [API Docs](http://puremvc.org/pages/docs/JS/native-multicore/)
 * [Discussion](http://forums.puremvc.org/index.php?board=95.0)
 * [Overview Presentation](http://puremvc.tv/#P002)
 
