@@ -13,6 +13,7 @@ Unit Tests are included in this repository.
 * [Utility: State Machine](https://github.com/PureMVC/puremvc-js-util-statemachine/wiki)
 
 ## Demos
+* [Demo: Employee Admin Microservice](https://github.com/PureMVC/puremvc-js-demo-microservice-employeeadmin/wiki)
 * [Demo: Employee Admin](https://github.com/PureMVC/puremvc-js-demo-employeeadmin/wiki)
 * [Demo: Reverse Text](https://github.com/PureMVC/puremvc-js-demo-reversetext/wiki)
 * [Demo: Box Splash](https://github.com/PureMVC/puremvc-js-demo-boxsplash/wiki)
