@@ -1,34 +1,11 @@
-PureMVC MultiCore Framework for Javascript (Ported)
+PureMVC MultiCore Framework for JavaScript
 --------------------------------------------------------------------------
-Release Date: 3/11/12
-    Platform: JavaScript (Native)
-     Version: 1
+Release Date: 12/14/23
+    Platform: JavaScript
+     Version: 2
     Revision: 0
-       Minor: 1
-     Authors: David Foley <david.foley@puremvc.org>
-            : Frédéric Saunier <frederic.saunier@puremvc.org>
-            : Alain Duchesneau <alain.duchesneau@gmail.com>
--------------------------------------------------------------------------
-1.0.1   Exposed the previously internal puremvc.declare() for use by 
-	  developers. puremvc.declare() allows you to declare a namespace, 
-	  and optionally make an Object the referent of that namespace 
-	  (e.g., a set of notification constants). puremvc.declare() is also 
-	  used by puremvc.define() to automatically declare namespaces from 
-	  class definitions.
-	  
-	  Also we made the decision to disallow null multiton keys. In the 
-	  original ActionScript, this is never a problem, but in JavaScript
-	  contention could arise if multiple apps by different vendors appear 
-	  in the same page and both call Facade.getInstance() without a 
-	  multiton key. 
-	  
-1.0   Initial version of Javascript native port on PureMVC.org. 
-      Does not require or depend on any class emulation library.
-      
-      This port is an summation of three separate JS native ports 
-      that were created around the same time. The goal was to use
-      the very best implementation of each method in each 'class'.
-      
-	  David Foley took the reigns of the project doing the 
-	  integration, documentation, and testing and will carry on
-	  as the official project owner. 
+       Minor: 0
+      Authors: Saad Shams <saad.shams@puremvc.org>
+             : David Foley <david.foley@puremvc.org>
+--------------------------------------------------------------------------
+2.0 - Brand new implementation of ported code, equivalent to AS3 MultiCore Version 1.0.5.

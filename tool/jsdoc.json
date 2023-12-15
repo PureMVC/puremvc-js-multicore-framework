@@ -1,0 +1,17 @@
+{
+  "source": {
+    "include": ["src", "README.md"],
+    "exclude": ["node_modules", "dist"]
+  },
+  "plugins": ["plugins/markdown"],
+  "templates": {
+    "cleverLinks": false,
+    "monospaceLinks": false
+  },
+  "opts": {
+    "template": "node_modules/minami",
+    "encoding": "utf8",
+    "destination": "docs/",
+    "recurse": true
+  }
+}

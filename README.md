@@ -1,34 +1,21 @@
-## [PureMVC](http://puremvc.github.com/) JavaScript MultiCore Framework
-PureMVC is a lightweight framework for creating applications based upon the classic [Model-View-Controller](http://en.wikipedia.org/wiki/Model-view-controller) design meta-pattern. This is a JavaScript port of the [AS3 reference implementation of the MultiCore Version](https://github.com/PureMVC/puremvc-as3-multicore-framework/wiki). It supports [modular programming](http://en.wikipedia.org/wiki/Modular_programming) through the use of [Multiton](http://en.wikipedia.org/wiki/Multiton) Core actors.
+## [PureMVC](http://puremvc.github.com/) JavaScript MultiCore Framework [![Node.js CI](https://github.com/puremvc/puremvc-js-multicore-framework/actions/workflows/node.js.yml/badge.svg)](https://github.com/puremvc/puremvc-js-multicore-framework/actions/workflows/node.js.yml)
 
-This port contains additional functionality not found in other ports - lightweight JavaScript class-emulation. See puremvc.define() and puremvc.declare() in the documentation for more info. Use of this functionality is entirely optional; you may write classes using the class-emulation provided by other frameworks, if you prefer.
+PureMVC is a lightweight framework for creating applications based upon the classic [Model-View-Controller](http://en.wikipedia.org/wiki/Model-view-controller) design meta-pattern. It supports [modular programming](http://en.wikipedia.org/wiki/Modular_programming) through the use of [Multiton](http://en.wikipedia.org/wiki/Multiton) Core actors instead of the [Singletons](http://en.wikipedia.org/wiki/Singleton_pattern).
 
-Unit Tests are included in this repository.
-
-* [API Docs](http://puremvc.org/pages/docs/JS/native-multicore/)
-* [Discussion](http://forums.puremvc.org/index.php?board=95.0)
-* [Overview Presentation](http://puremvc.tv/#P002)
-
-## Utilities
-* [Utility: State Machine](https://github.com/PureMVC/puremvc-js-util-statemachine/wiki)
-
-## Demos
-* [Demo: Employee Admin Microservice](https://github.com/PureMVC/puremvc-js-demo-microservice-employeeadmin/wiki)
-* [Demo: Employee Admin](https://github.com/PureMVC/puremvc-js-demo-employeeadmin/wiki)
-* [Demo: Reverse Text](https://github.com/PureMVC/puremvc-js-demo-reversetext/wiki)
-* [Demo: Box Splash](https://github.com/PureMVC/puremvc-js-demo-boxsplash/wiki)
-* [Demo: TodoMVC](https://github.com/PureMVC/puremvc-js-demo-todomvc/wiki)
-* [Demo: Lockable Door](https://github.com/PureMVC/puremvc-js-demo-lockabledoor/wiki)
-
-## Status
-Production - [Version 1.0.1](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
+* [API Docs](https://puremvc.org/pages/docs/JS/es/)
+* [Legacy Implementation](https://github.com/PureMVC/puremvc-js-multicore-framework/tree/1.0.1)
 
 ## Platforms / Technologies
-* [JavaScript](http://en.wikipedia.org/wiki/JavaScript)
+* [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
+* [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+* [Node.js](https://en.wikipedia.org/wiki/Node.js)
+
+## Status
+Production - [Version 2.0](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
 
 ## License
-* PureMVC MultiCore Framework for Javascript (Ported) - Copyright © 2011-2012 David Foley, Frédéric Saunier, Alain Duchesneau 
-* PureMVC - Copyright © 2006-2012 Futurescale, Inc.
+* PureMVC MultiCore Framework for JavaScript - Copyright © 2023 [Saad Shams](https://www.linkedin.com/in/muizz/), [David Foley](https://github.com/objectkit)
+* PureMVC - Copyright © 2023 [Futurescale, Inc.](http://futurescale.com/)
 * All rights reserved.
 
 * Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
@@ -38,4 +25,3 @@ Production - [Version 1.0.1](https://github.com/PureMVC/puremvc-js-multicore-fra
   * Neither the name of Futurescale, Inc., PureMVC.org, nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-

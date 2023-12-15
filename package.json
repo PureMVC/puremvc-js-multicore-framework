@@ -1,0 +1,56 @@
+{
+  "name": "puremvc-js-multicore-framework",
+  "version": "2.0.0",
+  "type": "module",
+  "description": "PureMVC MultiCore Framework for Native JavaScript",
+  "main": "index.js",
+  "scripts": {
+    "build": "npm run clean && npm run build:lib",
+    "build:lib": "rollup -c tool/rollup.conf.mjs",
+    "build:doc": "jsdoc -c tool/jsdoc.json",
+    "clean": "rm -rf bin",
+    "test": "npm run test:bdd",
+    "test:bdd": "mocha \"test/**/*.js\"",
+    "test:e2e": "npm run test:safari && npm run test:chrome && npm run test:firefox",
+    "test:safari": "nightwatch -c tool/nightwatch.conf.cjs --env default",
+    "test:chrome": "nightwatch -c tool/nightwatch.conf.cjs --env chrome",
+    "test:firefox": "nightwatch -c tool/nightwatch.conf.cjs --env firefox"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/PureMVC/puremvc-js-multicore-framework.git"
+  },
+  "authors": [
+    "Saad Shams <saad.shams@puremvc.org>",
+    "David Foley <david.foley@puremvc.org>"
+  ],
+  "license": "CC-BY-3.0",
+  "bugs": {
+    "url": "https://github.com/PureMVC/puremvc-js-multicore-framework/issues"
+  },
+  "homepage": "https://puremvc.org",
+  "babel": {
+    "presets": [
+      "env"
+    ],
+    "plugins": [
+      "add-module-exports"
+    ]
+  },
+  "devDependencies": {
+    "@rollup/plugin-terser": "^0.4.4",
+    "babel-core": "^4.7.16",
+    "babel-plugin-add-module-exports": "^1.0.4",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.2.0",
+    "chromedriver": "^119.0.1",
+    "dotenv": "^16.0.3",
+    "edgedriver": "^5.3.8",
+    "geckodriver": "^4.2.1",
+    "jsdoc": "3.6.5",
+    "minami": "^1.2.3",
+    "mocha": "10.1.0",
+    "nightwatch": "^3.3.2",
+    "rollup": "^4.6.1"
+  }
+}
