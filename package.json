@@ -6,15 +6,15 @@
   "main": "index.js",
   "scripts": {
     "build": "npm run clean && npm run build:lib",
-    "build:lib": "rollup -c tool/rollup.conf.mjs",
-    "build:doc": "jsdoc -c tool/jsdoc.json",
+    "build:lib": "rollup -c build/rollup.conf.mjs",
+    "build:doc": "jsdoc -c build/jsdoc.json",
     "clean": "rm -rf bin",
     "test": "npm run test:bdd",
     "test:bdd": "mocha \"test/**/*.js\"",
     "test:e2e": "npm run test:safari && npm run test:chrome && npm run test:firefox",
-    "test:safari": "nightwatch -c tool/nightwatch.conf.cjs --env default",
-    "test:chrome": "nightwatch -c tool/nightwatch.conf.cjs --env chrome",
-    "test:firefox": "nightwatch -c tool/nightwatch.conf.cjs --env firefox"
+    "test:safari": "nightwatch -c build/nightwatch.conf.cjs --env default",
+    "test:chrome": "nightwatch -c build/nightwatch.conf.cjs --env chrome",
+    "test:firefox": "nightwatch -c build/nightwatch.conf.cjs --env firefox"
   },
   "repository": {
     "type": "git",

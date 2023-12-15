@@ -8,7 +8,7 @@ module.exports = {
             reporter : "list"
         }
     },
-    output_folder: "tool/nightwatch",
+    output_folder: "build/nightwatch",
     src_folders: ["test"],
     test_settings: {
         default: {
@@ -22,7 +22,7 @@ module.exports = {
                 port: 4445,
                 start_process: true,
                 server_path: "/usr/bin/safaridriver",
-                log_path: "tool/nightwatch/"
+                log_path: "build/nightwatch/"
             }
         },
         chrome: {
@@ -34,7 +34,7 @@ module.exports = {
                 port: 9515,
                 start_process: true,
                 server_path: require('chromedriver').path,
-                log_path: "tool/nightwatch/"
+                log_path: "build/nightwatch/"
             }
         },
         firefox: {
@@ -48,7 +48,7 @@ module.exports = {
                 port: 4444,
                 start_process: true,
                 "server_path": "./node_modules/.bin/geckodriver",
-                log_path: "tool/nightwatch/"
+                log_path: "build/nightwatch/"
             }
         }
     }
