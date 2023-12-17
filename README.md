@@ -7,7 +7,6 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 
 ## Demos
 * [ECMA JS Demo: Employee Admin Microservice](https://github.com/PureMVC/puremvc-js-demo-microservice-employeeadmin)
-* [Classic JS Demo (Legacy): Employee Admin Microservice](https://github.com/PureMVC/puremvc-js-demo-microservice-employeeadmin/tree/classic)
 
 ## Platforms / Technologies
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
