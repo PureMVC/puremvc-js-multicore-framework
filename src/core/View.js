@@ -16,10 +16,10 @@ import {Observer} from "../patterns/observer/Observer.js";
  * <UL>
  * <LI>Maintain a cache of `Mediator` instances.</LI>
  * <LI>Provide methods for registering, retrieving, and removing `Mediators`.</LI>
- * <LI>Notifiying `Mediators` when they are registered or removed.</LI>
+ * <LI>Notifying `Mediators` when they are registered or removed.</LI>
  * <LI>Managing the observer lists for each `Notification` in the application.</LI>
- * <LI>Providing a method for attaching `Observers` to an `Notification`'s observer list.</LI>
- * <LI>Providing a method for broadcasting an `Notification`.</LI>
+ * <LI>Providing a method for attaching `Observers` to a `Notification`'s observer list.</LI>
+ * <LI>Providing a method for broadcasting a `Notification`.</LI>
  * <LI>Notifying the `Observers` of a given `Notification` when it broadcast.</LI>
  * </UL>
  *
@@ -154,7 +154,7 @@ class View {
     }
 
     /**
-     * Register an `Mediator` instance with the `View`.
+     * Register a `Mediator` instance with the `View`.
      *
      * <P>Registers the `Mediator` so that it can be retrieved by name,
      * and further interrogates the `Mediator` for its
@@ -196,7 +196,7 @@ class View {
     }
 
     /**
-     * Retrieve an `Mediator` from the `View`.
+     * Retrieve a `Mediator` from the `View`.
      *
      * @param {string} mediatorName the name of the `Mediator` instance to retrieve.
      * @returns {Mediator} the `Mediator` instance previously registered with the given `mediatorName`.
@@ -206,7 +206,7 @@ class View {
     }
 
     /**
-     * Remove an `Mediator` from the `View`.
+     * Remove a `Mediator` from the `View`.
      *
      * @param {string} mediatorName name of the `Mediator` instance to be removed.
      * @returns {Mediator} the `Mediator` that was removed from the `View`
@@ -245,7 +245,7 @@ class View {
     }
 
     /**
-     * Remove an View instance
+     * Remove a View instance
      *
      * @static
      * @param key multitonKey of View instance to remove

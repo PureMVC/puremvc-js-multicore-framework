@@ -21,7 +21,7 @@ import {Observer} from "../patterns/observer/Observer.js";
  * are intended to handle which `Notifications`.</LI>
  * <LI> Registering itself as an `Observer` with
  * the `View` for each `Notification`
- * that it has an `Command` mapping for.</LI>
+ * that it has a `Command` mapping for.</LI>
  * <LI> Creating a new instance of the proper `Command`
  * to handle a given `Notification` when notified by the `View`.</LI>
  * <LI> Calling the `Command`'s `execute`
@@ -114,10 +114,10 @@ class Controller {
     }
 
     /**
-     * <P>If an `Command` has previously been registered
+     * <P>If a `Command` has previously been registered
      * to handle the given `Notification`, then it is executed.</P>
      *
-     * @param {Notification} notification an `Notification`
+     * @param {Notification} notification a `Notification`
      */
     executeCommand(notification) {
         let factory = this.commandMap.get(notification.name);
@@ -137,7 +137,7 @@ class Controller {
      * used, the new `Command` is used instead.</P>
      *
      * <P>The Observer for the new Command is only created if this the
-     * first time an Command has been regisered for this Notification name.</P>
+     * first time a Command has been registered for this Notification name.</P>
      *
      * @param notificationName the name of the `Notification`
      * @param {function():SimpleCommand} factory
@@ -176,7 +176,7 @@ class Controller {
     }
 
     /**
-     * Remove an Controller instance
+     * Remove a Controller instance
      *
      * @static
      * @param {string} key of Controller instance to remove

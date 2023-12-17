@@ -89,9 +89,9 @@ class Model {
     }
 
     /**
-     * Register an `Proxy` with the `Model`.
+     * Register a `Proxy` with the `Model`.
      *
-     * @param {Proxy} proxy an `Proxy` to be held by the `Model`.
+     * @param {Proxy} proxy a `Proxy` to be held by the `Model`.
      */
     registerProxy(proxy) {
         proxy.initializeNotifier(this.multitonKey);
@@ -100,7 +100,7 @@ class Model {
     }
 
     /**
-     * Retrieve an `Proxy` from the `Model`.
+     * Retrieve a `Proxy` from the `Model`.
      *
      * @param {string} proxyName
      * @returns {Proxy} the `Proxy` instance previously registered with the given `proxyName`.
@@ -120,7 +120,7 @@ class Model {
     }
 
     /**
-     * Remove an `Proxy` from the `Model`.
+     * Remove a `Proxy` from the `Model`.
      *
      * @param {string} proxyName name of the `Proxy` instance to be removed.
      * @returns {Proxy} the `Proxy` that was removed from the `Model`

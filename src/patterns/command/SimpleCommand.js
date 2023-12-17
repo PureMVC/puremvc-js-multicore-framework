@@ -30,7 +30,7 @@ class SimpleCommand extends Notifier {
      * Fulfill the use-case initiated by the given `Notification`.
      *
      * <P>In the Command Pattern, an application use-case typically
-     * begins with some user action, which results in an `Notification` being broadcast, which
+     * begins with some user action, which results in a `Notification` being broadcast, which
      * is handled by business logic in the `execute` method of an
      * `Command`.</P>
      *

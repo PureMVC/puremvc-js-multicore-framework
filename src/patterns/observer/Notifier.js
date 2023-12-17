@@ -18,7 +18,7 @@ import {Facade} from "../facade/Facade.js";
  * `sendNotification` that relieves implementation code of
  * the necessity to actually construct `Notifications`.</P>
  *
- * <P>The `Notifier` class, which all of the above mentioned classes
+ * <P>The `Notifier` class, which all the above-mentioned classes
  * extend, provides an initialized reference to the `Facade`
  * Multiton, which is required for the convenience method
  * for sending `Notifications`, but also eases implementation as these

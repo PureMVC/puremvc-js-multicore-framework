@@ -149,7 +149,7 @@ class Facade {
     }
 
     /**
-     * Register an `Command` with the `Controller` by Notification name.
+     * Register a `Command` with the `Controller` by Notification name.
      *
      * @param {string} notificationName the name of the `Notification` to associate the `Command` with
      * @param {function():SimpleCommand} factory a reference to the factory of the `Command`
@@ -178,7 +178,7 @@ class Facade {
     }
 
     /**
-     * Register an `Proxy` with the `Model` by name.
+     * Register a `Proxy` with the `Model` by name.
      *
      * @param {Proxy} proxy the `Proxy` instance to be registered with the `Model`.
      */
@@ -187,7 +187,7 @@ class Facade {
     }
 
     /**
-     * Remove an `Proxy` from the `Model` by name.
+     * Remove a `Proxy` from the `Model` by name.
      *
      * @param {string} proxyName the `Proxy` to remove from the `Model`.
      * @returns {Proxy} the `Proxy` that was removed from the `Model`
@@ -207,7 +207,7 @@ class Facade {
     }
 
     /**
-     * Retrieve an `Proxy` from the `Model` by name.
+     * Retrieve a `Proxy` from the `Model` by name.
      *
      * @param {string} proxyName the name of the proxy to be retrieved.
      * @returns {Proxy} the `Proxy` instance previously registered with the given `proxyName`.
@@ -226,7 +226,7 @@ class Facade {
     }
 
     /**
-     * Remove an `Mediator` from the `View`.
+     * Remove a `Mediator` from the `View`.
      *
      * @param {string} mediatorName name of the `Mediator` to be removed.
      * @returns {Mediator} the `Mediator` that was removed from the `View`
@@ -239,14 +239,14 @@ class Facade {
      * Check if a Mediator is registered or not
      *
      * @param {string} mediatorName
-     * @returns {Mediator} whether a Mediator is registered with the given `mediatorName`.
+     * @returns {boolean} whether a Mediator is registered with the given `mediatorName`.
      */
     hasMediator(mediatorName) {
         return this.view.hasMediator(mediatorName);
     }
 
     /**
-     * Retrieve an `Mediator` from the `View`.
+     * Retrieve a `Mediator` from the `View`.
      *
      * @param {string} mediatorName
      * @returns {Mediator} the `Mediator` previously registered with the given `mediatorName`.
@@ -261,7 +261,7 @@ class Facade {
      * <P>Keeps us from having to construct new notification
      * instances in our implementation code.</P>
      *
-     * @param {string} notificationName the name of the notiification to send
+     * @param {string} notificationName the name of the notification to send
      * @param {Object} [body] body the body of the notification (optional)
      * @param {string} [type] type the type of the notification (optional)
      */

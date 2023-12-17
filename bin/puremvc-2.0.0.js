@@ -116,10 +116,10 @@ class Observer {
  * <UL>
  * <LI>Maintain a cache of `Mediator` instances.</LI>
  * <LI>Provide methods for registering, retrieving, and removing `Mediators`.</LI>
- * <LI>Notifiying `Mediators` when they are registered or removed.</LI>
+ * <LI>Notifying `Mediators` when they are registered or removed.</LI>
  * <LI>Managing the observer lists for each `Notification` in the application.</LI>
- * <LI>Providing a method for attaching `Observers` to an `Notification`'s observer list.</LI>
- * <LI>Providing a method for broadcasting an `Notification`.</LI>
+ * <LI>Providing a method for attaching `Observers` to a `Notification`'s observer list.</LI>
+ * <LI>Providing a method for broadcasting a `Notification`.</LI>
  * <LI>Notifying the `Observers` of a given `Notification` when it broadcast.</LI>
  * </UL>
  *
@@ -254,7 +254,7 @@ class View {
     }
 
     /**
-     * Register an `Mediator` instance with the `View`.
+     * Register a `Mediator` instance with the `View`.
      *
      * <P>Registers the `Mediator` so that it can be retrieved by name,
      * and further interrogates the `Mediator` for its
@@ -296,7 +296,7 @@ class View {
     }
 
     /**
-     * Retrieve an `Mediator` from the `View`.
+     * Retrieve a `Mediator` from the `View`.
      *
      * @param {string} mediatorName the name of the `Mediator` instance to retrieve.
      * @returns {Mediator} the `Mediator` instance previously registered with the given `mediatorName`.
@@ -306,7 +306,7 @@ class View {
     }
 
     /**
-     * Remove an `Mediator` from the `View`.
+     * Remove a `Mediator` from the `View`.
      *
      * @param {string} mediatorName name of the `Mediator` instance to be removed.
      * @returns {Mediator} the `Mediator` that was removed from the `View`
@@ -345,7 +345,7 @@ class View {
     }
 
     /**
-     * Remove an View instance
+     * Remove a View instance
      *
      * @static
      * @param key multitonKey of View instance to remove
@@ -385,7 +385,7 @@ class View {
  * are intended to handle which `Notifications`.</LI>
  * <LI> Registering itself as an `Observer` with
  * the `View` for each `Notification`
- * that it has an `Command` mapping for.</LI>
+ * that it has a `Command` mapping for.</LI>
  * <LI> Creating a new instance of the proper `Command`
  * to handle a given `Notification` when notified by the `View`.</LI>
  * <LI> Calling the `Command`'s `execute`
@@ -478,10 +478,10 @@ class Controller {
     }
 
     /**
-     * <P>If an `Command` has previously been registered
+     * <P>If a `Command` has previously been registered
      * to handle the given `Notification`, then it is executed.</P>
      *
-     * @param {Notification} notification an `Notification`
+     * @param {Notification} notification a `Notification`
      */
     executeCommand(notification) {
         let factory = this.commandMap.get(notification.name);
@@ -501,7 +501,7 @@ class Controller {
      * used, the new `Command` is used instead.</P>
      *
      * <P>The Observer for the new Command is only created if this the
-     * first time an Command has been regisered for this Notification name.</P>
+     * first time a Command has been registered for this Notification name.</P>
      *
      * @param notificationName the name of the `Notification`
      * @param {function():SimpleCommand} factory
@@ -540,7 +540,7 @@ class Controller {
     }
 
     /**
-     * Remove an Controller instance
+     * Remove a Controller instance
      *
      * @static
      * @param {string} key of Controller instance to remove
@@ -649,9 +649,9 @@ class Model {
     }
 
     /**
-     * Register an `Proxy` with the `Model`.
+     * Register a `Proxy` with the `Model`.
      *
-     * @param {Proxy} proxy an `Proxy` to be held by the `Model`.
+     * @param {Proxy} proxy a `Proxy` to be held by the `Model`.
      */
     registerProxy(proxy) {
         proxy.initializeNotifier(this.multitonKey);
@@ -660,7 +660,7 @@ class Model {
     }
 
     /**
-     * Retrieve an `Proxy` from the `Model`.
+     * Retrieve a `Proxy` from the `Model`.
      *
      * @param {string} proxyName
      * @returns {Proxy} the `Proxy` instance previously registered with the given `proxyName`.
@@ -680,7 +680,7 @@ class Model {
     }
 
     /**
-     * Remove an `Proxy` from the `Model`.
+     * Remove a `Proxy` from the `Model`.
      *
      * @param {string} proxyName name of the `Proxy` instance to be removed.
      * @returns {Proxy} the `Proxy` that was removed from the `Model`
@@ -972,7 +972,7 @@ class Facade {
     }
 
     /**
-     * Register an `Command` with the `Controller` by Notification name.
+     * Register a `Command` with the `Controller` by Notification name.
      *
      * @param {string} notificationName the name of the `Notification` to associate the `Command` with
      * @param {function():SimpleCommand} factory a reference to the factory of the `Command`
@@ -1001,7 +1001,7 @@ class Facade {
     }
 
     /**
-     * Register an `Proxy` with the `Model` by name.
+     * Register a `Proxy` with the `Model` by name.
      *
      * @param {Proxy} proxy the `Proxy` instance to be registered with the `Model`.
      */
@@ -1010,7 +1010,7 @@ class Facade {
     }
 
     /**
-     * Remove an `Proxy` from the `Model` by name.
+     * Remove a `Proxy` from the `Model` by name.
      *
      * @param {string} proxyName the `Proxy` to remove from the `Model`.
      * @returns {Proxy} the `Proxy` that was removed from the `Model`
@@ -1030,7 +1030,7 @@ class Facade {
     }
 
     /**
-     * Retrieve an `Proxy` from the `Model` by name.
+     * Retrieve a `Proxy` from the `Model` by name.
      *
      * @param {string} proxyName the name of the proxy to be retrieved.
      * @returns {Proxy} the `Proxy` instance previously registered with the given `proxyName`.
@@ -1049,7 +1049,7 @@ class Facade {
     }
 
     /**
-     * Remove an `Mediator` from the `View`.
+     * Remove a `Mediator` from the `View`.
      *
      * @param {string} mediatorName name of the `Mediator` to be removed.
      * @returns {Mediator} the `Mediator` that was removed from the `View`
@@ -1062,14 +1062,14 @@ class Facade {
      * Check if a Mediator is registered or not
      *
      * @param {string} mediatorName
-     * @returns {Mediator} whether a Mediator is registered with the given `mediatorName`.
+     * @returns {boolean} whether a Mediator is registered with the given `mediatorName`.
      */
     hasMediator(mediatorName) {
         return this.view.hasMediator(mediatorName);
     }
 
     /**
-     * Retrieve an `Mediator` from the `View`.
+     * Retrieve a `Mediator` from the `View`.
      *
      * @param {string} mediatorName
      * @returns {Mediator} the `Mediator` previously registered with the given `mediatorName`.
@@ -1084,7 +1084,7 @@ class Facade {
      * <P>Keeps us from having to construct new notification
      * instances in our implementation code.</P>
      *
-     * @param {string} notificationName the name of the notiification to send
+     * @param {string} notificationName the name of the notification to send
      * @param {Object} [body] body the body of the notification (optional)
      * @param {string} [type] type the type of the notification (optional)
      */
@@ -1177,7 +1177,7 @@ class Facade {
  * `sendNotification` that relieves implementation code of
  * the necessity to actually construct `Notifications`.</P>
  *
- * <P>The `Notifier` class, which all of the above mentioned classes
+ * <P>The `Notifier` class, which all the above-mentioned classes
  * extend, provides an initialized reference to the `Facade`
  * Multiton, which is required for the convenience method
  * for sending `Notifications`, but also eases implementation as these
@@ -1294,7 +1294,7 @@ class SimpleCommand extends Notifier {
      * Fulfill the use-case initiated by the given `Notification`.
      *
      * <P>In the Command Pattern, an application use-case typically
-     * begins with some user action, which results in an `Notification` being broadcast, which
+     * begins with some user action, which results in a `Notification` being broadcast, which
      * is handled by business logic in the `execute` method of an
      * `Command`.</P>
      *
