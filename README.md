@@ -17,6 +17,25 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 ## Status
 Production - [Version 2.0](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
 
+#### Documentation
+- https://jsdoc.app/about-commandline.html
+
+#### Testing
+- https://mochajs.org/
+- https://sinonjs.org/
+- [Nightwatch configuration example](https://gist.github.com/rebers/b640b1663c98d4436ecabb06270ff091)
+
+### Project management
+- https://stackabuse.com/the-ultimate-guide-to-configuring-npm/
+- https://stackabuse.com/the-ultimate-guide-to-configuring-npm/
+- https://nodesource.com/blog/the-basics-of-package-json-in-node-js-and-npm
+- https://nodesource.com/blog/configuring-your-npmrc-for-an-optimal-node-js-environment
+- https://www.freecodecamp.org/news/10-npm-tricks-that-will-make-you-a-pro-a945982afb25/
+- https://flaviocopes.com/package-json/
+- https://www.toptal.com/javascript/a-guide-to-npm-the-node-package-manager
+- https://github.com/lorenwest/node-config
+- https://docs.npmjs.com/package-name-guidelines
+
 ## License
 * PureMVC MultiCore Framework for JavaScript - Copyright © 2023 [Saad Shams](https://www.linkedin.com/in/muizz/), [David Foley](https://github.com/objectkit)
 * PureMVC - Copyright © 2023 [Futurescale, Inc.](http://futurescale.com/)
