@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>patterns/observer/Notifier.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Controller.html">Controller</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.removeController">removeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#executeCommand">executeCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#hasCommand">hasCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#initializeController">initializeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#registerCommand">registerCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#removeCommand">removeCommand</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Facade">Facade</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.hasCore">hasCore</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.removeCore">removeCore</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasCommand">hasCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasMediator">hasMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasProxy">hasProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeController">initializeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeFacade">initializeFacade</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeModel">initializeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeNotifier">initializeNotifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeView">initializeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerCommand">registerCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerMediator">registerMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerProxy">registerProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeCommand">removeCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeMediator">removeMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeProxy">removeProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#retrieveMediator">retrieveMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#retrieveProxy">retrieveProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#sendNotification">sendNotification</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MacroCommand.html">MacroCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#addSubCommand">addSubCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#execute">execute</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#initializeMacroCommand">initializeMacroCommand</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Mediator.html">Mediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#handleNotification">handleNotification</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#listNotificationInterests">listNotificationInterests</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#onRegister">onRegister</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#onRemove">onRemove</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Model.html">Model</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#.removeModel">removeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#hasProxy">hasProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#initializeModel">initializeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#registerProxy">registerProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#removeProxy">removeProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#retrieveProxy">retrieveProxy</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Notification.html">Notification</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notification.html#toString">toString</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Notifier.html">Notifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notifier.html#initializeNotifier">initializeNotifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notifier.html#sendNotification">sendNotification</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Observer.html">Observer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Observer.html#compareNotifyContext">compareNotifyContext</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Observer.html#notifyObserver">notifyObserver</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Proxy.html">Proxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Proxy.html#onRegister">onRegister</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Proxy.html#onRemove">onRemove</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="SimpleCommand.html">SimpleCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SimpleCommand.html#execute">execute</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="View.html">View</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#.removeView">removeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#hasMediator">hasMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#initializeView">initializeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#registerMediator">registerMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#registerObserver">registerObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#removeMediator">removeMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#removeObserver">removeObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#retrieveMediator">retrieveMediator</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">patterns/observer/Notifier.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ *  Notifier.js
+ *  PureMVC JavaScript Multicore
+ *
+ *  Copyright(c) 2023 Saad Shams &lt;saad.shams@puremvc.org>
+ *  Your reuse is governed by the BSD License
+*/
+
+import {Facade} from "../facade/Facade.js";
+
+/**
+ * A Base `Notifier` implementation.
+ *
+ * &lt;P>`MacroCommand, Command, Mediator` and `Proxy`
+ * all have a need to send `Notifications`.&lt;P>
+ *
+ * &lt;P>The `Notifier` interface provides a common method called
+ * `sendNotification` that relieves implementation code of
+ * the necessity to actually construct `Notifications`.&lt;/P>
+ *
+ * &lt;P>The `Notifier` class, which all the above-mentioned classes
+ * extend, provides an initialized reference to the `Facade`
+ * Multiton, which is required for the convenience method
+ * for sending `Notifications`, but also eases implementation as these
+ * classes have frequent `Facade` interactions and usually require
+ * access to the facade anyway.&lt;/P>
+ *
+ * &lt;P>NOTE: In the MultiCore version of the framework, there is one caveat to
+ * notifiers, they cannot send notifications or reach the facade until they
+ * have a valid multitonKey.&lt;/P>
+ *
+ * The multitonKey is set:
+ *   * on a Command when it is executed by the Controller
+ *   * on a Mediator is registered with the View
+ *   * on a Proxy is registered with the Model.
+ *
+ * @see Proxy Proxy
+ * @see Facade Facade
+ * @see Mediator Mediator
+ * @see MacroCommand MacroCommand
+ * @see SimpleCommand SimpleCommand
+ *
+ * @class Notifier
+ */
+class Notifier {
+
+    constructor() {}
+
+    /**
+     * Create and send an `Notification`.
+     *
+     * &lt;P>Keeps us from having to construct new Notification
+     * instances in our implementation code.&lt;/P>
+     *
+     * @param {string} notificationName
+     * @param {Object} [body] body
+     * @param {string} [type] type
+     */
+    sendNotification (notificationName, body = null, type = "") {
+        if (this.facade != null) {
+            this.facade.sendNotification(notificationName, body, type);
+        }
+    }
+
+    /**
+     * Initialize this Notifier instance.
+     *
+     * &lt;P>This is how a Notifier gets its multitonKey.
+     * Calls to sendNotification or to access the
+     * facade will fail until after this method
+     * has been called.&lt;/P>
+     *
+     * &lt;P>Mediators, Commands or Proxies may override
+     * this method in order to send notifications
+     * or access the Multiton Facade instance as
+     * soon as possible. They CANNOT access the facade
+     * in their constructors, since this method will not
+     * yet have been called.&lt;/P>
+     *
+     * @param {string} key the multitonKey for this Notifier to use
+     */
+    initializeNotifier(key) {
+        this.multitonKey = key;
+    }
+
+    /**
+     * Return the Multiton Facade instance
+     *
+     * @typedef {Facade} Facade
+     *
+     * @throws {Error}
+     */
+    get facade() {
+        if (this.multitonKey == null) throw new Error(Notifier.MULTITON_MSG);
+        return Facade.getInstance(this.multitonKey, key => new Facade(key));
+    }
+
+    /**
+     * Message Constants
+     *
+     * @static
+     * @returns {string}
+     */
+    static get MULTITON_MSG() { return "multitonKey for this Notifier not yet initialized!" }
+}
+export { Notifier }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Sun Mar 03 2024 17:47:07 GMT-0500 (Eastern Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

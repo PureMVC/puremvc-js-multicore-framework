@@ -1,11 +1,13 @@
 PureMVC MultiCore Framework for JavaScript
 --------------------------------------------------------------------------
-Release Date: 12/14/23
+Release Date: 3/3/24
     Platform: JavaScript
      Version: 2
     Revision: 0
-       Minor: 0
+       Minor: 1
       Authors: Saad Shams <saad.shams@puremvc.org>
              : David Foley <david.foley@puremvc.org>
+             : Cliff Hall <cliff.hall@puremvc.org>
 --------------------------------------------------------------------------
 2.0 - Brand new implementation of ported code, equivalent to AS3 MultiCore Version 1.0.5.
+2.0.1 - Package for npm

@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>patterns/command/MacroCommand.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Controller.html">Controller</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.removeController">removeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#executeCommand">executeCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#hasCommand">hasCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#initializeController">initializeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#registerCommand">registerCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#removeCommand">removeCommand</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Facade">Facade</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.hasCore">hasCore</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.removeCore">removeCore</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasCommand">hasCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasMediator">hasMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasProxy">hasProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeController">initializeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeFacade">initializeFacade</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeModel">initializeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeNotifier">initializeNotifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeView">initializeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerCommand">registerCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerMediator">registerMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerProxy">registerProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeCommand">removeCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeMediator">removeMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeProxy">removeProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#retrieveMediator">retrieveMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#retrieveProxy">retrieveProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#sendNotification">sendNotification</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MacroCommand.html">MacroCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#addSubCommand">addSubCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#execute">execute</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#initializeMacroCommand">initializeMacroCommand</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Mediator.html">Mediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#handleNotification">handleNotification</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#listNotificationInterests">listNotificationInterests</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#onRegister">onRegister</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#onRemove">onRemove</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Model.html">Model</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#.removeModel">removeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#hasProxy">hasProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#initializeModel">initializeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#registerProxy">registerProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#removeProxy">removeProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#retrieveProxy">retrieveProxy</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Notification.html">Notification</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notification.html#toString">toString</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Notifier.html">Notifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notifier.html#initializeNotifier">initializeNotifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notifier.html#sendNotification">sendNotification</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Observer.html">Observer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Observer.html#compareNotifyContext">compareNotifyContext</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Observer.html#notifyObserver">notifyObserver</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Proxy.html">Proxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Proxy.html#onRegister">onRegister</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Proxy.html#onRemove">onRemove</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="SimpleCommand.html">SimpleCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SimpleCommand.html#execute">execute</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="View.html">View</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#.removeView">removeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#hasMediator">hasMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#initializeView">initializeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#registerMediator">registerMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#registerObserver">registerObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#removeMediator">removeMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#removeObserver">removeObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#retrieveMediator">retrieveMediator</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">patterns/command/MacroCommand.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ *  MacroCommand.js
+ *  PureMVC JavaScript Multicore
+ *
+ *  Copyright(c) 2023 Saad Shams &lt;saad.shams@puremvc.org>
+ *  Your reuse is governed by the BSD License
+*/
+
+import {SimpleCommand} from "./SimpleCommand.js";
+
+/**
+ * A base `Command` implementation that executes other `Command`s.
+ *
+ * &lt;P>A `MacroCommand` maintains a list of
+ * `Command` Class references called &lt;i>SubCommands&lt;/i>.&lt;/P>
+ *
+ * &lt;P>When `execute` is called, the `MacroCommand`
+ * instantiates and calls `execute` on each of its &lt;i>SubCommands&lt;/i> turn.
+ * Each &lt;i>SubCommand&lt;/i> will be passed a reference to the original
+ * `Notification` that was passed to the `MacroCommand`'s
+ * `execute` method.&lt;/P>
+ *
+ * &lt;P>Unlike `SimpleCommand`, your subclass
+ * should not override `execute`, but instead, should
+ * override the `initializeMacroCommand` method,
+ * calling `addSubCommand` once for each &lt;i>SubCommand&lt;/i>
+ * to be executed.&lt;/P>
+ *
+ * @see Controller Controller
+ * @see Notification Notification
+ * @see SimpleCommand SimpleCommand
+ *
+ * @class MacroCommand
+ */
+class MacroCommand extends SimpleCommand {
+
+    /**
+     * Constructor.
+     *
+     * &lt;P>You should not need to define a constructor,
+     * instead, override the `initializeMacroCommand`
+     * method.&lt;/P>
+     *
+     * &lt;P>If your subclass does define a constructor, be
+     * sure to call `super()`.&lt;/P>
+     *
+     * @constructor
+     */
+    constructor() {
+        super();
+        /** @protected
+         * @type {Array.&lt;function():SimpleCommand>} */
+        this.subCommands = [];
+        this.initializeMacroCommand();
+    }
+
+    /**
+     * Initialize the `MacroCommand`.
+     *
+     * &lt;P>In your subclass, override this method to
+     * initialize the `MacroCommand`'s &lt;i>SubCommand&lt;/i>
+     * list with `Command` class references like
+     * this:&lt;/P>
+     *
+     * &lt;pre>`
+     *		// Initialize MyMacroCommand
+     *		initializeMacroCommand() {
+     *			this.addSubCommand(() => new app.FirstCommand());
+     *			this.addSubCommand(() => new app.SecondCommand());
+     *			this.addSubCommand(() => new app.ThirdCommand());
+     *		}
+     * `&lt;/pre>
+     *
+     * &lt;P>Note that &lt;i>SubCommand&lt;/i>s may be any `Command` implementor,
+     * `MacroCommand`s or `SimpleCommands` are both acceptable.
+     */
+    initializeMacroCommand() {
+
+    }
+
+    /**
+     * Add a &lt;i>SubCommand&lt;/i>.
+     *
+     * &lt;P>The &lt;i>SubCommands&lt;/i> will be called in First In/First Out (FIFO)
+     * order.&lt;/P>
+     *
+     * @param {function():SimpleCommand} factory
+     */
+    addSubCommand(factory) {
+        this.subCommands.push(factory);
+    }
+
+    /**
+     * Execute this `MacroCommand`'s &lt;i>SubCommands&lt;/i>.
+     *
+     * &lt;P>The &lt;i>SubCommands&lt;/i> will be called in First In/First Out (FIFO)
+     * order.&lt;/P>
+     *
+     * @param {Notification} notification
+     */
+    execute(notification) {
+        while(this.subCommands.length > 0) {
+            let factory = this.subCommands.shift();
+            let commandInstance = factory();
+            commandInstance.initializeNotifier(this.multitonKey);
+            commandInstance.execute(notification);
+        }
+    }
+
+}
+export { MacroCommand }
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Sun Mar 03 2024 17:47:07 GMT-0500 (Eastern Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>

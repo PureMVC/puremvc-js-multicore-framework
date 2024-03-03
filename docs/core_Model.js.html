@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>core/Model.js - Documentation</title>
+
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav>
+    <li class="nav-link nav-home-link"><a href="index.html">Home</a></li><li class="nav-heading">Classes</li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Controller.html">Controller</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#.removeController">removeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#executeCommand">executeCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#hasCommand">hasCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#initializeController">initializeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#registerCommand">registerCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Controller.html#removeCommand">removeCommand</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="global.html#Facade">Facade</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.hasCore">hasCore</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#.removeCore">removeCore</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasCommand">hasCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasMediator">hasMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#hasProxy">hasProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeController">initializeController</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeFacade">initializeFacade</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeModel">initializeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeNotifier">initializeNotifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#initializeView">initializeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerCommand">registerCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerMediator">registerMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#registerProxy">registerProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeCommand">removeCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeMediator">removeMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#removeProxy">removeProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#retrieveMediator">retrieveMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#retrieveProxy">retrieveProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="global.html#Facade#sendNotification">sendNotification</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="MacroCommand.html">MacroCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#addSubCommand">addSubCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#execute">execute</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="MacroCommand.html#initializeMacroCommand">initializeMacroCommand</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Mediator.html">Mediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#handleNotification">handleNotification</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#listNotificationInterests">listNotificationInterests</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#onRegister">onRegister</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Mediator.html#onRemove">onRemove</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Model.html">Model</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#.removeModel">removeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#hasProxy">hasProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#initializeModel">initializeModel</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#registerProxy">registerProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#removeProxy">removeProxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Model.html#retrieveProxy">retrieveProxy</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Notification.html">Notification</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notification.html#toString">toString</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Notifier.html">Notifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notifier.html#initializeNotifier">initializeNotifier</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Notifier.html#sendNotification">sendNotification</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Observer.html">Observer</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Observer.html#compareNotifyContext">compareNotifyContext</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Observer.html#notifyObserver">notifyObserver</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="Proxy.html">Proxy</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Proxy.html#onRegister">onRegister</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="Proxy.html#onRemove">onRemove</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="SimpleCommand.html">SimpleCommand</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="SimpleCommand.html#execute">execute</a></span></li><li class="nav-heading"><span class="nav-item-type type-class">C</span><span class="nav-item-name"><a href="View.html">View</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#.getInstance">getInstance</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#.removeView">removeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#hasMediator">hasMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#initializeView">initializeView</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#notifyObservers">notifyObservers</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#registerMediator">registerMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#registerObserver">registerObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#removeMediator">removeMediator</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#removeObserver">removeObserver</a></span></li><li class="nav-item"><span class="nav-item-type type-function">F</span><span class="nav-item-name"><a href="View.html#retrieveMediator">retrieveMediator</a></span></li><li class="nav-heading"><a href="global.html">Globals</a></li>
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">core/Model.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>/*
+ *  Model.js
+ *  PureMVC JavaScript Multicore
+ *
+ *  Copyright(c) 2023 Saad Shams &lt;saad.shams@puremvc.org>
+ *  Your reuse is governed by the BSD License
+*/
+
+/**
+ * A Multiton `Model` implementation.
+ *
+ * &lt;P>In PureMVC, the `Model` class provides
+ * access to model objects (Proxies) by named lookup.
+ *
+ * &lt;P>The `Model` assumes these responsibilities:&lt;/P>
+ *
+ * &lt;UL>
+ * &lt;LI>Maintain a cache of `Proxy` instances.&lt;/LI>
+ * &lt;LI>Provide methods for registering, retrieving, and removing
+ * `Proxy` instances.&lt;/LI>
+ * &lt;/UL>
+ *
+ * &lt;P>Your application must register `Proxy` instances
+ * with the `Model`. Typically, you use an
+ * `Command` to create and register `Proxy`
+ * instances once the `Facade` has initialized the Core
+ * actors.&lt;/p>
+ *
+ * @see Proxy Proxy
+ *
+ * @class Model
+ */
+
+class Model {
+
+    /**
+     * Constructor.
+     *
+     * &lt;P>This `Model` implementation is a Multiton,
+     * so you should not call the constructor
+     * directly, but instead call the static Multiton
+     * Factory method `Model.getInstance( multitonKey )`
+     *
+     * @constructor
+     * @param {string} key
+     *
+     * @throws {Error} Error if instance for this Multiton key instance has already been constructed
+     */
+    constructor(key) {
+        if (Model.instanceMap.get(key) != null) throw new Error(Model.MULTITON_MSG);
+        /** @protected
+         * @type {string} */
+        this.multitonKey = key;
+        Model.instanceMap.set(this.multitonKey, this);
+        /** @protected
+         * @type {Map&lt;string, Proxy>} */
+        this.proxyMap = new Map();
+        this.initializeModel();
+    }
+
+    /**
+     * Initialize the `Model` instance.
+     *
+     * &lt;P>Called automatically by the constructor, this
+     * is your opportunity to initialize the Multiton
+     * instance in your subclass without overriding the
+     * constructor.&lt;/P>
+     *
+     */
+    initializeModel() {
+
+    }
+
+    /**
+     * `Model` Multiton Factory method.
+     *
+     * @static
+     * @param {string} key
+     * @param {function(string):Model} factory
+     * @returns {Model} the instance for this Multiton key
+     */
+    static getInstance(key, factory) {
+        if (Model.instanceMap == null)
+            /** @static
+             @type {Map&lt;string, Model>} */
+            Model.instanceMap = new Map();
+        if (Model.instanceMap.get(key) == null) Model.instanceMap.set(key, factory(key));
+        return Model.instanceMap.get(key);
+    }
+
+    /**
+     * Register a `Proxy` with the `Model`.
+     *
+     * @param {Proxy} proxy a `Proxy` to be held by the `Model`.
+     */
+    registerProxy(proxy) {
+        proxy.initializeNotifier(this.multitonKey);
+        this.proxyMap.set(proxy.proxyName, proxy);
+        proxy.onRegister();
+    }
+
+    /**
+     * Retrieve a `Proxy` from the `Model`.
+     *
+     * @param {string} proxyName
+     * @returns {Proxy} the `Proxy` instance previously registered with the given `proxyName`.
+     */
+    retrieveProxy(proxyName) {
+        return this.proxyMap.get(proxyName) || null;
+    }
+
+    /**
+     * Check if a Proxy is registered
+     *
+     * @param {string} proxyName
+     * @returns {boolean} whether a Proxy is currently registered with the given `proxyName`.
+     */
+    hasProxy(proxyName) {
+        return this.proxyMap.has(proxyName);
+    }
+
+    /**
+     * Remove a `Proxy` from the `Model`.
+     *
+     * @param {string} proxyName name of the `Proxy` instance to be removed.
+     * @returns {Proxy} the `Proxy` that was removed from the `Model`
+     */
+    removeProxy(proxyName) {
+        let proxy = this.proxyMap.get(proxyName);
+        if (proxy != null) {
+            this.proxyMap.delete(proxyName);
+            proxy.onRemove();
+        }
+        return proxy;
+    }
+
+    /**
+     * Remove a Model instance
+     *
+     * @static
+     * @param key
+     */
+    static removeModel(key) {
+        Model.instanceMap.delete(key);
+    }
+
+    /**
+     * @static
+     * @type {string}
+     */
+    static get MULTITON_MSG() { return "Model instance for this Multiton key already constructed!" };
+}
+export { Model }</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<br class="clear">
+
+<footer>
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.5</a> on Sun Mar 03 2024 17:47:07 GMT-0500 (Eastern Standard Time) using the Minami theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/linenumber.js"></script>
+</body>
+</html>
