@@ -1,4 +1,4 @@
-import {puremvc} from "../../../bin/puremvc-2.0.0.min.js";
+import {puremvc} from "../../../bin/puremvc.min.js";
 import {MacroCommandTestSub1Command} from "./MacroCommandTestSub1Command.js";
 import {MacroCommandTestSub2Command} from "./MacroCommandTestSub2Command.js";
 /**

@@ -2,6 +2,7 @@
 
 PureMVC is a lightweight framework for creating applications based upon the classic [Model-View-Controller](http://en.wikipedia.org/wiki/Model-view-controller) design meta-pattern. It supports [modular programming](http://en.wikipedia.org/wiki/Modular_programming) through the use of [Multiton](http://en.wikipedia.org/wiki/Multiton) Core actors instead of the [Singletons](http://en.wikipedia.org/wiki/Singleton_pattern).
 
+* [NPM Package](https://www.npmjs.com/package/@puremvc/puremvc-js-multicore-framework?activeTab=readme)
 * [API Docs](https://puremvc.org/pages/docs/JS/es/)
 * [Legacy Implementation](https://github.com/PureMVC/puremvc-js-multicore-framework/tree/1.0.1)
 
@@ -15,7 +16,7 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 * [Node.js](https://en.wikipedia.org/wiki/Node.js)
 
 ## Status
-Production - [Version 2.0](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
+Production - [Version 2.0.3](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
 
 #### Documentation
 - https://jsdoc.app/about-commandline.html

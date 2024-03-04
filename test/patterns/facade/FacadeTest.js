@@ -1,4 +1,4 @@
-import {puremvc} from "../../../bin/puremvc-2.0.0.js";
+import {puremvc} from "../../../bin/puremvc.js";
 import chai from "chai"
 import {FacadeTestCommand} from "./FacadeTestCommand.js";
 import {FacadeTestVO} from "./FacadeTestVO.js";

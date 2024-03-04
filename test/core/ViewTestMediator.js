@@ -1,4 +1,4 @@
-import {puremvc} from "../../bin/puremvc-2.0.0.js";
+import {puremvc} from "../../bin/puremvc.js";
 
 /**
  * A Mediator class used by ViewTest.

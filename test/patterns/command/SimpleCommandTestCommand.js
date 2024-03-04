@@ -1,4 +1,4 @@
-import {puremvc} from "../../../bin/puremvc-2.0.0.min.js";
+import {puremvc} from "../../../bin/puremvc.min.js";
 
 /**
  * A SimpleCommand subclass used by SimpleCommandTest.

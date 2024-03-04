@@ -1,9 +1,9 @@
 {
   "name": "@puremvc/puremvc-js-multicore-framework",
-  "version": "2.0.1",
+  "version": "2.0.3",
   "type": "module",
-  "description": "PureMVC MultiCore Framework for Native JavaScript",
-  "main": "index.js",
+  "description": "PureMVC MultiCore Framework for JavaScript",
+  "main": "bin/puremvc.min.js",
   "scripts": {
     "build": "npm run clean && npm run build:lib",
     "build:lib": "rollup -c build/rollup.conf.mjs",
@@ -27,10 +27,10 @@
     "mvc"
   ],
   "files": [
-    "bin/puremvc-2.0.0.js",
+    "bin/*.*",
     "LICENSE",
     "VERSION",
-    "index.js"
+    "package.json"
   ],
   "authors": [
     "Saad Shams <saad.shams@puremvc.org>",
@@ -706,7 +706,7 @@
     "zip-stream": "^4.1.1"
   },
   "bin": {
-    "puremvc-js-multicore-framework": "bin/puremvc-2.0.0.js"
+    "puremvc-js-multicore-framework": "bin/puremvc.js"
   },
   "directories": {
     "doc": "docs",

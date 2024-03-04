@@ -1,4 +1,4 @@
-import {puremvc} from "../../bin/puremvc-2.0.0.js";
+import {puremvc} from "../../bin/puremvc.js";
 import chai from "chai"
 import {ControllerTestCommand} from "./ControllerTestCommand.js";
 import {ControllerTestCommand2} from "./ControllerTestCommand2.js";

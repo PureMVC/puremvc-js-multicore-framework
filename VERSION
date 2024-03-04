@@ -4,10 +4,12 @@ Release Date: 3/3/24
     Platform: JavaScript
      Version: 2
     Revision: 0
-       Minor: 1
+       Minor: 3
       Authors: Saad Shams <saad.shams@puremvc.org>
              : David Foley <david.foley@puremvc.org>
              : Cliff Hall <cliff.hall@puremvc.org>
 --------------------------------------------------------------------------
 2.0 - Brand new implementation of ported code, equivalent to AS3 MultiCore Version 1.0.5.
 2.0.1 - Package for npm
+2.0.2 - Version alignment in build
+2.0.3 - Update package description

@@ -1,4 +1,4 @@
-import {puremvc} from "../../bin/puremvc-2.0.0.js";
+import {puremvc} from "../../bin/puremvc.js";
 import chai from "chai"
 import {ViewTestMediator} from "./ViewTestMediator.js";
 import {ViewTestMediator2} from "./ViewTestMediator2.js";
