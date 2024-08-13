@@ -1,5 +1,5 @@
-import {puremvc} from "../../../bin/puremvc.min.js";
 import chai from "chai"
+import {Notification} from "../../../src/index.js"
 import {MacroCommandTestCommand} from "./MacroCommandTestCommand.js"
 import {MacroCommandTestVO} from "./MacroCommandTestVO.js"
 /**
@@ -42,7 +42,7 @@ describe("MacroCommandTest", () => {
         let vo = new MacroCommandTestVO(5);
 
         // Create the Notification (note)
-        let note = new puremvc.Notification("MacroCommandTest", vo, "");
+        let note = new Notification("MacroCommandTest", vo, "");
 
         // Create the SimpleCommand
         let command = new MacroCommandTestCommand();

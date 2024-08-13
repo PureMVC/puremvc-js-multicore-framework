@@ -1,5 +1,5 @@
-import {puremvc} from "../../bin/puremvc.js";
 import chai from "chai"
+import {Controller, View, Notification} from "../../src/index.js";
 import {ControllerTestCommand} from "./ControllerTestCommand.js";
 import {ControllerTestCommand2} from "./ControllerTestCommand2.js";
 import {ControllerTestVO} from "./ControllerTestVO.js";
@@ -17,7 +17,7 @@ describe("ControllerTest", () => {
      */
     it("should testGetInstance", () => {
         // Test Factory Method
-        let controller = puremvc.Controller.getInstance("ControllerTestKey1", key => new puremvc.Controller(key));
+        let controller = Controller.getInstance("ControllerTestKey1", key => new Controller(key));
 
         // test assertions
         chai.assert.isNotNull(controller);
@@ -38,12 +38,12 @@ describe("ControllerTest", () => {
      */
     it("should testRegisterAndExecuteCommand", () => {
         // Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
-        let controller = puremvc.Controller.getInstance("ControllerTestKey2", key => new puremvc.Controller(key));
+        let controller = Controller.getInstance("ControllerTestKey2", key => new Controller(key));
         controller.registerCommand("ControllerTest", () => new ControllerTestCommand());
 
         // Create a 'ControllerTest' note
         let vo = new ControllerTestVO(12);
-        let note = new puremvc.Notification("ControllerTest", vo);
+        let note = new Notification("ControllerTest", vo);
 
         // Tell the controller to execute the Command associated with the note
         // the ControllerTestCommand invoked will multiply the vo.input value
@@ -62,12 +62,12 @@ describe("ControllerTest", () => {
      */
     it("should testRegisterAndRemoveCommand", () => {
         // Create the controller, register the ControllerTestCommand to handle 'ControllerTest' notes
-        let controller = puremvc.Controller.getInstance("ControllerTestKey3", key => new puremvc.Controller(key));
+        let controller = Controller.getInstance("ControllerTestKey3", key => new Controller(key));
         controller.registerCommand("ControllerRemoveTest", () => new ControllerTestCommand());
 
         // Create a 'ControllerTest' note
         let vo = new ControllerTestVO(12);
-        let note = new puremvc.Notification("ControllerRemoveTest", vo);
+        let note = new Notification("ControllerRemoveTest", vo);
 
         // Tell the controller to execute the Command associated with the note
         // the ControllerTestCommand invoked will multiply the vo.input value
@@ -97,7 +97,7 @@ describe("ControllerTest", () => {
      */
     it("should testHasCommand", () => {
         // register the ControllerTestCommand to handle 'hasCommandTest' notes
-        let controller = puremvc.Controller.getInstance("ControllerTestKey4", key => new puremvc.Controller(key));
+        let controller = Controller.getInstance("ControllerTestKey4", key => new Controller(key));
         controller.registerCommand("hasCommandTest", () => new ControllerTestCommand());
 
         // test that hasCommand returns true for hasCommandTest notifications
@@ -123,7 +123,7 @@ describe("ControllerTest", () => {
      */
     it("should testReregisterAndExecuteCommand", () => {
         // Fetch the controller, register the ControllerTestCommand2 to handle 'ControllerTest2' notes
-        let controller = puremvc.Controller.getInstance("ControllerTestKey5", key => new puremvc.Controller(key));
+        let controller = Controller.getInstance("ControllerTestKey5", key => new Controller(key));
         controller.registerCommand("ControllerTest2", () => new ControllerTestCommand2());
 
         // Remove the Command from the Controller
@@ -134,10 +134,10 @@ describe("ControllerTest", () => {
 
         // Create a 'ControllerTest2' note
         let vo = new ControllerTestVO(12);
-        let note = new puremvc.Notification("ControllerTest2", vo);
+        let note = new Notification("ControllerTest2", vo);
 
         // retrieve a reference to the View from the same core.
-        let view = puremvc.View.getInstance("ControllerTestKey5", key => new puremvc.View(key));
+        let view = View.getInstance("ControllerTestKey5", key => new View(key));
 
         // send the Notification
         view.notifyObservers(note);

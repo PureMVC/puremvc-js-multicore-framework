@@ -1,4 +1,4 @@
-import {puremvc} from "../../bin/puremvc.js";
+import {SimpleCommand} from "../../src/index.js";
 
 /**
  /**
@@ -10,7 +10,7 @@ import {puremvc} from "../../bin/puremvc.js";
  * @class ControllerTestCommand
  * @extends SimpleCommand
  */
-class ControllerTestCommand extends puremvc.SimpleCommand {
+class ControllerTestCommand extends SimpleCommand {
 
     /**
      * Fabricate a result by multiplying the input by 2

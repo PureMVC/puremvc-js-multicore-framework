@@ -1,4 +1,4 @@
-import {puremvc} from "../../../bin/puremvc.min.js";
+import {MacroCommand} from "../../../src/index.js";
 import {MacroCommandTestSub1Command} from "./MacroCommandTestSub1Command.js";
 import {MacroCommandTestSub2Command} from "./MacroCommandTestSub2Command.js";
 /**
@@ -12,7 +12,7 @@ import {MacroCommandTestSub2Command} from "./MacroCommandTestSub2Command.js";
  * @class MacroCommandTestCommand
  * @extends MacroCommand
  */
-class MacroCommandTestCommand extends puremvc.MacroCommand {
+class MacroCommandTestCommand extends MacroCommand {
 
     /**
      * Initialize the MacroCommandTestCommand by adding

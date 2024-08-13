@@ -1,10 +1,10 @@
-import {puremvc} from "../../bin/puremvc.js";
+import {Mediator} from "../../src/index.js";
 
 /**
  * @class ViewTestMediator4
  * @extends Mediator
  */
-class ViewTestMediator4 extends puremvc.Mediator {
+class ViewTestMediator4 extends Mediator {
 
     /**
      * Constructor

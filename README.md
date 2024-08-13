@@ -13,10 +13,13 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 ## Platforms / Technologies
 * [JavaScript](https://en.wikipedia.org/wiki/JavaScript)
 * [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript)
+* [CommonJS](https://en.wikipedia.org/wiki/CommonJS)
 * [Node.js](https://en.wikipedia.org/wiki/Node.js)
+* [React](https://en.wikipedia.org/wiki/React_(JavaScript_library))
+* [React Native](https://en.wikipedia.org/wiki/React_Native)
 
 ## Status
-Production - [Version 2.0.3](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
+Production - [Version 2.0.4](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
 
 #### Documentation
 - https://jsdoc.app/about-commandline.html
@@ -38,7 +41,7 @@ Production - [Version 2.0.3](https://github.com/PureMVC/puremvc-js-multicore-fra
 - https://docs.npmjs.com/package-name-guidelines
 
 ## License
-* PureMVC MultiCore Framework for JavaScript - Copyright © 2023 [Saad Shams](https://www.linkedin.com/in/muizz/), [David Foley](https://github.com/objectkit)
+* PureMVC MultiCore Framework for JavaScript - Copyright © 2023 [Saad Shams](https://www.linkedin.com/in/muizz), [David Foley](https://github.com/objectkit), [Cliff Hall](https://www.linkedin.com/in/cliff)
 * PureMVC - Copyright © 2023 [Futurescale, Inc.](http://futurescale.com/)
 * All rights reserved.
 

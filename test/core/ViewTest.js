@@ -1,5 +1,5 @@
-import {puremvc} from "../../bin/puremvc.js";
 import chai from "chai"
+import {View, Notification, Observer, Mediator} from "../../src/index.js";
 import {ViewTestMediator} from "./ViewTestMediator.js";
 import {ViewTestMediator2} from "./ViewTestMediator2.js";
 import {ViewTestMediator3} from "./ViewTestMediator3.js";
@@ -17,7 +17,7 @@ describe("ViewTest", () => {
      */
     it("should testGetInstance", () => {
         // Test Factory Method
-        let view = puremvc.View.getInstance("ViewTestKey1", key => {return new puremvc.View(key)});
+        let view = View.getInstance("ViewTestKey1", key => {return new View(key)});
 
         // test assertions
         chai.assert.isNotNull(view, "Expecting instance not null");
@@ -43,10 +43,10 @@ describe("ViewTest", () => {
      */
     it("should testRegisterAndNotifyObserver", () => {
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey2", key => {return new puremvc.View(key)});
+        let view = View.getInstance("ViewTestKey2", key => {return new View(key)});
 
         // Create observer, passing in notification method and context
-        let observer = new puremvc.Observer(viewTestMethod, this);
+        let observer = new Observer(viewTestMethod, this);
 
         // Register Observer's interest in a particular Notification with the View
         view.registerObserver(ViewTestNote.NAME, observer);
@@ -71,7 +71,7 @@ describe("ViewTest", () => {
      */
     it("should testRegisterAndRetrieveMediator", () => {
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey3", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey3", key => new View(key));
 
         // Create and register the test mediator
         let viewTestMediator = new ViewTestMediator(this);
@@ -86,10 +86,10 @@ describe("ViewTest", () => {
 
     it("testHasMediator", () => {
         // register a Mediator
-        let view = puremvc.View.getInstance("ViewTestKey4", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey4", key => new View(key));
 
         // Create and register the test mediator
-        let mediator = new puremvc.Mediator("hasMediatorTest", this);
+        let mediator = new Mediator("hasMediatorTest", this);
         view.registerMediator(mediator);
 
         // assert that the view.hasMediator method returns true
@@ -108,10 +108,10 @@ describe("ViewTest", () => {
      */
     it("testRegisterAndRemoveMediator", () => {
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey5", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey5", key => new View(key));
 
         // Create and register the test mediator
-        let mediator = new puremvc.Mediator("testing", {});
+        let mediator = new Mediator("testing", {});
         view.registerMediator(mediator);
 
         // Remove the component
@@ -134,7 +134,7 @@ describe("ViewTest", () => {
         };
 
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey6", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey6", key => new View(key));
 
         // Create and register the test mediator
         let mediator = new ViewTestMediator4(viewTest);
@@ -155,7 +155,7 @@ describe("ViewTest", () => {
      */
     it("testSuccessiveRegisterAndRemoveMediator", () => {
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey7", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey7", key => new View(key));
 
         // Create and register the test mediator,
         // but not so we have a reference to it
@@ -193,16 +193,16 @@ describe("ViewTest", () => {
         };
 
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey8", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey8", key => new View(key));
 
         // Create and register the test mediator to be removed.
         view.registerMediator(new ViewTestMediator2(viewTest));
 
         // test that notifications work
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE1))
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1))
         chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE1, "Expecting lastNotification === NOTE1");
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE2));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2));
         chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE2);
 
         // Remove the Mediator
@@ -216,10 +216,10 @@ describe("ViewTest", () => {
         // on this component, and ViewTestMediator)
         viewTest.lastNotification = null;
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE1))
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1))
         chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE1, "Expecting lastNotification === NOTE1");
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE2))
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2))
         chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE2, "Expecting lastNotification === NOTE2");
     });
 
@@ -227,7 +227,7 @@ describe("ViewTest", () => {
         let viewTest = { lastNotification: "" };
 
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey9", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey9", key => new View(key));
 
         // Create and register that responds to notifications 1 and 2
         view.registerMediator(new ViewTestMediator2(viewTest));
@@ -236,13 +236,13 @@ describe("ViewTest", () => {
         view.registerMediator(new ViewTestMediator3(viewTest));
 
         // test that all notifications work
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE1));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1));
         chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE1, "Expecting lastNotification === NOTE1");
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE2));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2));
         chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE2, "Expecting lastNotification === NOTE2");
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE3));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE3));
         chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE3, "Expecting lastNotification === NOTE3");
 
         // Remove the Mediator that responds to 1 and 2
@@ -255,13 +255,13 @@ describe("ViewTest", () => {
         // for notifications 1 and 2, but still work for 3
         viewTest.lastNotification = null;
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE1));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1));
         chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE1, "Expecting lastNotification != NOTE1");
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE2));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2));
         chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE2, "Expecting lastNotification != NOTE2");
 
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE3));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE3));
         chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE3, "Expecting lastNotification === NOTE3");
     });
 
@@ -279,7 +279,7 @@ describe("ViewTest", () => {
         }
 
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey10", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey10", key => new View(key));
 
         // Create and register that responds to notification 5
         view.registerMediator(new ViewTestMediator5(viewTest));
@@ -289,7 +289,7 @@ describe("ViewTest", () => {
 
         // test that the counter is only incremented once (mediator 5's response)
         viewTest.counter = 0;
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE5));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE5));
         chai.assert.isTrue(viewTest.counter === 1, "Expecting counter === 1");
 
         // Remove the Mediator
@@ -300,7 +300,7 @@ describe("ViewTest", () => {
 
         // test that the counter is no longer incremented
         viewTest.counter = 0;
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE5));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE5));
         chai.assert.isTrue(viewTest.counter === 0, "Expecting counter === 0");
     });
 
@@ -318,7 +318,7 @@ describe("ViewTest", () => {
         }
 
         // Get the Multiton View instance
-        let view = puremvc.View.getInstance("ViewTestKey11", key => new puremvc.View(key));
+        let view = View.getInstance("ViewTestKey11", key => new View(key));
 
         // Create and register several mediator instances that respond to notification 6
         // by removing themselves, which will cause the observer list for that notification
@@ -339,14 +339,14 @@ describe("ViewTest", () => {
         // send the notification. each of the above mediators will respond by removing
         // themselves and incrementing the counter by 1. This should leave us with a
         // count of 8, since 8 mediators will respond.
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE6));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE6));
 
         // verify the count is correct
         chai.assert.isTrue(viewTest.counter === 8, "Expecting counter === 8");
 
         // clear the counter
         viewTest.counter = 0;
-        view.notifyObservers(new puremvc.Notification(ViewTestNote.notes.NOTE6));
+        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE6));
         // verify the count is 0
         chai.assert.isTrue(viewTest.counter === 0, "Expecting counter === 0");
     });
@@ -359,7 +359,7 @@ describe("ViewTest", () => {
 
     /**
      * A utility method to test the notification of Observers by the view
-     * @param {INotification} notification
+     * @param {Notification} notification
      */
     function viewTestMethod(notification) {
         // set the local viewTestVar to the number on the event payload

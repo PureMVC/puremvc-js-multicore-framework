@@ -1,5 +1,5 @@
-import {puremvc} from "../../../bin/puremvc.js";
 import chai from "chai"
+import {Facade, Notifier} from "../../../src/index.js";
 import {FacadeTestVO} from "../facade/FacadeTestVO.js";
 import {FacadeTestCommand} from "../facade/FacadeTestCommand.js";
 
@@ -11,14 +11,14 @@ import {FacadeTestCommand} from "../facade/FacadeTestCommand.js";
 describe("NotifierTest", () => {
 
     it("test", () => {
-        const facade = puremvc.Facade.getInstance("notifierTest", (key) => new puremvc.Facade(key));
+        const facade = Facade.getInstance("notifierTest", (key) => new Facade(key));
 
-        chai.assert.isTrue(puremvc.Facade.hasCore("notifierTest"))
+        chai.assert.isTrue(Facade.hasCore("notifierTest"))
 
         let vo = new FacadeTestVO(5);
         facade.registerCommand("testCommand", () => new FacadeTestCommand());
 
-        let notifier = new puremvc.Notifier();
+        let notifier = new Notifier();
         notifier.initializeNotifier("notifierTest");
         notifier.sendNotification("testCommand", vo);
 

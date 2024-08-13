@@ -1,10 +1,10 @@
-import {puremvc} from "../../../bin/puremvc.js";
 import chai from "chai"
+import {Notification} from "../../../src/index.js";
 
 /**
  * Test the PureMVC Notification class.
  *
- * @see Notification
+ * @see Notification1
  */
 describe("NotificationTest", () => {
 
@@ -13,7 +13,7 @@ describe("NotificationTest", () => {
      */
     it("should testNameAccessors", () => {
         // Create a new Notification and use accessors to set the note name
-        let note = new puremvc.Notification("TestNote", null, "");
+        let note = new Notification("TestNote", null, "");
 
         // test assertions
         chai.assert.isTrue(note.name === "TestNote", "Expecting note.getName() == 'TestNote'");
@@ -24,7 +24,7 @@ describe("NotificationTest", () => {
      */
     it("should testBodyAccessors", () => {
         // Create a new Notification and use accessors to set the body
-        let notification = new puremvc.Notification("TestNote", null, "");
+        let notification = new Notification("TestNote", null, "");
         notification.body = 5;
 
         // test assertions
@@ -36,7 +36,7 @@ describe("NotificationTest", () => {
      */
     it("should testConstructor", () => {
         // Create a new Notification using the Constructor to set the note name and body
-        let notification = new puremvc.Notification("TestNote", 5, "TestNoteType");
+        let notification = new Notification("TestNote", 5, "TestNoteType");
 
         // test assertions
         chai.assert.isTrue(notification.name === "TestNote", "Expecting note.getName() == 'TestNote'");
@@ -49,7 +49,7 @@ describe("NotificationTest", () => {
      */
     it("should testToString", () => {
         // Create a new Notification and use accessors to set the note name
-        let notification = new puremvc.Notification("TestNote", [1,3,5], "TestType");
+        let notification = new Notification("TestNote", [1,3,5], "TestType");
         let ts = "Notification Name: TestNote\nBody:1,3,5\nType:TestType";
 
         // test assertions

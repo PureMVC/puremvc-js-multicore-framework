@@ -1,5 +1,5 @@
-import {puremvc} from "../../../bin/puremvc.js";
 import chai from "chai"
+import {Notification, Observer} from "../../../src/index.js";
 
 /**
  * Tests PureMVC Observer class.
@@ -27,7 +27,7 @@ describe("ObserverTest", () => {
                 observerTestVar = notification.body;
             }
         };
-        let observer = new puremvc.Observer(obj.observerTestMethod, obj);
+        let observer = new Observer(obj.observerTestMethod, obj);
         observer.notifyContext = obj;
         observer.notifyMethod = obj.observerTestMethod;
 
@@ -37,7 +37,7 @@ describe("ObserverTest", () => {
         // successful notification will result in our local
         // observerTestVar being set to the value we pass in
         // on the note body.
-        let notification = new puremvc.Notification("ObserverTestNote", 10, "");
+        let notification = new Notification("ObserverTestNote", 10, "");
         observer.notifyObserver(notification);
 
         // test assertions
@@ -50,7 +50,7 @@ describe("ObserverTest", () => {
     it("should testObserverConstructor", () => {
         // Create observer with null args, then
         // use accessors to set notification method and context
-        let observer = new puremvc.Observer(null, null);
+        let observer = new Observer(null, null);
         let observerTestVar = 0;
         let obj = {
             observerTestMethod: (notification) => {
@@ -66,7 +66,7 @@ describe("ObserverTest", () => {
         // successful notification will result in our local
         // observerTestVar being set to the value we pass in
         // on the note body.
-        let notification = new puremvc.Notification("ObserverTestNote", 5, "");
+        let notification = new Notification("ObserverTestNote", 5, "");
         observer.notifyObserver(notification);
 
         // test assertions
@@ -83,7 +83,7 @@ describe("ObserverTest", () => {
 
             }
         };
-        let observer = new puremvc.Observer(obj.observerTestMethod, obj);
+        let observer = new Observer(obj.observerTestMethod, obj);
 
         let negTestObject = {};
 

@@ -1,5 +1,5 @@
-import {puremvc} from "../../../bin/puremvc.min.js";
 import chai from "chai"
+import {Proxy} from "../../../src/index.js";
 
 /**
  * Test the PureMVC Proxy class.
@@ -14,20 +14,20 @@ describe("ProxyTest", () => {
      */
     it("should testNameAccessor", () => {
         // Create a new Proxy and use accessors to set the proxy name
-        let proxy = new puremvc.Proxy("TestProxy", null);
+        let proxy = new Proxy("TestProxy", null);
 
         // test assertions
         chai.assert(proxy.proxyName === "TestProxy", "Expecting proxy.getProxyName() == 'TestProxy'");
 
-        let proxy2 = new puremvc.Proxy();
+        let proxy2 = new Proxy();
 
         // test assertions
-        chai.assert.isTrue(proxy2.proxyName === puremvc.Proxy.NAME, "Expecting proxy.getProxyName() == 'Proxy'");
+        chai.assert.isTrue(proxy2.proxyName === Proxy.NAME, "Expecting proxy.getProxyName() == 'Proxy'");
     });
 
     it("should testDataAccessors", () => {
         // Create a new Proxy and use accessors to set the data
-        let proxy = new puremvc.Proxy("colors", null);
+        let proxy = new Proxy("colors", null);
         proxy.data = ["red", "green", "blue"];
         let data = proxy.data
 
@@ -40,7 +40,7 @@ describe("ProxyTest", () => {
 
     it("should testConstructor", () => {
         // Create a new Proxy using the Constructor to set the name and data
-        let proxy = new puremvc.Proxy("colors", ["red", "green", "blue"]);
+        let proxy = new Proxy("colors", ["red", "green", "blue"]);
         let data = proxy.data;
 
         // test assertions

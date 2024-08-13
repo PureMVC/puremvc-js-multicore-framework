@@ -1,4 +1,4 @@
-import {puremvc} from "../../../bin/puremvc.min.js";
+import {SimpleCommand} from "../../../src/index.js";
 
 /**
  * A SimpleCommand subclass used by MacroCommandTestCommand.
@@ -10,7 +10,7 @@ import {puremvc} from "../../../bin/puremvc.min.js";
  * @class MacroCommandTestSub2Command
  * @extends SimpleCommand
  */
-class MacroCommandTestSub2Command extends puremvc.SimpleCommand {
+class MacroCommandTestSub2Command extends SimpleCommand {
 
     /**
      * Fabricate a result by multiplying the input by itself

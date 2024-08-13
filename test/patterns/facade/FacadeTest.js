@@ -1,5 +1,5 @@
-import {puremvc} from "../../../bin/puremvc.js";
 import chai from "chai"
+import {Facade, Mediator, Proxy} from "../../../src/index.js";
 import {FacadeTestCommand} from "./FacadeTestCommand.js";
 import {FacadeTestVO} from "./FacadeTestVO.js";
 
@@ -16,7 +16,7 @@ describe("FacadeTest", () => {
      */
     it("should testGetInstance", () => {
         // Test Factory Method
-       let facade = puremvc.Facade.getInstance("FacadeTestKey1", key => new puremvc.Facade(key));
+       let facade = Facade.getInstance("FacadeTestKey1", key => new Facade(key));
 
         // test assertions
         chai.assert.isTrue(facade != null, "");
@@ -37,7 +37,7 @@ describe("FacadeTest", () => {
     it("should testRegisterCommandAndSendNotification", () => {
         // Create the Facade, register the FacadeTestCommand to
         // handle 'FacadeTest' notifications
-        let facade = puremvc.Facade.getInstance("FacadeTestKey2", key => new puremvc.Facade(key));
+        let facade = Facade.getInstance("FacadeTestKey2", key => new Facade(key));
         facade.registerCommand("FacadeTestNote", () => new FacadeTestCommand());
 
         // Send notification. The Command associated with the event
@@ -65,7 +65,7 @@ describe("FacadeTest", () => {
     it("should testRegisterAndRemoveCommandAndSendNotification", () => {
         // Create the Facade, register the FacadeTestCommand to
         // handle 'FacadeTest' events
-        let facade = puremvc.Facade.getInstance("FacadeTestKey3", key => new puremvc.Facade(key));
+        let facade = Facade.getInstance("FacadeTestKey3", key => new Facade(key));
         facade.registerCommand("FacadeTestNote", () => new FacadeTestCommand());
         facade.removeCommand("FacadeTestNote");
 
@@ -89,8 +89,8 @@ describe("FacadeTest", () => {
      */
     it("should testRegisterAndRetrieveProxy", () => {
         // register a proxy and retrieve it.
-        let facade = puremvc.Facade.getInstance("FacadeTestKey4", key => new puremvc.Facade(key));
-        facade.registerProxy(new puremvc.Proxy("colors", ["red", "green", "blue"]));
+        let facade = Facade.getInstance("FacadeTestKey4", key => new Facade(key));
+        facade.registerProxy(new Proxy("colors", ["red", "green", "blue"]));
         let proxy = facade.retrieveProxy("colors");
 
         // test assertions
@@ -112,8 +112,8 @@ describe("FacadeTest", () => {
      */
     it("should testRegisterAndRemoveProxy", () => {
         // register a proxy, remove it, then try to retrieve it
-        let facade = puremvc.Facade.getInstance("FacadeTestKey5", key => new puremvc.Facade(key));
-        let proxy = new puremvc.Proxy("sizes", [7, 13, 21]);
+        let facade = Facade.getInstance("FacadeTestKey5", key => new Facade(key));
+        let proxy = new Proxy("sizes", [7, 13, 21]);
         facade.registerProxy(proxy);
 
         // remove the proxy
@@ -134,20 +134,20 @@ describe("FacadeTest", () => {
      */
     it("should testRegisterRetrieveAndRemoveMediator", () => {
         // register a mediator, remove it, then try to retrieve it
-        let facade = puremvc.Facade.getInstance("FacadeTestKey6", key => new puremvc.Facade(key));
-        facade.registerMediator(new puremvc.Mediator(puremvc.Mediator.NAME, {}));
+        let facade = Facade.getInstance("FacadeTestKey6", key => new Facade(key));
+        facade.registerMediator(new Mediator(Mediator.NAME, {}));
 
         // retrieve the mediator
-        chai.assert.isNotNull(facade.retrieveMediator(puremvc.Mediator.NAME), "Expecting mediator is not null");
+        chai.assert.isNotNull(facade.retrieveMediator(Mediator.NAME), "Expecting mediator is not null");
 
         // remove the mediator
-        let removedMediator = facade.removeMediator(puremvc.Mediator.NAME);
+        let removedMediator = facade.removeMediator(Mediator.NAME);
 
         // assert that we have removed the appropriate mediator
-        chai.assert.isTrue(removedMediator.mediatorName === puremvc.Mediator.NAME, "Expecting removedMediator.getMediatorName() == Mediator.NAME");
+        chai.assert.isTrue(removedMediator.mediatorName === Mediator.NAME, "Expecting removedMediator.getMediatorName() == Mediator.NAME");
 
         // assert that the mediator is no longer retrievable
-        chai.assert.isTrue(facade.retrieveMediator(puremvc.Mediator.NAME) == null, "Expecting facade.retrieveMediator( Mediator.NAME ) == null )")
+        chai.assert.isTrue(facade.retrieveMediator(Mediator.NAME) == null, "Expecting facade.retrieveMediator( Mediator.NAME ) == null )")
     });
 
     /**
@@ -155,8 +155,8 @@ describe("FacadeTest", () => {
      */
     it("should testHasProxy", () => {
         // register a Proxy
-        let facade = puremvc.Facade.getInstance("FacadeTestKey7", key => new puremvc.Facade(key));
-        facade.registerProxy(new puremvc.Proxy("hasProxyTest", [1, 2, 3]));
+        let facade = Facade.getInstance("FacadeTestKey7", key => new Facade(key));
+        facade.registerProxy(new Proxy("hasProxyTest", [1, 2, 3]));
 
         // assert that the model.hasProxy method returns true
         // for that proxy name
@@ -168,8 +168,8 @@ describe("FacadeTest", () => {
      */
     it("should testHasMediator", () => {
         // register a Mediator
-        let facade = puremvc.Facade.getInstance("FacadeTestKey8", key => new puremvc.Facade(key));
-        facade.registerMediator(new puremvc.Mediator("facadeHasMediatorTest", {}));
+        let facade = Facade.getInstance("FacadeTestKey8", key => new Facade(key));
+        facade.registerMediator(new Mediator("facadeHasMediatorTest", {}));
 
         // assert that the facade.hasMediator method returns true
         // for that mediator name
@@ -187,7 +187,7 @@ describe("FacadeTest", () => {
      */
     it("should testHasCommand", () => {
         // register the ControllerTestCommand to handle 'hasCommandTest' notes
-        let facade = puremvc.Facade.getInstance("FacadeTestKey10", key => new puremvc.Facade(key));
+        let facade = Facade.getInstance("FacadeTestKey10", key => new Facade(key));
         facade.registerCommand("facadeHasCommandTest", () => new FacadeTestCommand());
 
         // test that hasCommand returns true for hasCommandTest notifications
@@ -205,19 +205,19 @@ describe("FacadeTest", () => {
      */
     it("should testHasCoreAndRemoveCore", () => {
         // assert that the Facade.hasCore method returns false first
-        chai.assert.isFalse(puremvc.Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == false");
+        chai.assert.isFalse(Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == false");
 
         // register a Core
-        puremvc.Facade.getInstance("FacadeTestKey11", key => new puremvc.Facade(key));
+        Facade.getInstance("FacadeTestKey11", key => new Facade(key));
 
         // assert that the Facade.hasCore method returns true now that a Core is registered
-        chai.assert.isTrue(puremvc.Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == true");
+        chai.assert.isTrue(Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == true");
 
         // remove the Core
-        puremvc.Facade.removeCore("FacadeTestKey11");
+        Facade.removeCore("FacadeTestKey11");
 
         // assert that the Facade.hasCore method returns false now that the core has been removed.
-        chai.assert.isFalse(puremvc.Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == false");
+        chai.assert.isFalse(Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == false");
     });
 
 });

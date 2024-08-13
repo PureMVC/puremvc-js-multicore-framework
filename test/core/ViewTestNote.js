@@ -1,10 +1,10 @@
-import {puremvc} from "../../bin/puremvc.js";
+import {Notification} from "../../src/index.js";
 
 /**
  *
  * @extends Notification
  */
-class ViewTestNote extends puremvc.Notification {
+class ViewTestNote extends Notification {
 
     /**
      *

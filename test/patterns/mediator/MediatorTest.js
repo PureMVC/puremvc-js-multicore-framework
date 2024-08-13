@@ -1,4 +1,4 @@
-import {puremvc} from "../../../bin/puremvc.min.js";
+import {Mediator} from "../../../src/index.js";
 import chai from "chai"
 
 /**
@@ -14,10 +14,10 @@ describe("MediatorTest", () => {
      */
     it("should testNameAccessor", () => {
         // Create a new Mediator and use accessors to set the mediator name
-        let mediator = new puremvc.Mediator();
+        let mediator = new Mediator();
 
         // test assertions
-        chai.assert.equal(mediator.mediatorName, puremvc.Mediator.NAME, "Expecting mediator.getMediatorName() == Mediator.NAME");
+        chai.assert.equal(mediator.mediatorName, Mediator.NAME, "Expecting mediator.getMediatorName() == Mediator.NAME");
     });
 
     /**
@@ -28,7 +28,7 @@ describe("MediatorTest", () => {
         let view = {};
 
         // Create a new Proxy and use accessors to set the proxy name
-        let mediator = new puremvc.Mediator(puremvc.Mediator.NAME, view);
+        let mediator = new Mediator(Mediator.NAME, view);
 
         // test assertions
         chai.assert.isNotNull(mediator)

@@ -1,4 +1,4 @@
-import {puremvc} from "../../bin/puremvc.js";
+import {SimpleCommand} from "../../src/index.js";
 
 /**
  * A SimpleCommand subclass used by ControllerTest.
@@ -9,7 +9,7 @@ import {puremvc} from "../../bin/puremvc.js";
  * @class ControllerTestCommand2
  * @extends SimpleCommand
  */
-class ControllerTestCommand2 extends puremvc.SimpleCommand {
+class ControllerTestCommand2 extends SimpleCommand {
 
     /**
      * Fabricate a result by multiplying the input by 2 and adding to the existing result

@@ -50,6 +50,21 @@ module.exports = {
                 "server_path": "./node_modules/.bin/geckodriver",
                 log_path: "build/nightwatch/"
             }
+        },
+        edge: {
+            desiredCapabilities: {
+                browserName: "MicrosoftEdge",
+                'ms:edgeOptions': {
+                    w3c: true,
+                    args: ["--headless"]
+                }
+            },
+            webdriver: {
+                port: 9516,
+                start_process: true,
+                server_path: "",
+                log_path: "build/nightwatch/"
+            }
         }
     }
 }

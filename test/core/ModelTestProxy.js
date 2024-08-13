@@ -1,10 +1,10 @@
-import {puremvc} from "../../bin/puremvc.min.js";
+import {Proxy} from "../../src/index.js"
 
 /**
  * @class ModelTestProxy
  * @extends Proxy
  */
-class ModelTestProxy extends puremvc.Proxy {
+class ModelTestProxy extends Proxy {
 
     constructor() {
         super(ModelTestProxy.NAME, "");

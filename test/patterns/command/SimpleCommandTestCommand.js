@@ -1,4 +1,4 @@
-import {puremvc} from "../../../bin/puremvc.min.js";
+import {SimpleCommand} from "../../../src/index.js";
 
 /**
  * A SimpleCommand subclass used by SimpleCommandTest.
@@ -6,7 +6,7 @@ import {puremvc} from "../../../bin/puremvc.min.js";
  * @class SimpleCommandTestCommand
  * @extends SimpleCommand
  */
-class SimpleCommandTestCommand extends puremvc.SimpleCommand {
+class SimpleCommandTestCommand extends SimpleCommand {
 
     /**
      * Fabricate a result by multiplying the input by 2

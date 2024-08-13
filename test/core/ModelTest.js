@@ -1,4 +1,4 @@
-import {puremvc} from "../../bin/puremvc.js";
+import {Model, Proxy} from "../../src/index.js";
 import chai from "chai"
 import { ModelTestProxy } from "./ModelTestProxy.js"
 
@@ -12,7 +12,7 @@ describe("ModelTest", () => {
      */
     it("should testGetInstance", () => {
         // Test Factory Method
-        let model = puremvc.Model.getInstance("ModelTestKey1", key => new puremvc.Model(key));
+        let model = Model.getInstance("ModelTestKey1", key => new Model(key));
 
         // test assertions
         chai.assert.isNotNull(model, "Expecting instance not null");
@@ -29,8 +29,8 @@ describe("ModelTest", () => {
      */
     it("should testRegisterAndRetrieveProxy", () => {
         // register a proxy and retrieve it.
-        let model = puremvc.Model.getInstance("ModelTestKey2", key => new puremvc.Model(key));
-        model.registerProxy(new puremvc.Proxy("colors", ["red", "green", "blue"]));
+        let model = Model.getInstance("ModelTestKey2", key => new Model(key));
+        model.registerProxy(new Proxy("colors", ["red", "green", "blue"]));
         let proxy = model.retrieveProxy("colors");
         let data = proxy.data
 
@@ -47,8 +47,8 @@ describe("ModelTest", () => {
      */
     it("should testRegisterAndRemoveProxy", () => {
         // register a proxy, remove it, then try to retrieve it
-        let model = puremvc.Model.getInstance("ModelTestKey3", key => new puremvc.Model(key));
-        model.registerProxy(new puremvc.Proxy("sizes", [7, 13, 21]));
+        let model = Model.getInstance("ModelTestKey3", key => new Model(key));
+        model.registerProxy(new Proxy("sizes", [7, 13, 21]));
 
         // remove the proxy
         let removedProxy = model.removeProxy("sizes");
@@ -68,8 +68,8 @@ describe("ModelTest", () => {
      */
     it("should testHasProxy", () => {
         // register a proxy
-        let model = puremvc.Model.getInstance("ModelTestKey4", key => new puremvc.Model(key));
-        let proxy = new puremvc.Proxy("aces", ["clubs", "spades", "hearts", "diamonds"]);
+        let model = Model.getInstance("ModelTestKey4", key => new Model(key));
+        let proxy = new Proxy("aces", ["clubs", "spades", "hearts", "diamonds"]);
         model.registerProxy(proxy);
 
         // assert that the model.hasProxy method returns true
@@ -89,7 +89,7 @@ describe("ModelTest", () => {
      */
     it("should testOnRegisterAndOnRemove", () => {
         // Get a Multiton Model instance
-        let model = puremvc.Model.getInstance("ModelTestKey5", key => new puremvc.Model(key));
+        let model = Model.getInstance("ModelTestKey5", key => new Model(key));
 
         // Create and register the test proxy
         let proxy = new ModelTestProxy();

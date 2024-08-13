@@ -1,11 +1,11 @@
-import {puremvc} from "../../bin/puremvc.js";
+import {Mediator} from "../../src/index.js";
 import {ViewTestNote} from "./ViewTestNote.js";
 
 /**
  * @class ViewTestMediator3
  * @extends Mediator
  */
-class ViewTestMediator3 extends puremvc.Mediator {
+class ViewTestMediator3 extends Mediator {
 
     /**
      * @constructor
