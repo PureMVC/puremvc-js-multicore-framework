@@ -19,7 +19,7 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 * [React Native](https://en.wikipedia.org/wiki/React_Native)
 
 ## Status
-Production - [Version 2.0.6](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
+Production - [Version 2.0.7](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
 
 #### Documentation
 - https://jsdoc.app/about-commandline.html
