@@ -4,7 +4,7 @@ Release Date: 8/13/24
     Platform: JavaScript
      Version: 2
     Revision: 0
-       Minor: 4
+       Minor: 6
       Authors: Saad Shams <saad.shams@puremvc.org>
              : David Foley <david.foley@puremvc.org>
              : Cliff Hall <cliff.hall@puremvc.org>
@@ -14,3 +14,5 @@ Release Date: 8/13/24
 2.0.2 - Version alignment in build
 2.0.3 - Update package description
 2.0.4 - Streamline exports and add ESM/CommonJS support
+2.0.5 - NPM package borked for cjs
+2.0.6 - NPM package bundling the ESM/CommonJS suuport
