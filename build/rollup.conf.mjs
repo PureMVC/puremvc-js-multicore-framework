@@ -16,12 +16,12 @@ export default [
                 sourcemap: true
             },
             {
-                file: "bin/cjs/puremvc.js",
+                file: "bin/cjs/puremvc.cjs",
                 format: "cjs",
                 sourcemap: false
             },
             {
-                file: "bin/cjs/puremvc.min.js",
+                file: "bin/cjs/puremvc.min.cjs",
                 format: "cjs",
                 plugins: [terser()],
                 sourcemap: true
