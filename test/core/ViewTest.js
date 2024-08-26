@@ -199,11 +199,11 @@ describe("ViewTest", () => {
         view.registerMediator(new ViewTestMediator2(viewTest));
 
         // test that notifications work
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1))
-        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE1, "Expecting lastNotification === NOTE1");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE1))
+        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.NOTE1, "Expecting lastNotification === NOTE1");
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2));
-        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE2);
+        view.notifyObservers(new Notification(ViewTestNote.NOTE2));
+        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.NOTE2);
 
         // Remove the Mediator
         view.removeMediator(ViewTestMediator2.NAME);
@@ -216,11 +216,11 @@ describe("ViewTest", () => {
         // on this component, and ViewTestMediator)
         viewTest.lastNotification = null;
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1))
-        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE1, "Expecting lastNotification === NOTE1");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE1))
+        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.NOTE1, "Expecting lastNotification === NOTE1");
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2))
-        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE2, "Expecting lastNotification === NOTE2");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE2))
+        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.NOTE2, "Expecting lastNotification === NOTE2");
     });
 
     it("testRemoveOneOfTwoMediatorsAndSubsequentNotify", () => {
@@ -236,14 +236,14 @@ describe("ViewTest", () => {
         view.registerMediator(new ViewTestMediator3(viewTest));
 
         // test that all notifications work
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1));
-        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE1, "Expecting lastNotification === NOTE1");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE1));
+        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.NOTE1, "Expecting lastNotification === NOTE1");
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2));
-        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE2, "Expecting lastNotification === NOTE2");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE2));
+        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.NOTE2, "Expecting lastNotification === NOTE2");
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE3));
-        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE3, "Expecting lastNotification === NOTE3");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE3));
+        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.NOTE3, "Expecting lastNotification === NOTE3");
 
         // Remove the Mediator that responds to 1 and 2
         view.removeMediator(ViewTestMediator2.NAME);
@@ -255,14 +255,14 @@ describe("ViewTest", () => {
         // for notifications 1 and 2, but still work for 3
         viewTest.lastNotification = null;
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE1));
-        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE1, "Expecting lastNotification != NOTE1");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE1));
+        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.NOTE1, "Expecting lastNotification != NOTE1");
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE2));
-        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.notes.NOTE2, "Expecting lastNotification != NOTE2");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE2));
+        chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.NOTE2, "Expecting lastNotification != NOTE2");
 
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE3));
-        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.notes.NOTE3, "Expecting lastNotification === NOTE3");
+        view.notifyObservers(new Notification(ViewTestNote.NOTE3));
+        chai.assert.isTrue(viewTest.lastNotification === ViewTestNote.NOTE3, "Expecting lastNotification === NOTE3");
     });
 
     /**
@@ -289,7 +289,7 @@ describe("ViewTest", () => {
 
         // test that the counter is only incremented once (mediator 5's response)
         viewTest.counter = 0;
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE5));
+        view.notifyObservers(new Notification(ViewTestNote.NOTE5));
         chai.assert.isTrue(viewTest.counter === 1, "Expecting counter === 1");
 
         // Remove the Mediator
@@ -300,7 +300,7 @@ describe("ViewTest", () => {
 
         // test that the counter is no longer incremented
         viewTest.counter = 0;
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE5));
+        view.notifyObservers(new Notification(ViewTestNote.NOTE5));
         chai.assert.isTrue(viewTest.counter === 0, "Expecting counter === 0");
     });
 
@@ -339,14 +339,14 @@ describe("ViewTest", () => {
         // send the notification. each of the above mediators will respond by removing
         // themselves and incrementing the counter by 1. This should leave us with a
         // count of 8, since 8 mediators will respond.
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE6));
+        view.notifyObservers(new Notification(ViewTestNote.NOTE6));
 
         // verify the count is correct
         chai.assert.isTrue(viewTest.counter === 8, "Expecting counter === 8");
 
         // clear the counter
         viewTest.counter = 0;
-        view.notifyObservers(new Notification(ViewTestNote.notes.NOTE6));
+        view.notifyObservers(new Notification(ViewTestNote.NOTE6));
         // verify the count is 0
         chai.assert.isTrue(viewTest.counter === 0, "Expecting counter === 0");
     });

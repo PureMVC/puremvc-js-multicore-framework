@@ -20,7 +20,7 @@ class ViewTestMediator5 extends Mediator {
      * @returns {[string]}
      */
     listNotificationInterests() {
-        return [ViewTestNote.notes.NOTE5];
+        return [ViewTestNote.NOTE5];
     }
 
     /**

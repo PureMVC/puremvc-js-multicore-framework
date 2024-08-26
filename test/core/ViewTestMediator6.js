@@ -12,7 +12,7 @@ class ViewTestMediator6 extends Mediator {
     }
 
     listNotificationInterests() {
-        return [ViewTestNote.notes.NOTE6];
+        return [ViewTestNote.NOTE6];
     }
 
     handleNotification(notification) {

@@ -18,7 +18,7 @@ class ViewTestMediator3 extends Mediator {
     listNotificationInterests() {
         // be sure that the mediator has some Observers created
         // in order to test removeMediator
-        return [ViewTestNote.notes.NOTE3];
+        return [ViewTestNote.NOTE3];
     }
 
     /**
