@@ -32,12 +32,12 @@ class Observer {
      * <P>The notification method on the interested object should take
      * one parameter of type `Notification`</P>
      *
-     * @param {function(Notification):void} notifyMethod
-     * @param {Object} notifyContext
+     * @param {function(Notification):void | null} [notify = null]
+     * @param {Object | null} [context = null]
      */
-    constructor(notifyMethod, notifyContext) {
-        this._notifyMethod = notifyMethod;
-        this._notifyContext = notifyContext;
+    constructor(notify = null, context = null) {
+        this._notifyMethod = notify;
+        this._notifyContext = context;
     }
 
     /**

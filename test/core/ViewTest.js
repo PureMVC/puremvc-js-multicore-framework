@@ -1,3 +1,11 @@
+//
+//  ViewTest.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import chai from "chai"
 import {View, Notification, Observer, Mediator} from "../../src/index.js";
 import {ViewTestMediator} from "./ViewTestMediator.js";
@@ -84,8 +92,11 @@ describe("ViewTest", () => {
         chai.assert.isTrue(mediator !== undefined, "ViewTestMediator is not null");
     });
 
+    /**
+     * Tests the hasMediator Method
+     */
     it("testHasMediator", () => {
-        // register a Mediator
+        // Get the Multiton View instance
         let view = View.getInstance("ViewTestKey4", key => new View(key));
 
         // Create and register the test mediator
@@ -180,6 +191,8 @@ describe("ViewTest", () => {
 
         // Remove the Mediator
         view.removeMediator(ViewTestMediator.NAME);
+
+        chai.assert.isTrue(view.retrieveMediator(ViewTestMediator.NAME) == null, "view.retrieveMediator(ViewTestMediator.NAME) == null");
     });
 
     /**
@@ -223,6 +236,11 @@ describe("ViewTest", () => {
         chai.assert.isTrue(viewTest.lastNotification !== ViewTestNote.NOTE2, "Expecting lastNotification === NOTE2");
     });
 
+    /**
+     * Tests registering a Mediator for 2 different notifications, removing the
+     * Mediator from the View, and seeing that neither notification causes the
+     * Mediator to be notified. Added for the fix deployed in version 1.7
+     */
     it("testRemoveOneOfTwoMediatorsAndSubsequentNotify", () => {
         let viewTest = { lastNotification: "" };
 

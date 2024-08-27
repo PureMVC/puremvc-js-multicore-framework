@@ -21,10 +21,10 @@ class Mediator extends Notifier {
      * Constructor.
      *
      * @constructor
-     * @param {string} mediatorName
-     * @param {Object} [viewComponent] viewComponent
+     * @param {string | null} [mediatorName=null]
+     * @param {Object | null} [viewComponent=null]
      */
-    constructor(mediatorName, viewComponent = null) {
+    constructor(mediatorName = null, viewComponent = null) {
         super();
         this._mediatorName = mediatorName || Mediator.NAME;
         this._viewComponent = viewComponent;
@@ -85,7 +85,7 @@ class Mediator extends Notifier {
      * be defined in the subclass that casts the view
      * object to a type, like this:</P>
      *
-     * @returns {Object}
+     * @returns {Object | null}
      */
     get viewComponent() {
         return this._viewComponent;

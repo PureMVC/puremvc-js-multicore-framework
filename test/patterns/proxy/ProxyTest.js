@@ -1,3 +1,11 @@
+//
+//  ProxyTest.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import chai from "chai"
 import {Proxy} from "../../../src/index.js";
 
@@ -25,6 +33,9 @@ describe("ProxyTest", () => {
         chai.assert.isTrue(proxy2.proxyName === Proxy.NAME, "Expecting proxy.getProxyName() == 'Proxy'");
     });
 
+    /**
+     * Tests setting and getting the data using Proxy class accessor methods.
+     */
     it("should testDataAccessors", () => {
         // Create a new Proxy and use accessors to set the data
         let proxy = new Proxy("colors", null);
@@ -38,6 +49,9 @@ describe("ProxyTest", () => {
         chai.assert.equal(data[2], "blue", "Expecting data[2] == 'blue'");
     });
 
+    /**
+     * Tests setting the name and body using the Notification class Constructor.
+     */
     it("should testConstructor", () => {
         // Create a new Proxy using the Constructor to set the name and data
         let proxy = new Proxy("colors", ["red", "green", "blue"]);

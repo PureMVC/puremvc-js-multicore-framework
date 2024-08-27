@@ -54,10 +54,10 @@ class Controller {
      * passing the unique key for this instance
      * `Controller.getInstance( multitonKey )`</P>
      *
-     * @throws {Error} Error if instance for this Multiton key has already been constructed
-     *
      * @constructor
      * @param {string} key
+     *
+     * @throws {Error} Error if instance for this Multiton key has already been constructed
      */
     constructor(key) {
         if (Controller.instanceMap[key] != null) throw new Error(Controller.MULTITON_MSG);

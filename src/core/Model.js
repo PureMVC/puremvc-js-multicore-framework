@@ -30,7 +30,6 @@
  *
  * @class Model
  */
-
 class Model {
 
     /**

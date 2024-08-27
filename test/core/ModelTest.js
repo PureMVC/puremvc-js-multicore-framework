@@ -1,3 +1,11 @@
+//
+//  ModelTest.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import {Model, Proxy} from "../../src/index.js";
 import chai from "chai"
 import { ModelTestProxy } from "./ModelTestProxy.js"

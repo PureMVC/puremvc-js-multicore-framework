@@ -33,16 +33,16 @@ class Proxy extends Notifier {
      * Constructor
      *
      * @constructor
-     * @param {string} proxyName
-     * @param {Object} [data]
+     * @param {string | null} [proxyName=null]
+     * @param {Object | null} [data=null]
      */
-    constructor(proxyName, data = null) {
+    constructor(proxyName = null, data = null) {
         super();
         /** @protected
          * @type {string} */
         this._proxyName = proxyName || Proxy.NAME;
         /** @protected
-         * @type {Object} */
+         * @type {Object | null} */
         this._data = data;
     }
 
@@ -68,7 +68,7 @@ class Proxy extends Notifier {
     /**
      * Get the data object
      *
-     * @returns {Object}
+     * @returns {Object | null}
      */
     get data () {
         return this._data;

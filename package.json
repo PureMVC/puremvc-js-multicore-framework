@@ -3,16 +3,16 @@
   "version": "2.0.7",
   "description": "PureMVC MultiCore Framework for JavaScript",
   "type": "module",
-  "main": "bin/cjs/puremvc.cjs",
-  "module": "bin/esm/puremvc.js",
+  "main": "bin/cjs/index.cjs",
+  "module": "bin/esm/index.js",
   "exports": {
     ".": {
-      "require": "./bin/cjs/puremvc.cjs",
-      "import": "./bin/esm/puremvc.js"
+      "require": "./bin/cjs/index.cjs",
+      "import": "./bin/esm/index.js"
     }
   },
   "bin": {
-    "puremvc-js-multicore-framework": "bin/esm/puremvc.js"
+    "puremvc-js-multicore-framework": "bin/esm/index.js"
   },
   "scripts": {
     "build": "npm run clean && npm run build:lib",
@@ -56,7 +56,8 @@
   ],
   "directories": {
     "doc": "docs",
-    "test": "test"
+    "test": "test",
+    "bin": "bin"
   },
   "babel": {
     "presets": [
