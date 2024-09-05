@@ -1,6 +1,6 @@
 {
   "name": "@puremvc/puremvc-js-multicore-framework",
-  "version": "2.0.7",
+  "version": "2.0.8",
   "description": "PureMVC MultiCore Framework for JavaScript",
   "type": "module",
   "main": "bin/cjs/index.cjs",
@@ -10,9 +10,6 @@
       "require": "./bin/cjs/index.cjs",
       "import": "./bin/esm/index.js"
     }
-  },
-  "bin": {
-    "puremvc-js-multicore-framework": "bin/esm/index.js"
   },
   "scripts": {
     "build": "npm run clean && npm run build:lib",

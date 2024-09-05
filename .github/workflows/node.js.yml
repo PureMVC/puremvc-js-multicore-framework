@@ -5,9 +5,9 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master", "develop" ]
+    branches: [ "master" ]
   pull_request:
-    branches: [ "master", "develop" ]
+    branches: [ "master" ]
 
 jobs:
   build:
@@ -25,10 +25,16 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+        cache: "npm"
     - run: npm install
     - run: npm run build
     - run: npm test
     - run: sudo apt-get install xvfb
     - run: xvfb-run --auto-servernum npm run test:chrome
     - run: xvfb-run --auto-servernum npm run test:firefox
+
+    - name: Publish to npm
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm publish

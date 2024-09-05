@@ -24,7 +24,7 @@ npm install @puremvc/puremvc-js-multicore-framework
 * [React Native](https://en.wikipedia.org/wiki/React_Native)
 
 ## Status
-Production - [Version 2.0.7](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
+Production - [Version 2.0.8](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
 
 #### Documentation
 - https://jsdoc.app/about-commandline.html
