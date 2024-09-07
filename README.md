@@ -8,7 +8,7 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 
 ## Installation
 ```shell
-npm install @puremvc/puremvc-js-multicore-framework
+npm i @puremvc/puremvc-js-multicore-framework
 ```
 
 ## Demos
