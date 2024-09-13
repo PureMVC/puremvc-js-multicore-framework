@@ -31,13 +31,15 @@ jobs:
       - name: Publish to npm dry-run
         if: github.ref == 'refs/heads/master' && github.event_name == 'pull_request'
         env:
-          run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish:dry-run
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm publish --dry-run
 
       - name: Publish to npm
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         env:
-          run: echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > .npmrc
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm publish
+        run: |
+          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+          npm publish
