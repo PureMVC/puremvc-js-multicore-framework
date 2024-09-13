@@ -1,7 +1,16 @@
+//
+//  MacroCommandTest.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import chai from "chai"
 import {Notification} from "../../../src/index.js"
 import {MacroCommandTestCommand} from "./MacroCommandTestCommand.js"
 import {MacroCommandTestVO} from "./MacroCommandTestVO.js"
+
 /**
  * Test the PureMVC SimpleCommand class.
  *

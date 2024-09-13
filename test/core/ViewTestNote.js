@@ -1,10 +1,25 @@
-import {Notification} from "../../src/index.js";
+//
+//  ViewTestNote.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
+import {Notification} from "../../src/index.js"
 
 /**
  *
  * @extends Notification
  */
 class ViewTestNote extends Notification {
+
+    static get NOTE1() { return "Notification1" }
+    static get NOTE2()  { return "Notification2" }
+    static get NOTE3() { return "Notification3" }
+    static get NOTE4() { return "Notification4" }
+    static get NOTE5() { return "Notification5" }
+    static get NOTE6() { return  "Notification6" }
 
     /**
      *
@@ -13,22 +28,11 @@ class ViewTestNote extends Notification {
      */
     constructor(name, body) {
         super(name, body);
-
-        /** @type {Map<string, string>} */
-        ViewTestNote.notes = {
-            NOTE1: "Notification1",
-            NOTE2: "Notification2",
-            NOTE3: "Notification3",
-            NOTE4: "Notification4",
-            NOTE5: "Notification5",
-            NOTE6: "Notification6"
-        };
     }
 
     /**
      *
      * @param {Object} body
-     * @static
      * @returns {ViewTestNote}
      */
     static create(body) {

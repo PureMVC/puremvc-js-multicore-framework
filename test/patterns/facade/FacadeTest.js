@@ -1,3 +1,11 @@
+//
+//  FacadeTest.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import chai from "chai"
 import {Facade, Mediator, Proxy} from "../../../src/index.js";
 import {FacadeTestCommand} from "./FacadeTestCommand.js";
@@ -187,7 +195,7 @@ describe("FacadeTest", () => {
      */
     it("should testHasCommand", () => {
         // register the ControllerTestCommand to handle 'hasCommandTest' notes
-        let facade = Facade.getInstance("FacadeTestKey10", key => new Facade(key));
+        let facade = Facade.getInstance("FacadeTestKey9", key => new Facade(key));
         facade.registerCommand("facadeHasCommandTest", () => new FacadeTestCommand());
 
         // test that hasCommand returns true for hasCommandTest notifications
@@ -205,19 +213,19 @@ describe("FacadeTest", () => {
      */
     it("should testHasCoreAndRemoveCore", () => {
         // assert that the Facade.hasCore method returns false first
-        chai.assert.isFalse(Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == false");
+        chai.assert.isFalse(Facade.hasCore("FacadeTestKey10"), "Expecting facade.hasCore('FacadeTestKey11') == false");
 
         // register a Core
-        Facade.getInstance("FacadeTestKey11", key => new Facade(key));
+        Facade.getInstance("FacadeTestKey10", key => new Facade(key));
 
         // assert that the Facade.hasCore method returns true now that a Core is registered
-        chai.assert.isTrue(Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == true");
+        chai.assert.isTrue(Facade.hasCore("FacadeTestKey10"), "Expecting facade.hasCore('FacadeTestKey11') == true");
 
         // remove the Core
-        Facade.removeCore("FacadeTestKey11");
+        Facade.removeCore("FacadeTestKey10");
 
         // assert that the Facade.hasCore method returns false now that the core has been removed.
-        chai.assert.isFalse(Facade.hasCore("FacadeTestKey11"), "Expecting facade.hasCore('FacadeTestKey11') == false");
+        chai.assert.isFalse(Facade.hasCore("FacadeTestKey10"), "Expecting facade.hasCore('FacadeTestKey11') == false");
     });
 
 });

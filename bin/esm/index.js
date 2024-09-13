@@ -32,12 +32,12 @@ class Observer {
      * <P>The notification method on the interested object should take
      * one parameter of type `Notification`</P>
      *
-     * @param {function(Notification):void} notifyMethod
-     * @param {Object} notifyContext
+     * @param {function(Notification):void | null} [notify = null]
+     * @param {Object | null} [context = null]
      */
-    constructor(notifyMethod, notifyContext) {
-        this._notifyMethod = notifyMethod;
-        this._notifyContext = notifyContext;
+    constructor(notify = null, context = null) {
+        this._notifyMethod = notify;
+        this._notifyContext = context;
     }
 
     /**
@@ -418,10 +418,10 @@ class Controller {
      * passing the unique key for this instance
      * `Controller.getInstance( multitonKey )`</P>
      *
-     * @throws {Error} Error if instance for this Multiton key has already been constructed
-     *
      * @constructor
      * @param {string} key
+     *
+     * @throws {Error} Error if instance for this Multiton key has already been constructed
      */
     constructor(key) {
         if (Controller.instanceMap[key] != null) throw new Error(Controller.MULTITON_MSG);
@@ -590,7 +590,6 @@ class Controller {
  *
  * @class Model
  */
-
 class Model {
 
     /**
@@ -720,7 +719,6 @@ class Model {
 */
 
 /**
- *
  * A base `Notification` implementation.
  *
  * <P>PureMVC does not rely upon underlying event models such
@@ -778,7 +776,7 @@ class Notification {
     /**
      * Get the body of the `Notification` instance.
      *
-     * @returns {Object}
+     * @returns {Object | null}
      */
     get body() {
         return this._body;
@@ -856,6 +854,7 @@ class Facade {
      *
      * @constructor
      * @param {string} key
+     *
      * @throws {Error} Error if instance for this Multiton key has already been constructed
      */
     constructor(key) {
@@ -1020,7 +1019,7 @@ class Facade {
     }
 
     /**
-     * Check if a Proxy is registered
+     * Check if a `Proxy` is registered
      *
      * @param {string} proxyName
      * @returns {boolean} whether a Proxy is currently registered with the given `proxyName`.
@@ -1059,7 +1058,7 @@ class Facade {
     }
 
     /**
-     * Check if a Mediator is registered or not
+     * Check if a `Mediator` is registered or not
      *
      * @param {string} mediatorName
      * @returns {boolean} whether a Mediator is registered with the given `mediatorName`.
@@ -1099,7 +1098,7 @@ class Facade {
      * compatibility, and to allow you to send custom
      * notification classes using the facade.</P>
      *
-     * <P>Usually you should just call sendNotification
+     * <P>Usually you should just call `sendNotification`
      * and pass the parameters, never having to
      * construct the notification yourself.</P>
      *
@@ -1438,10 +1437,10 @@ class Mediator extends Notifier {
      * Constructor.
      *
      * @constructor
-     * @param {string} mediatorName
-     * @param {Object} [viewComponent] viewComponent
+     * @param {string | null} [mediatorName=null]
+     * @param {Object | null} [viewComponent=null]
      */
-    constructor(mediatorName, viewComponent = null) {
+    constructor(mediatorName = null, viewComponent = null) {
         super();
         this._mediatorName = mediatorName || Mediator.NAME;
         this._viewComponent = viewComponent;
@@ -1502,7 +1501,7 @@ class Mediator extends Notifier {
      * be defined in the subclass that casts the view
      * object to a type, like this:</P>
      *
-     * @returns {Object}
+     * @returns {Object | null}
      */
     get viewComponent() {
         return this._viewComponent;
@@ -1564,16 +1563,16 @@ class Proxy extends Notifier {
      * Constructor
      *
      * @constructor
-     * @param {string} proxyName
-     * @param {Object} [data]
+     * @param {string | null} [proxyName=null]
+     * @param {Object | null} [data=null]
      */
-    constructor(proxyName, data = null) {
+    constructor(proxyName = null, data = null) {
         super();
         /** @protected
          * @type {string} */
         this._proxyName = proxyName || Proxy.NAME;
         /** @protected
-         * @type {Object} */
+         * @type {Object | null} */
         this._data = data;
     }
 
@@ -1599,7 +1598,7 @@ class Proxy extends Notifier {
     /**
      * Get the data object
      *
-     * @returns {Object}
+     * @returns {Object | null}
      */
     get data () {
         return this._data;

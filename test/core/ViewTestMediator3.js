@@ -1,3 +1,11 @@
+//
+//  ViewTestMediator3.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import {Mediator} from "../../src/index.js";
 import {ViewTestNote} from "./ViewTestNote.js";
 
@@ -18,7 +26,7 @@ class ViewTestMediator3 extends Mediator {
     listNotificationInterests() {
         // be sure that the mediator has some Observers created
         // in order to test removeMediator
-        return [ViewTestNote.notes.NOTE3];
+        return [ViewTestNote.NOTE3];
     }
 
     /**

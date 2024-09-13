@@ -33,6 +33,7 @@ class Facade {
      *
      * @constructor
      * @param {string} key
+     *
      * @throws {Error} Error if instance for this Multiton key has already been constructed
      */
     constructor(key) {
@@ -197,7 +198,7 @@ class Facade {
     }
 
     /**
-     * Check if a Proxy is registered
+     * Check if a `Proxy` is registered
      *
      * @param {string} proxyName
      * @returns {boolean} whether a Proxy is currently registered with the given `proxyName`.
@@ -236,7 +237,7 @@ class Facade {
     }
 
     /**
-     * Check if a Mediator is registered or not
+     * Check if a `Mediator` is registered or not
      *
      * @param {string} mediatorName
      * @returns {boolean} whether a Mediator is registered with the given `mediatorName`.
@@ -276,7 +277,7 @@ class Facade {
      * compatibility, and to allow you to send custom
      * notification classes using the facade.</P>
      *
-     * <P>Usually you should just call sendNotification
+     * <P>Usually you should just call `sendNotification`
      * and pass the parameters, never having to
      * construct the notification yourself.</P>
      *

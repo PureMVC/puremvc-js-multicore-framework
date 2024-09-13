@@ -6,6 +6,11 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 * [API Docs](https://puremvc.org/pages/docs/JS/es/)
 * [Legacy Implementation](https://github.com/PureMVC/puremvc-js-multicore-framework/tree/1.0.1)
 
+## Installation
+```shell
+npm i @puremvc/puremvc-js-multicore-framework
+```
+
 ## Demos
 * [Frontend Demo: EmployeeAdmin](https://github.com/PureMVC/puremvc-js-demo-employeeadmin)
 * [Backend Demo: Employee Admin NodeJS Microservice](https://github.com/PureMVC/puremvc-js-demo-microservice-employeeadmin)
@@ -19,7 +24,7 @@ PureMVC is a lightweight framework for creating applications based upon the clas
 * [React Native](https://en.wikipedia.org/wiki/React_Native)
 
 ## Status
-Production - [Version 2.0.7](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
+Production - [Version 2.0.8](https://github.com/PureMVC/puremvc-js-multicore-framework/blob/master/VERSION)
 
 #### Documentation
 - https://jsdoc.app/about-commandline.html

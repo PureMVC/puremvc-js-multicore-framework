@@ -1,6 +1,15 @@
+//
+//  MacroCommandTestCommand.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import {MacroCommand} from "../../../src/index.js";
 import {MacroCommandTestSub1Command} from "./MacroCommandTestSub1Command.js";
 import {MacroCommandTestSub2Command} from "./MacroCommandTestSub2Command.js";
+
 /**
  * A MacroCommand subclass used by MacroCommandTest.
  *

@@ -1,16 +1,16 @@
 {
   "name": "@puremvc/puremvc-js-multicore-framework",
-  "version": "2.0.7",
+  "version": "2.0.8",
+  "description": "PureMVC MultiCore Framework for JavaScript",
   "type": "module",
-  "main": "bin/cjs/puremvc.cjs",
-  "module": "bin/esm/puremvc.js",
+  "main": "bin/cjs/index.cjs",
+  "module": "bin/esm/index.js",
   "exports": {
     ".": {
-      "require": "./bin/cjs/puremvc.cjs",
-      "import": "./bin/esm/puremvc.js"
+      "require": "./bin/cjs/index.cjs",
+      "import": "./bin/esm/index.js"
     }
   },
-  "description": "PureMVC MultiCore Framework for JavaScript",
   "scripts": {
     "build": "npm run clean && npm run build:lib",
     "build:lib": "rollup -c build/rollup.conf.mjs",
@@ -30,6 +30,10 @@
     "type": "git",
     "url": "git+https://github.com/PureMVC/puremvc-js-multicore-framework.git"
   },
+  "homepage": "https://puremvc.org",
+  "bugs": {
+    "url": "https://github.com/PureMVC/puremvc-js-multicore-framework/issues"
+  },
   "keywords": [
     "puremvc",
     "mvc"
@@ -40,16 +44,18 @@
     "VERSION",
     "package.json"
   ],
+  "author": "Saad Shams, David Foley, Cliff Hall",
+  "license": "BSD-3-Clause",
   "authors": [
     "Saad Shams <saad.shams@puremvc.org>",
     "David Foley <david.foley@puremvc.org>",
     "Cliff Hall <cliff.hall@puremvc.org>"
   ],
-  "license": "BSD-3-Clause",
-  "bugs": {
-    "url": "https://github.com/PureMVC/puremvc-js-multicore-framework/issues"
+  "directories": {
+    "doc": "docs",
+    "test": "test",
+    "bin": "bin"
   },
-  "homepage": "https://puremvc.org",
   "babel": {
     "presets": [
       "env"
@@ -64,7 +70,7 @@
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-preset-env": "^1.7.0",
     "chai": "^4.2.0",
-    "chromedriver": "^127.0.2",
+    "chromedriver": "^127.0.0",
     "dotenv": "^16.0.3",
     "edgedriver": "^5.3.8",
     "geckodriver": "^4.2.1",
@@ -73,13 +79,5 @@
     "mocha": "10.1.0",
     "nightwatch": "^3.3.2",
     "rollup": "^4.6.1"
-  },
-  "bin": {
-    "puremvc-js-multicore-framework": "bin/puremvc.js"
-  },
-  "directories": {
-    "doc": "docs",
-    "test": "test"
-  },
-  "author": "Saad Shams, David Foley, Cliff Hall"
+  }
 }

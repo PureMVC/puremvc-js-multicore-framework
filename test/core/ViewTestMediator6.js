@@ -1,3 +1,11 @@
+//
+//  ViewTestMediator6.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import {Mediator} from "../../src/index.js";
 import {ViewTestNote} from "./ViewTestNote.js";
 
@@ -12,7 +20,7 @@ class ViewTestMediator6 extends Mediator {
     }
 
     listNotificationInterests() {
-        return [ViewTestNote.notes.NOTE6];
+        return [ViewTestNote.NOTE6];
     }
 
     handleNotification(notification) {

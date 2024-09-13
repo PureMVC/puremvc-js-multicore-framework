@@ -7,7 +7,6 @@
 */
 
 /**
- *
  * A base `Notification` implementation.
  *
  * <P>PureMVC does not rely upon underlying event models such
@@ -65,7 +64,7 @@ class Notification {
     /**
      * Get the body of the `Notification` instance.
      *
-     * @returns {Object}
+     * @returns {Object | null}
      */
     get body() {
         return this._body;

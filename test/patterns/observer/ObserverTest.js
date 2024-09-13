@@ -1,3 +1,11 @@
+//
+//  ObserverTest.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import chai from "chai"
 import {Notification, Observer} from "../../../src/index.js";
 
@@ -79,9 +87,7 @@ describe("ObserverTest", () => {
     it("should testCompareNotifyContext", () => {
         // Create observer passing in notification method and context
         let obj = {
-            observerTestMethod: (notification) => {
-
-            }
+            observerTestMethod: (notification) => {}
         };
         let observer = new Observer(obj.observerTestMethod, obj);
 

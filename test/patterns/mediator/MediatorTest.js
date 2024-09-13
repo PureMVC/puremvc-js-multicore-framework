@@ -1,3 +1,11 @@
+//
+//  MediatorTest.js
+//  PureMVC JavaScript Multicore
+//
+//  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
+//  Your reuse is governed by the BSD-3-Clause License
+//
+
 import {Mediator} from "../../../src/index.js";
 import chai from "chai"
 
