@@ -14,7 +14,6 @@ jobs:
     strategy:
       matrix:
         node-version: [19.x, 20.x, 21.x]
-        # See supported Node.js release schedule at https://nodejs.org/en/about/releases/
 
     steps:
       - uses: actions/checkout@v3
@@ -30,17 +29,33 @@ jobs:
       - run: xvfb-run --auto-servernum npm run test:chrome
       - run: xvfb-run --auto-servernum npm run test:firefox
 
-      - name: Publish to npm dry-run
-        env:
-          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          npm publish --dry-run
+  # Separate job for publishing to npm
+  publish:
+    runs-on: ubuntu-latest
+    needs: build  # Wait for build to complete
+    if: github.ref == 'refs/heads/master' && github.event_name == 'push'
 
-      - name: Publish to npm
-        if: github.ref == 'refs/heads/master' && github.event_name == 'push'
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: |
-          echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-          npm publish
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 20.x
+      uses: actions/setup-node@v3
+      with:
+        node-version: "20.x"
+        cache: "npm"
+    - run: npm install
+    - run: npm run build
+
+    - name: Publish to npm dry-run
+      env:
+        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: |
+        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        npm publish --dry-run
+
+    - name: Publish to npm
+      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: |
+        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
+        npm publish
