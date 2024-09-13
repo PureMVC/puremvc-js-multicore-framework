@@ -1,6 +1,6 @@
 {
   "name": "@puremvc/puremvc-js-multicore-framework",
-  "version": "2.0.8",
+  "version": "2.0.9",
   "description": "PureMVC MultiCore Framework for JavaScript",
   "type": "module",
   "main": "bin/cjs/index.cjs",
