@@ -70,7 +70,7 @@
     "babel-plugin-add-module-exports": "^1.0.4",
     "babel-preset-env": "^0.0.0",
     "chai": "^4.2.0",
-    "chromedriver": "^127.0.0",
+    "chromedriver": "^130.0.2",
     "dotenv": "^16.0.3",
     "edgedriver": "^5.3.8",
     "geckodriver": "^4.2.1",
