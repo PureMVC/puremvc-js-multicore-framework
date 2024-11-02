@@ -47,7 +47,7 @@ class Notifier {
     constructor() {}
 
     /**
-     * Create and send an `Notification`.
+     * Create and send a `Notification`.
      *
      * <P>Keeps us from having to construct new Notification
      * instances in our implementation code.</P>
@@ -86,7 +86,7 @@ class Notifier {
     /**
      * Return the Multiton Facade instance
      *
-     * @typedef {Facade} Facade
+     * @returns {Facade}
      *
      * @throws {Error}
      */

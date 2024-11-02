@@ -2,7 +2,7 @@ name: Node.js CI
 
 on:
   push:
-    branches: [ "master", "develop" ]
+    branches: [ "develop" ]
   pull_request:
     branches: [ "master" ]
 
@@ -13,7 +13,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [19.x, 20.x, 21.x]
+        node-version: [20.x, 21.x, 22.x]
 
     steps:
       - uses: actions/checkout@v3
@@ -45,17 +45,15 @@ jobs:
     - run: npm install
     - run: npm run build
 
-    - name: Publish to npm dry-run
-      env:
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: |
-        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        npm publish --dry-run
-
-    - name: Publish to npm
-      if: github.ref == 'refs/heads/master' && github.event_name == 'push'
+    - name: Authenticate with npm
       env:
         NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: |
-        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" > ~/.npmrc
-        npm publish
+      run: echo "//registry.npmjs.org/:_authToken=${NODE_AUTH_TOKEN}" > ~/.npmrc
+
+    - name: Run npm publish dry run
+      run: npm run npm:publish:dry-run
+
+    - name: Publish to npm
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+      run: npm run npm:publish
