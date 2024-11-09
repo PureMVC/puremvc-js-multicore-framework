@@ -12,7 +12,8 @@ npm i @puremvc/puremvc-js-multicore-framework
 ```
 
 ## Demos
-* [Frontend Demo: EmployeeAdmin](https://github.com/PureMVC/puremvc-js-demo-employeeadmin)
+* [Frontend Demo: EmployeeAdmin JS](https://github.com/PureMVC/puremvc-js-demo-employeeadmin)
+* [Frontend Demo: EmployeeAdmin React](https://github.com/PureMVC/puremvc-js-demo-react-employeeadmin)
 * [Backend Demo: Employee Admin NodeJS Microservice](https://github.com/PureMVC/puremvc-js-demo-microservice-employeeadmin)
 
 ## Platforms / Technologies
