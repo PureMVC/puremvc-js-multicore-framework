@@ -4,9 +4,9 @@
  *
  *  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
  *  Your reuse is governed by the BSD License
-*/
+ */
 
-import {Notifier} from "../observer/Notifier.js";
+import { Notifier } from "../observer/Notifier.js";
 
 /**
  * A base `Command` implementation.
@@ -21,24 +21,21 @@ import {Notifier} from "../observer/Notifier.js";
  * @class SimpleCommand
  */
 class SimpleCommand extends Notifier {
+  constructor() {
+    super();
+  }
 
-    constructor() {
-        super();
-    }
-
-    /**
-     * Fulfill the use-case initiated by the given `Notification`.
-     *
-     * <P>In the Command Pattern, an application use-case typically
-     * begins with some user action, which results in a `Notification` being broadcast, which
-     * is handled by business logic in the `execute` method of an
-     * `Command`.</P>
-     *
-     * @param {Notification} notification
-     */
-    execute(notification) {
-
-    }
-
+  /**
+   * Fulfill the use-case initiated by the given `Notification`.
+   *
+   * <P>In the Command Pattern, an application use-case typically
+   * begins with some user action, which results in a `Notification` being broadcast, which
+   * is handled by business logic in the `execute` method of an
+   * `Command`.</P>
+   *
+   * @param {Notification} notification
+   */
+  // eslint-disable-next-line no-unused-vars
+  execute(notification) {}
 }
-export { SimpleCommand }
+export { SimpleCommand };

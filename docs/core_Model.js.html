@@ -45,7 +45,7 @@
  *
  *  Copyright(c) 2023 Saad Shams &lt;saad.shams@puremvc.org>
  *  Your reuse is governed by the BSD License
-*/
+ */
 
 /**
  * A Multiton `Model` implementation.
@@ -72,125 +72,125 @@
  * @class Model
  */
 class Model {
+  /**
+   * Constructor.
+   *
+   * &lt;P>This `Model` implementation is a Multiton,
+   * so you should not call the constructor
+   * directly, but instead call the static Multiton
+   * Factory method `Model.getInstance( multitonKey )`
+   *
+   * @constructor
+   * @param {string} key
+   *
+   * @throws {Error} Error if instance for this Multiton key instance has already been constructed
+   */
+  constructor(key) {
+    if (Model.instanceMap.get(key) != null) throw new Error(Model.MULTITON_MSG);
+    /** @protected
+     * @type {string} */
+    this.multitonKey = key;
+    Model.instanceMap.set(this.multitonKey, this);
+    /** @protected
+     * @type {Map&lt;string, Proxy>} */
+    this.proxyMap = new Map();
+    this.initializeModel();
+  }
 
-    /**
-     * Constructor.
-     *
-     * &lt;P>This `Model` implementation is a Multiton,
-     * so you should not call the constructor
-     * directly, but instead call the static Multiton
-     * Factory method `Model.getInstance( multitonKey )`
-     *
-     * @constructor
-     * @param {string} key
-     *
-     * @throws {Error} Error if instance for this Multiton key instance has already been constructed
-     */
-    constructor(key) {
-        if (Model.instanceMap.get(key) != null) throw new Error(Model.MULTITON_MSG);
-        /** @protected
-         * @type {string} */
-        this.multitonKey = key;
-        Model.instanceMap.set(this.multitonKey, this);
-        /** @protected
-         * @type {Map&lt;string, Proxy>} */
-        this.proxyMap = new Map();
-        this.initializeModel();
-    }
+  /**
+   * Initialize the `Model` instance.
+   *
+   * &lt;P>Called automatically by the constructor, this
+   * is your opportunity to initialize the Multiton
+   * instance in your subclass without overriding the
+   * constructor.&lt;/P>
+   *
+   */
+  initializeModel() {}
 
-    /**
-     * Initialize the `Model` instance.
-     *
-     * &lt;P>Called automatically by the constructor, this
-     * is your opportunity to initialize the Multiton
-     * instance in your subclass without overriding the
-     * constructor.&lt;/P>
-     *
-     */
-    initializeModel() {
-
-    }
-
-    /**
-     * `Model` Multiton Factory method.
-     *
-     * @static
-     * @param {string} key
-     * @param {function(string):Model} factory
-     * @returns {Model} the instance for this Multiton key
-     */
-    static getInstance(key, factory) {
-        if (Model.instanceMap == null)
-            /** @static
+  /**
+   * `Model` Multiton Factory method.
+   *
+   * @static
+   * @param {string} key
+   * @param {function(string):Model} factory
+   * @returns {Model} the instance for this Multiton key
+   */
+  static getInstance(key, factory) {
+    if (Model.instanceMap == null)
+      /** @static
              @type {Map&lt;string, Model>} */
-            Model.instanceMap = new Map();
-        if (Model.instanceMap.get(key) == null) Model.instanceMap.set(key, factory(key));
-        return Model.instanceMap.get(key);
-    }
+      Model.instanceMap = new Map();
+    if (Model.instanceMap.get(key) == null)
+      Model.instanceMap.set(key, factory(key));
+    return Model.instanceMap.get(key);
+  }
 
-    /**
-     * Register a `Proxy` with the `Model`.
-     *
-     * @param {Proxy} proxy a `Proxy` to be held by the `Model`.
-     */
-    registerProxy(proxy) {
-        proxy.initializeNotifier(this.multitonKey);
-        this.proxyMap.set(proxy.proxyName, proxy);
-        proxy.onRegister();
-    }
+  /**
+   * Register a `Proxy` with the `Model`.
+   *
+   * @param {Proxy} proxy a `Proxy` to be held by the `Model`.
+   */
+  registerProxy(proxy) {
+    proxy.initializeNotifier(this.multitonKey);
+    this.proxyMap.set(proxy.proxyName, proxy);
+    proxy.onRegister();
+  }
 
-    /**
-     * Retrieve a `Proxy` from the `Model`.
-     *
-     * @param {string} proxyName
-     * @returns {Proxy} the `Proxy` instance previously registered with the given `proxyName`.
-     */
-    retrieveProxy(proxyName) {
-        return this.proxyMap.get(proxyName) || null;
-    }
+  /**
+   * Retrieve a `Proxy` from the `Model`.
+   *
+   * @param {string} proxyName
+   * @returns {Proxy} the `Proxy` instance previously registered with the given `proxyName`.
+   */
+  retrieveProxy(proxyName) {
+    return this.proxyMap.get(proxyName) || null;
+  }
 
-    /**
-     * Check if a Proxy is registered
-     *
-     * @param {string} proxyName
-     * @returns {boolean} whether a Proxy is currently registered with the given `proxyName`.
-     */
-    hasProxy(proxyName) {
-        return this.proxyMap.has(proxyName);
-    }
+  /**
+   * Check if a Proxy is registered
+   *
+   * @param {string} proxyName
+   * @returns {boolean} whether a Proxy is currently registered with the given `proxyName`.
+   */
+  hasProxy(proxyName) {
+    return this.proxyMap.has(proxyName);
+  }
 
-    /**
-     * Remove a `Proxy` from the `Model`.
-     *
-     * @param {string} proxyName name of the `Proxy` instance to be removed.
-     * @returns {Proxy} the `Proxy` that was removed from the `Model`
-     */
-    removeProxy(proxyName) {
-        let proxy = this.proxyMap.get(proxyName);
-        if (proxy != null) {
-            this.proxyMap.delete(proxyName);
-            proxy.onRemove();
-        }
-        return proxy;
+  /**
+   * Remove a `Proxy` from the `Model`.
+   *
+   * @param {string} proxyName name of the `Proxy` instance to be removed.
+   * @returns {Proxy} the `Proxy` that was removed from the `Model`
+   */
+  removeProxy(proxyName) {
+    let proxy = this.proxyMap.get(proxyName);
+    if (proxy != null) {
+      this.proxyMap.delete(proxyName);
+      proxy.onRemove();
     }
+    return proxy;
+  }
 
-    /**
-     * Remove a Model instance
-     *
-     * @static
-     * @param key
-     */
-    static removeModel(key) {
-        Model.instanceMap.delete(key);
-    }
+  /**
+   * Remove a Model instance
+   *
+   * @static
+   * @param key
+   */
+  static removeModel(key) {
+    Model.instanceMap.delete(key);
+  }
 
-    /**
-     * @static
-     * @type {string}
-     */
-    static get MULTITON_MSG() { return "Model instance for this Multiton key already constructed!" };
+  /**
+   * @static
+   * @type {string}
+   */
+  static get MULTITON_MSG() {
+    return "Model instance for this Multiton key already constructed!";
+  }
 }
-export { Model }
+export { Model };
 </code></pre>
         </article>
     </section>
@@ -203,7 +203,7 @@ export { Model }
 <br class="clear">
 
 <footer>
-    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Tue Oct 29 2024 20:35:08 GMT-0400 (Eastern Daylight Time) using the Minami theme.
+    Generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on Tue Nov 25 2025 17:18:49 GMT-0500 (Eastern Standard Time) using the Minami theme.
 </footer>
 
 <script>prettyPrint();</script>

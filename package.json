@@ -1,6 +1,6 @@
 {
   "name": "@puremvc/puremvc-js-multicore-framework",
-  "version": "2.0.9",
+  "version": "2.0.10",
   "description": "PureMVC MultiCore Framework for JavaScript",
   "type": "module",
   "main": "bin/cjs/index.cjs",
@@ -12,19 +12,23 @@
     }
   },
   "scripts": {
-    "build": "npm run clean && npm run build:lib",
-    "build:lib": "rollup -c build/rollup.conf.mjs",
-    "build:doc": "jsdoc -c build/jsdoc.json",
-    "clean": "rm -rf bin",
-    "npm:publish:dry-run": "npm publish --dry-run",
-    "npm:publish": "npm publish --access public",
-    "test": "npm run test:bdd",
-    "test:bdd": "mocha \"test/**/*.js\"",
-    "test:e2e": "npm run test:safari && npm run test:chrome && npm run test:firefox && npm run test:edge",
-    "test:safari": "nightwatch -c build/nightwatch.conf.cjs --env default",
-    "test:chrome": "nightwatch -c build/nightwatch.conf.cjs --env chrome",
-    "test:firefox": "nightwatch -c build/nightwatch.conf.cjs --env firefox",
-    "test:edge": "nightwatch -c build/nightwatch.conf.cjs --env edge"
+    "build": "npm run clean && npm run build:lib && npm run build:doc",
+	"test": "npm run test:bdd",
+	"lint": "eslint ./src",
+	"lint:fix": "eslint ./src --fix",
+	"format:check": "prettier --check ./src",
+	"format:fix": "prettier --write ./src",
+	"npm:publish:dry-run": "npm publish --dry-run",
+	"npm:publish": "npm publish --access public",
+	"test:bdd": "mocha \"test/**/*.js\"",
+	"test:e2e": "npm run test:safari && npm run test:chrome && npm run test:firefox && npm run test:edge",
+	"test:safari": "nightwatch -c build/nightwatch.conf.cjs --env default",
+	"test:chrome": "nightwatch -c build/nightwatch.conf.cjs --env chrome",
+	"test:firefox": "nightwatch -c build/nightwatch.conf.cjs --env firefox",
+	"test:edge": "nightwatch -c build/nightwatch.conf.cjs --env edge",
+	"build:lib": "rollup -c build/rollup.conf.mjs",
+	"build:doc": "jsdoc -c build/jsdoc.json",
+	"clean": "rm -rf bin"
   },
   "repository": {
     "type": "git",
@@ -72,12 +76,14 @@
     "chai": "^4.2.0",
     "chromedriver": "^130.0.2",
     "dotenv": "^16.0.3",
-    "edgedriver": "^5.3.8",
+	"eslint": "^9.39.1",
+	"edgedriver": "^5.3.8",
     "geckodriver": "^4.2.1",
     "jsdoc": "^3.6.11",
     "minami": "^1.2.3",
     "mocha": "10.1.0",
     "nightwatch": "^3.3.2",
-    "rollup": "^4.6.1"
+	"prettier": "^3.5.1",
+    "rollup": "4.22.4"
   }
 }
