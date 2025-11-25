@@ -1,10 +1,10 @@
 PureMVC MultiCore Framework for JavaScript
 --------------------------------------------------------------------------
-Release Date: 9/4/24
+Release Date: 11/25/25
     Platform: JavaScript
      Version: 2
     Revision: 0
-       Minor: 9
+       Minor: 10
       Authors: Saad Shams <saad.shams@puremvc.org>
              : David Foley <david.foley@puremvc.org>
              : Cliff Hall <cliff.hall@puremvc.org>
@@ -19,3 +19,4 @@ Release Date: 9/4/24
 2.0.7 - Finally? NPM bundling
 2.0.8 - CI/CD Pipeline
 2.0.9 - CI/CD Integrating Automated Tokens
+2.0.10 -

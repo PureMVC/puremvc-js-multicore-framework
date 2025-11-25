@@ -4,7 +4,7 @@
  *
  *  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
  *  Your reuse is governed by the BSD License
-*/
+ */
 
 /**
  * A base `Notification` implementation.
@@ -37,77 +37,75 @@
  * @class Notification
  */
 class Notification {
+  /**
+   * Constructor.
+   *
+   * @constructor
+   * @param {string} name - The name of the notification.
+   * @param {Object|null} [body=null] - The body of the notification, defaults to `null`.
+   * @param {string} [type=""] - The type of the notification, defaults to an empty string.
+   */
+  constructor(name, body = null, type = "") {
+    this._name = name;
+    this._body = body;
+    this._type = type;
+  }
 
-    /**
-     * Constructor.
-     *
-     * @constructor
-     * @param {string} name - The name of the notification.
-     * @param {Object|null} [body=null] - The body of the notification, defaults to `null`.
-     * @param {string} [type=""] - The type of the notification, defaults to an empty string.
-     */
-    constructor(name, body = null, type = "") {
-        this._name = name;
-        this._body = body;
-        this._type = type;
-    }
+  /**
+   * Get the name of the `Notification` instance.
+   *
+   * @returns {string}
+   */
+  get name() {
+    return this._name;
+  }
 
-    /**
-     * Get the name of the `Notification` instance.
-     *
-     * @returns {string}
-     */
-    get name() {
-        return this._name;
-    }
+  /**
+   * Get the body of the `Notification` instance.
+   *
+   * @returns {Object | null}
+   */
+  get body() {
+    return this._body;
+  }
 
-    /**
-     * Get the body of the `Notification` instance.
-     *
-     * @returns {Object | null}
-     */
-    get body() {
-        return this._body;
-    }
+  /**
+   * Set the body of the `Notification` instance.
+   *
+   * @param {Object|null} body
+   */
+  set body(body) {
+    this._body = body;
+  }
 
-    /**
-     * Set the body of the `Notification` instance.
-     *
-     * @param {Object|null} body
-     */
-    set body(body) {
-        this._body = body;
-    }
+  /**
+   * Get the type of the `Notification` instance.
+   *
+   * @returns {string}
+   */
+  get type() {
+    return this._type;
+  }
 
-    /**
-     * Get the type of the `Notification` instance.
-     *
-     * @returns {string}
-     */
-    get type() {
-        return this._type;
-    }
+  /**
+   * Set the type of the `Notification` instance.
+   *
+   * @param {string} type
+   */
+  set type(type) {
+    this._type = type;
+  }
 
-    /**
-     * Set the type of the `Notification` instance.
-     *
-     * @param {string} type
-     */
-    set type(type) {
-        this._type = type;
-    }
-
-    /**
-     * Get the string representation of the `Notification` instance.
-     *
-     * @returns {string}
-     */
-    toString() {
-        let str= "Notification Name: " + this.name;
-        str+= "\nBody:" + ((this.body == null ) ? "null" : this.body.toString());
-        str+= "\nType:" + ((this.type == null ) ? "null" : this.type);
-        return str;
-    }
-
+  /**
+   * Get the string representation of the `Notification` instance.
+   *
+   * @returns {string}
+   */
+  toString() {
+    let str = "Notification Name: " + this.name;
+    str += "\nBody:" + (this.body == null ? "null" : this.body.toString());
+    str += "\nType:" + (this.type == null ? "null" : this.type);
+    return str;
+  }
 }
-export { Notification }
+export { Notification };

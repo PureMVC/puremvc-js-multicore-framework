@@ -4,9 +4,9 @@
  *
  *  Copyright(c) 2023 Saad Shams <saad.shams@puremvc.org>
  *  Your reuse is governed by the BSD License
-*/
+ */
 
-import {Notifier} from "../observer/Notifier.js";
+import { Notifier } from "../observer/Notifier.js";
 
 /**
  * A base `Proxy` implementation.
@@ -29,65 +29,67 @@ import {Notifier} from "../observer/Notifier.js";
  * @class Proxy
  */
 class Proxy extends Notifier {
-    /**
-     * Constructor
-     *
-     * @constructor
-     * @param {string | null} [proxyName=null]
-     * @param {Object | null} [data=null]
-     */
-    constructor(proxyName = null, data = null) {
-        super();
-        /** @protected
-         * @type {string} */
-        this._proxyName = proxyName || Proxy.NAME;
-        /** @protected
-         * @type {Object | null} */
-        this._data = data;
-    }
+  /**
+   * Constructor
+   *
+   * @constructor
+   * @param {string | null} [proxyName=null]
+   * @param {Object | null} [data=null]
+   */
+  constructor(proxyName = null, data = null) {
+    super();
+    /** @protected
+     * @type {string} */
+    this._proxyName = proxyName || Proxy.NAME;
+    /** @protected
+     * @type {Object | null} */
+    this._data = data;
+  }
 
-    /**
-     * Called by the Model when the Proxy is registered
-     */
-    onRegister() {}
+  /**
+   * Called by the Model when the Proxy is registered
+   */
+  onRegister() {}
 
-    /**
-     * Called by the Model when the Proxy is removed
-     */
-    onRemove() {}
+  /**
+   * Called by the Model when the Proxy is removed
+   */
+  onRemove() {}
 
-    /**
-     * Get the proxy name
-     *
-     * @returns {string}
-     */
-    get proxyName() {
-        return this._proxyName;
-    }
+  /**
+   * Get the proxy name
+   *
+   * @returns {string}
+   */
+  get proxyName() {
+    return this._proxyName;
+  }
 
-    /**
-     * Get the data object
-     *
-     * @returns {Object | null}
-     */
-    get data () {
-        return this._data;
-    }
+  /**
+   * Get the data object
+   *
+   * @returns {Object | null}
+   */
+  get data() {
+    return this._data;
+  }
 
-    /**
-     * Set the data object
-     *
-     * @param {Object} data
-     */
-    set data(data) {
-        this._data = data;
-    }
+  /**
+   * Set the data object
+   *
+   * @param {Object} data
+   */
+  set data(data) {
+    this._data = data;
+  }
 
-    /**
-     *
-     * @static
-     * @returns {string}
-     */
-    static get NAME() { return "Proxy" }
+  /**
+   *
+   * @static
+   * @returns {string}
+   */
+  static get NAME() {
+    return "Proxy";
+  }
 }
-export { Proxy }
+export { Proxy };

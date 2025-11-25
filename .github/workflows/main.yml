@@ -1,0 +1,62 @@
+on:
+  push:
+    branches:
+      - main
+
+  pull_request:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: npm
+
+      # Working around https://github.com/npm/cli/issues/4828
+      # - run: npm ci
+      - run: npm install --no-package-lock
+
+      - name: Check formatting
+        run: npm run format:check
+
+      - name: Check syntax
+        run: npm run lint
+
+      - name: Run tests
+        run: npm test
+
+      - run: npm run build
+
+  publish:
+    runs-on: ubuntu-latest
+    if: github.event_name == 'release'
+    needs: build
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version-file: package.json
+          cache: npm
+          registry-url: "https://registry.npmjs.org"
+
+      # Working around https://github.com/npm/cli/issues/4828
+      # - run: npm ci
+      - run: npm install --no-package-lock
+
+      - run: npm run build
+
+      - run: npm run npm:publish:dry-run
+
+      - run: npm run npm:publish
