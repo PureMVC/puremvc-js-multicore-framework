@@ -4,7 +4,7 @@ Release Date: 11/25/25
     Platform: JavaScript
      Version: 2
     Revision: 0
-       Minor: 10
+       Minor: 11
       Authors: Saad Shams <saad.shams@puremvc.org>
              : David Foley <david.foley@puremvc.org>
              : Cliff Hall <cliff.hall@puremvc.org>
@@ -19,4 +19,4 @@ Release Date: 11/25/25
 2.0.7 - Finally? NPM bundling
 2.0.8 - CI/CD Pipeline
 2.0.9 - CI/CD Integrating Automated Tokens
-2.0.10 -
+2.0.10 - 2.0.11 NPM Trusted publisher workflow

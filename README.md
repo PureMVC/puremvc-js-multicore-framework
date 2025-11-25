@@ -1,4 +1,4 @@
-## [PureMVC](http://puremvc.github.com/) JavaScript MultiCore Framework [![Node.js CI](https://github.com/PureMVC/puremvc-js-multicore-framework/actions/workflows/node.js.yml/badge.svg)](https://github.com/PureMVC/puremvc-js-multicore-framework/actions/workflows/node.js.yml)
+## [PureMVC](http://puremvc.github.com/) JavaScript MultiCore Framework 
 
 PureMVC is a lightweight framework for creating applications based upon the classic [Model-View-Controller](http://en.wikipedia.org/wiki/Model-view-controller) design meta-pattern. It supports [modular programming](http://en.wikipedia.org/wiki/Modular_programming) through the use of [Multiton](http://en.wikipedia.org/wiki/Multiton) Core actors instead of the [Singletons](http://en.wikipedia.org/wiki/Singleton_pattern).
 
